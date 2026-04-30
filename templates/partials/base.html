@@ -1,0 +1,9 @@
+{% load static %}
+{% include 'partials/styles.html' %}
+<body class="{% block body_class %}{% endblock %}">
+     {% block content %}
+          
+     {% endblock %}
+{% include 'partials/scripts.html' %}
+</body>
+</html>

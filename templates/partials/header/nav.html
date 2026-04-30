@@ -1,0 +1,355 @@
+﻿{% load static %}
+<nav class="rts-header__menu" id="mobile-menu">
+    <div class="hostie-menu">
+        <ul class="list-unstyled hostie-desktop-menu">
+            <li class="menu-item">
+                <a href="{% url 'home' %}" class="main-element">Home</a>
+            </li>
+            
+            <li class="menu-item hostie-has-dropdown mega-menu big">
+                <a href="#" class="hostie-dropdown-main-element">Pages</a>
+                <div class="rts-mega-menu">
+                    <div class="wrapper">
+                        <div class="row g-0">
+                            <div class="col-lg-3">
+                                <ul class="mega-menu-item">
+                                    <li>
+                                        <a href="{% url 'about' %}">
+                                            <img src="{% static 'images/mega-menu/01.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>About Hostie</p>
+                                                <span>Get know about Hostie </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'pricing' %}">
+                                            <img src="{% static 'images/mega-menu/03.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Pricing</p>
+                                                <span>Hostie provide pro price</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'affiliate' %}">
+                                            <img src="{% static 'images/mega-menu/02.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Affiliate</p>
+                                                <span>provide detailed explan</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="{% url 'sign-up' %}">
+                                            <img src="{% static 'images/mega-menu/04.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Sign Up</p>
+                                                <span>Create content by you</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'blog' %}">
+                                            <img src="{% static 'images/mega-menu/07.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Blog</p>
+                                                <span>Read Hostie artical</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="{% url 'partner' %}">
+                                            <img src="{% static 'images/mega-menu/06.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Partner</p>
+                                                <span>Our partners</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="mega-menu-item">
+                                    <li>
+                                        <a href="{% url 'support' %}">
+                                            <img src="{% static 'images/mega-menu/08.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Support</p>
+                                                <span>Provide detailed explan</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'pricing-two' %}">
+                                            <img src="{% static 'images/mega-menu/03.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Pricing Package</p>
+                                                <span>Hostie provide pro price</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'business-mail' %}">
+                                            <img src="{% static 'images/mega-menu/10.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Business Mail</p>
+                                                <span>Provide detailed explan</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'sign-in' %}">
+                                            <img src="{% static 'images/mega-menu/09.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Sign In</p>
+                                                <span>Login Account</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'blog-list' %}">
+                                            <img src="{% static 'images/mega-menu/07.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Blog List</p>
+                                                <span>Read Hostie artical</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'maintenance' %}">
+                                            <img src="{% static 'images/mega-menu/21.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Maintenance</p>
+                                                <span>We will be soon</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="mega-menu-item">
+                                    <li>
+                                        <a href="{% url 'domain-checker' %}">
+                                            <img src="{% static 'images/mega-menu/12.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Domain Checker</p>
+                                                <span>Provide detailed explain</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'pricing-three' %}">
+                                            <img src="{% static 'images/mega-menu/03.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Pricing Comparision</p>
+                                                <span>Hostie provide pro price</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'ssl-certificate' %}">
+                                            <img src="{% static 'images/mega-menu/14.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>SSL Certificates</p>
+                                                <span>Our security</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'whois' %}">
+                                            <img src="{% static 'images/mega-menu/05.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Whois</p>
+                                                <span>Who we are</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'blog-grid-2' %}">
+                                            <img src="{% static 'images/mega-menu/07.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Blog Grid</p>
+                                                <span>Read Hostie artical</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'black-friday' %}">
+                                            <img src="{% static 'images/mega-menu/30.png' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Black Friday</p>
+                                                <span>Exciting Offer!</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="mega-menu-item">
+                                    <li>
+                                        <a href="{% url 'contact' %}">
+                                            <img src="{% static 'images/mega-menu/16.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Contact</p>
+                                                <span>Contact with Hostie</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="{% url 'payment-method' %}">
+                                            <img src="{% static 'images/mega-menu/20.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Payment Method</p>
+                                                <span>Payment Method</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'domain-transfer' %}">
+                                            <img src="{% static 'images/mega-menu/17.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Domain Transfer</p>
+                                                <span>provide detailed explan</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'knowledgebase' %}">
+                                            <img src="{% static 'images/mega-menu/11.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Knowledgebase</p>
+                                                <span>Read Hostie article</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'blog-details' %}">
+                                            <img src="{% static 'images/mega-menu/07.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Blog Details</p>
+                                                <span>Read Hostie artical</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url '404' %}">
+                                            <img src="{% static 'images/mega-menu/19.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Error</p>
+                                                <span>Back to home</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="menu-item hostie-has-dropdown mega-menu">
+                <a href="#" class="hostie-dropdown-main-element">Hosting</a>
+                <div class="rts-mega-menu">
+                    <div class="wrapper">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <ul class="mega-menu-item">
+                                    <li>
+                                        <a href="{% url 'shared-hosting' %}">
+                                            <img src="{% static 'images/mega-menu/22.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Shared Hosting</p>
+                                                <span>Manage Shared Hosting</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'wordpress-hosting' %}">
+                                            <img src="{% static 'images/mega-menu/23.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>WordPress Hosting</p>
+                                                <span>WordPress Hosting speed</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'vps-hosting' %}">
+                                            <img src="{% static 'images/mega-menu/24.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>VPS Hosting</p>
+                                                <span>Dedicated resources</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul class="mega-menu-item">
+                                    <li>
+                                        <a href="{% url 'reseller-hosting' %}">
+                                            <img src="{% static 'images/mega-menu/25.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Reseller Hosting</p>
+                                                <span>Earn additional revenue</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'dedicated-hosting' %}">
+                                            <img src="{% static 'images/mega-menu/27.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Dedicated Hosting</p>
+                                                <span>Hosting that gives you tools</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'cloud-hosting' %}">
+                                            <img src="{% static 'images/mega-menu/29.svg' %}" alt="icon">
+                                            <div class="info">
+                                                <p>Cloud Hosting</p>
+                                                <span>Manage Cloud Hosting</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="menu-item hostie-has-dropdown">
+                <a href="#" class="hostie-dropdown-main-element">Domain</a>
+                <ul class="hostie-submenu list-unstyled menu-pages">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'domain-checker' %}">Domain Checker</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'domain-transfer' %}">Domain Transfer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'domain-registration' %}">Domain Resigtration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'whois' %}">Whois</a></li>
+                </ul>
+            </li>
+            <li class="menu-item hostie-has-dropdown">
+                <a href="#" class="hostie-dropdown-main-element">Technology</a>
+                <ul class="hostie-submenu list-unstyled menu-pages">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'technology' %}">Technology</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'data-center' %}">Data Centers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'game-details' %}">Game Details</a></li>
+                </ul>
+            </li>
+            <li class="menu-item hostie-has-dropdown">
+                <a href="#" class="hostie-dropdown-main-element">Help Center</a>
+                <ul class="hostie-submenu list-unstyled menu-pages">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'support' %}">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'knowledgebase' %}">Knowledgebase</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'hosting-offer-one' %}">Ads Banner</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+

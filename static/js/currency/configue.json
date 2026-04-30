@@ -1,0 +1,7 @@
+{   
+    "baseCurrency" : "usd",
+    "defaultCurrency" : "usd",
+    "supportedCurrencies": ["usd", "bdt", "cad"],
+    "currencyThousandSeparator": ".",
+    "currencyDecimalSeparator": ""
+}

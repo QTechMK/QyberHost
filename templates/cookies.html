@@ -1,0 +1,103 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block body_class %}page-template template-resell{% endblock %}
+{% block content %}
+    {% include 'partials/header/header-four.html' %}
+    <!-- shared hosting banner -->
+    <div class="rts-hosting-banner rts-hosting-banner-bg banner-default-height">
+        <div class="container">
+            <div class="row">
+                <div class="banner-area">
+                    <div class="rts-hosting-banner rts-hosting-banner__content about__banner">
+                        <span class="starting__price" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Cookies</span>
+                        <h1 class="banner-title" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">
+                            Cookies Policy
+                        </h1>
+                        <p class="slogan" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
+                            We are committed to protecting and respecting your privacy. Please read our privacy policy.
+                        </p>
+                    </div>
+                    <div class="rts-hosting-banner__image about">
+                        <img src="{% static 'images/cookies.jpg' %}" width="562" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- shared hosting banner end-->
+
+    <!-- privacy policy -->
+    <div class="privacy-policy pt--120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="privacy-policy__wrapper">
+                        <h2 class="fw-bold">Cookies Policy for QyberHost</h2>
+                        <p><strong>Last Updated:</strong> 22/08/2024</p>
+
+                        <p>This Cookies Policy explains how <strong>QyberHost</strong> ("we," "our," or "us") uses cookies and similar tracking technologies when you visit our website and use our services. By using our website, you agree to the use of cookies as described in this policy.</p>
+
+                        <h4>1. What Are Cookies?</h4>
+                        <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They help the website remember your preferences, enhance your user experience, and track your activities on the site.</p>
+
+                        <h4>2. How We Use Cookies</h4>
+                        <p>QyberHost uses cookies for a variety of purposes, including:</p>
+                        <ul>
+                            <li><strong>Affiliation Tracking:</strong> We use cookies to track affiliate referrals for a period of 90 days. This allows us to reward affiliates for referrals and monitor the effectiveness of our affiliate program.</li>
+                            <li><strong>User Preferences:</strong> Cookies help us remember your settings and preferences so that you have a more personalized experience on our website.</li>
+                            <li><strong>Performance and Analytics:</strong> We use cookies to analyze how visitors interact with our website, helping us improve the overall performance and functionality of our services.</li>
+                            <li><strong>Advertising and Marketing:</strong> Cookies may be used to deliver relevant ads to you and measure the effectiveness of our marketing campaigns.</li>
+                        </ul>
+
+                        <h4>3. Types of Cookies We Use</h4>
+                        <p>We use the following types of cookies on our website:</p>
+                        <ul>
+                            <li><strong>Session Cookies:</strong> These are temporary cookies that expire when you close your browser. They help us provide essential functions on our website during your visit.</li>
+                            <li><strong>Persistent Cookies:</strong> These cookies remain on your device for a set period of time or until you delete them. We use persistent cookies to remember your preferences and track your activity for affiliation purposes. Our affiliation cookies last for 90 days.</li>
+                            <li><strong>Third-Party Cookies:</strong> We may allow third-party service providers, such as analytics or advertising partners, to set cookies on our website to assist us in delivering services and advertising to you.</li>
+                        </ul>
+
+                        <h4>4. Managing Cookies</h4>
+                        <p>You can control and manage cookies in various ways. Most browsers allow you to refuse or delete cookies through your settings. However, please note that disabling cookies may affect your ability to use certain features of our website.</p>
+                        <p>To learn more about managing cookies, you can visit the help pages of your browser or consult external resources like <a href="https://www.allaboutcookies.org/" target="_blank">All About Cookies</a>.</p>
+
+                        <h4>5. Changes to This Cookies Policy</h4>
+                        <p>We may update this Cookies Policy from time to time to reflect changes in our practices. Any updates will be posted on this page with a new "Last Updated" date. We encourage you to review this policy periodically to stay informed about our use of cookies.</p>
+
+                        <h4>6. Contact Us</h4>
+                        <p>If you have any questions about this Cookies Policy, please contact us at:</p>
+                        <address>
+                            <strong>QyberHost</strong><br>
+                            Email: <a href="mailto:example@example.com">example@example.com</a><br>
+                            Address: Dhaka, Bangladesh<br>
+                            Phone: <a href="tel:+8801712345678">+8801712345678</a>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- privacy policy end -->
+ 
+
+    <!-- HOSTIE CTA -->
+    <div class="rts-cta-two shared-page-bg pt--120">
+        <div class="container">
+            <div class="row">
+                <div class="rts-cta-two__wrapper">
+                    <div class="cta__shape"></div>
+                    <div class="cta-content">
+                        <span data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Need help choosing a plan?</span>
+                        <h4 data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">Need help?
+                            We're always here for you.</h4>
+                    </div>
+                    <div class="cta-btn">
+                        <a href="{% url 'contact' %}" class="contact__us primary__btn btn__two secondary__bg secondary__color">Go to Live chat Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HOSTIE CTA END -->
+{% include 'partials/footer/footer-six.html' %}
+{% endblock content %}
