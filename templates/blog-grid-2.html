@@ -1,207 +1,169 @@
 {% extends 'partials/base.html' %}
 {% load static %}
-{% block body_class %}page-template tempalate-resell{% endblock %}
+{% block body_class %}knowledgebase-grid-page{% endblock %}
 {% block content %}
-    {% include 'partials/header/header-four.html' %}
-    <!-- shared hosting banner -->
-    <div class="rts-hosting-banner rts-hosting-banner-bg">
-        <div class="container">
-            <div class="row">
-                <div class="banner-area">
-                    <div class="rts-hosting-banner rts-hosting-banner__content blog__banner">
-                        <span class="starting__price">Blog & Article </span>
-                        <h1 class="banner-title">
-                            Latest News & Articale
-                        </h1>
-                        <p class="slogan">You can also do this by logging into a server directly, but the process requires some technical knowledge since a single mistake can break your entire site...</p>
-                        <div class="hosting-action">
-                            <a href="#" class="btn__two secondary__bg secondary__color">View Details <i class="fa-regular fa-arrow-right"></i></a>
-                        </div>
+<div class="kb-portal">
+    {% include 'partials/header/knowledgebase-header.html' %}
+
+    <style>
+        .kb-grid-page {
+            padding: 36px 0 60px;
+        }
+        .kb-grid-intro {
+            background: #fff;
+            border: 1px solid #e4ebf3;
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: 0 18px 45px rgba(15, 34, 56, 0.06);
+            margin-bottom: 24px;
+        }
+        .kb-grid-intro .eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #0f7df2;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .kb-grid-intro h1 {
+            margin: 0 0 12px;
+            font-size: 32px;
+            color: #132238;
+        }
+        .kb-grid-intro p {
+            margin: 0;
+            max-width: 760px;
+            color: #5f738c;
+            line-height: 1.7;
+        }
+        .kb-filter-note {
+            margin-top: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #eef6ff;
+            color: #0f5bc9;
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+        .kb-filter-note a {
+            color: #0f7df2;
+        }
+        .kb-article-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .kb-article-card {
+            background: #fff;
+            border: 1px solid #e4ebf3;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(15, 34, 56, 0.06);
+            height: 100%;
+        }
+        .kb-article-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+        .kb-article-card .card-body {
+            padding: 20px;
+        }
+        .kb-article-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #69819d;
+            font-size: 13px;
+        }
+        .kb-article-meta .pill {
+            background: #eaf3ff;
+            color: #0f5bc9;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+        .kb-article-card h3 {
+            margin: 0 0 12px;
+            font-size: 22px;
+            line-height: 1.4;
+        }
+        .kb-article-card h3 a {
+            color: #132238;
+        }
+        .kb-article-card p {
+            margin: 0 0 16px;
+            color: #5f738c;
+            line-height: 1.7;
+        }
+        .kb-article-link {
+            color: #0f7df2;
+            font-weight: 800;
+        }
+        .kb-empty-state {
+            background: #fff;
+            border: 1px solid #e4ebf3;
+            border-radius: 24px;
+            padding: 34px 26px;
+            box-shadow: 0 18px 45px rgba(15, 34, 56, 0.06);
+            color: #5f738c;
+        }
+        @media (max-width: 991px) {
+            .kb-article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <main class="kb-grid-page">
+        <div class="kb-shell">
+            <section class="kb-grid-intro">
+                <span class="eyebrow">Knowledgebase</span>
+                <h1>Kategori ve Etiket Listesi</h1>
+                <p>Bilgi bankasindaki icerikleri kategori, etiket ve kullanim senaryosuna gore tarayabilirsiniz. Her kart kendi detay sayfasina gider ve detaylar `knowledgebase/slug/` yapisinda acilir.</p>
+                {% if active_filter %}
+                    <div class="kb-filter-note">
+                        Aktif {{ active_filter_type }}: {{ active_filter }}
+                        <a href="{% url 'knowledgebase-listing' %}">Temizle</a>
                     </div>
-                    <div class="rts-hosting-banner__image blog">
-                        <img src="{% static 'images/banner/banner__blog__image.svg' %}" alt="">
-                        <img class="shape one left-right" src="{% static 'images/banner/banner__blog__image-sm1.svg' %}" alt="">
-                        <img class="shape two show-hide" src="{% static 'images/banner/banner__blog__image-sm2.svg' %}" alt="">
-                    </div>
-                </div>
-            </div>
+                {% endif %}
+            </section>
+
+            {% if articles %}
+                <section class="kb-article-grid">
+                    {% for article in articles %}
+                        <article class="kb-article-card">
+                            <a href="{% url 'knowledgebase-article' slug=article.slug %}">
+                                <img src="{% static article.image %}" alt="{{ article.title }}">
+                            </a>
+                            <div class="card-body">
+                                <div class="kb-article-meta">
+                                    <a class="pill" href="/knowledgebase/kategoriler-ve-etiketler/?category={{ article.category|urlencode }}">{{ article.category }}</a>
+                                    <span>{{ article.date }}</span>
+                                    <span>{{ article.read_time }}</span>
+                                </div>
+                                <h3><a href="{% url 'knowledgebase-article' slug=article.slug %}">{{ article.title }}</a></h3>
+                                <p>{{ article.summary }}</p>
+                                <a class="kb-article-link" href="{% url 'knowledgebase-article' slug=article.slug %}">Yaziyi Incele <i class="fa-regular fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </section>
+            {% else %}
+                <section class="kb-empty-state">
+                    Bu filtre icin eslesen yazi bulunamadi. Farkli bir kategori veya etiket deneyebilirsiniz.
+                </section>
+            {% endif %}
         </div>
-    </div>
-    <!-- shared hosting banner end-->
+    </main>
 
-    <!-- HOSTIE LATEST BLOG -->
-    <section class="rts-blog-area blog-area-six inner pt--120">
-        <div class="container">
-            <div class="section-inner">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-4.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Web Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Expanding Horizons: Announcing the
-                                        Availability of 13 New Data Center</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-5.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Cloud Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Introducing Edge Page Caching, Argo
-                                        Smart Routing and More</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-12.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Web Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Expanding Horizons: Announcing the
-                                        Availability of 13 New Data Center</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-13.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Cloud Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Introducing Edge Page Caching, Argo
-                                        Smart Routing and More</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-14.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Web Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Expanding Horizons: Announcing the
-                                        Availability of 13 New Data Center</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-15.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Cloud Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Introducing Edge Page Caching, Argo
-                                        Smart Routing and More</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-16.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Web Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Expanding Horizons: Announcing the
-                                        Availability of 13 New Data Center</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-wrapper">
-                            <div class="image">
-                                <img src="{% static 'images/blog/blog-17.png' %}" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="blog-meta">
-                                    <span class="category">Cloud Hosting</span>
-                                    <span class="round"></span>
-                                    <span class="date">12 Oct, 2023</span>
-                                </p>
-                                <h3 class="blog-title animated fadeIn"><a href="{% url 'blog-details' %}">Introducing Edge Page Caching, Argo
-                                        Smart Routing and More</a></h3>
-                                <p class="desc">Cloudways is excited to announce the addition 16 new data centers Consisting...</p>
-
-                                <a href="{% url 'blog-details' %}" class="read-more-btn">Read More <i class="fa-light fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-pagination-area">
-                <ul>
-                    <li><a href="#"><i class="fa-regular fa-chevron-left"></i></a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li>...</li>
-                    <li><a href="#">8</a></li>
-                    <li><a href="#">9</a></li>
-                    <li><a href="#"><i class="fa-regular fa-chevron-right"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- HOSTIE LATEST BLOG END -->
-{% include 'partials/footer/footer-six.html' %}
+    {% include 'partials/footer/footer-six.html' %}
+</div>
 {% endblock content %}
+
