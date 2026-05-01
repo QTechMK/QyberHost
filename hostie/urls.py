@@ -2,12 +2,13 @@
 URL configuration for hostie_django project.
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from hostie import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', views.indexSix, name='home'),
     path('index-six/', views.indexSix, name='index-six'),
     path('about/', views.about, name='about'),
@@ -19,6 +20,7 @@ urlpatterns = [
     path('pricing-two/', views.pricingTwo, name='pricing-two'),
     path('business-mail/', views.businessMail, name='business-mail'),
     path('sign-in/', views.signIn, name='sign-in'),
+    path('sso/<str:provider>/', views.startSocialLogin, name='start-social-login'),
     path('forgot-password/', views.forgotPassword, name='forgot-password'),
     path('maintenance/', views.maintenance, name='maintenance'),
     path('domain-checker/', views.domainChecker, name='domain-checker'),

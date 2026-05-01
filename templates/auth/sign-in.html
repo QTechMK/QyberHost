@@ -14,6 +14,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'auth/css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'auth/css/fontawesome.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'auth/css/login.css' %}">
+    <style>
+        .login-with-btns a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .login-with-btns a.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
     <div class="loader-wrapper" id="loader-wrapper">
@@ -30,28 +42,42 @@
                                 <img src="{% static 'auth/images/logo-2.png' %}" alt="QyberHost" class="avatar">
                             </div>
                             <div class="input-control">
-                                <input type="text" placeholder="Enter Username" name="username" required>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags|default:'info' }} text-start">{{ message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if form.non_field_errors %}
+                                    <div class="alert alert-danger text-start">
+                                        {% for error in form.non_field_errors %}
+                                            <div>{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <input type="text" placeholder="Kullanici Adi" name="username" value="{{ form.username.value|default:'' }}" required>
+                                {% if form.username.errors %}<small class="text-danger d-block text-start">{{ form.username.errors|join:', ' }}</small>{% endif %}
                                 <span class="password-field-show">
-                                    <input type="password" placeholder="Enter Password" name="password" class="password-field" value="" required>
+                                    <input type="password" placeholder="Sifre" name="password" class="password-field" value="" required>
                                     <span data-toggle=".password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </span>
-                                <label class="label-container">Remember me
-                                    <input type="checkbox" name="remember_me">
+                                {% if form.password.errors %}<small class="text-danger d-block text-start">{{ form.password.errors|join:', ' }}</small>{% endif %}
+                                <label class="label-container">Beni hatirla
+                                    <input type="checkbox" name="remember_me" {% if form.remember_me.value %}checked{% endif %}>
                                     <span class="checkmark"></span>
                                 </label>
-                                <span class="psw"><a href="{% url 'forgot-password' %}" class="forgot-btn">Forgot password?</a></span>
+                                <span class="psw"><a href="{% url 'forgot-password' %}" class="forgot-btn">Sifremi unuttum</a></span>
                                 <div class="login-btns">
-                                    <button type="submit">Login</button>
+                                    <button type="submit">Giris Yap</button>
                                 </div>
                                 <div class="division-lines">
-                                    <p>or login with</p>
+                                    <p>veya SSO ile devam edin</p>
                                 </div>
                                 <div class="login-with-btns">
-                                    <button type="button" class="google"><i class="fab fa-google"></i></button>
-                                    <button type="button" class="facebook"><i class="fab fa-facebook-f"></i></button>
-                                    <button type="button" class="twitter"><i class="fab fa-twitter"></i></button>
-                                    <button type="button" class="linkedin"><i class="fab fa-linkedin-in"></i></button>
-                                    <span class="already-acc">Not a member? <a href="{% url 'sign-up' %}" class="signup-btn">Sign up</a></span>
+                                    <a href="{% url 'start-social-login' provider='google' %}" class="google{% if not sso_state.google %} disabled{% endif %}" {% if not sso_state.google %}aria-disabled="true"{% endif %}><i class="fab fa-google"></i></a>
+                                    <a href="{% url 'start-social-login' provider='facebook' %}" class="facebook{% if not sso_state.facebook %} disabled{% endif %}" {% if not sso_state.facebook %}aria-disabled="true"{% endif %}><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{% url 'start-social-login' provider='twitter' %}" class="twitter{% if not sso_state.twitter %} disabled{% endif %}" {% if not sso_state.twitter %}aria-disabled="true"{% endif %}><i class="fab fa-twitter"></i></a>
+                                    <a href="{% url 'start-social-login' provider='linkedin' %}" class="linkedin{% if not sso_state.linkedin %} disabled{% endif %}" {% if not sso_state.linkedin %}aria-disabled="true"{% endif %}><i class="fab fa-linkedin-in"></i></a>
+                                    <span class="already-acc">Hesabin yok mu? <a href="{% url 'sign-up' %}" class="signup-btn">Kayit Ol</a></span>
                                 </div>
                             </div>
                         </form>
