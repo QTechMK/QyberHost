@@ -1,4 +1,4 @@
-﻿{% load static %}
+{% load static %}
 <div id="side-bar" class="side-bar header-two">
     <button class="close-icon-menu" aria-label="Close Menu"><i class="fa-sharp fa-thin fa-xmark"></i></button>
     <!-- mobile menu area start -->
@@ -16,16 +16,15 @@
                         <li><a class="mobile-menu-link" href="{% url 'sign-up' %}">Sign Up</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'whois' %}">Whois</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'partner' %}">Partner</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blog' %}">Blog</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blog-list' %}">Blog List</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blog-grid-2' %}">Blog Grid</a></li>
+                        <li><a class="mobile-menu-link" href="{% url 'knowledgebase' %}">Knowledgebase</a></li>
+                        <li><a class="mobile-menu-link" href="{% url 'knowledgebase-listing' %}">Category & Tag Listing</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'support' %}">Support</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'pricing' %}">Pricing</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'pricing-two' %}l">Pricing Package</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'pricing-three' %}">Pricing Comparison</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'sign-in' %}">Sign In</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'business-mail' %}">Business Mail</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'knowledgebase' %}">Knowledgebase</a></li>
+                        <li><a class="mobile-menu-link" href="{% url 'knowledgebase' %}">Knowledgebase Home</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'blog-details' %}">Blog Details</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'domain-checker' %}">Domain Checker</a></li>
                         <li><a class="mobile-menu-link" href="{% url 'ssl-certificate' %}">SSL Certificates</a></li>
@@ -45,7 +44,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{% url 'about' %}" class="main">HakkÄ±mÄ±zda</a>
+                    <a href="{% url 'about' %}" class="main">Hakkımızda</a>
                 </li>
             </ul>
         </nav>
@@ -59,5 +58,6 @@
     </div>
     <!-- mobile menu area end -->
 </div>
+
 
 

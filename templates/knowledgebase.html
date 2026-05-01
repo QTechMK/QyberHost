@@ -1,360 +1,370 @@
 {% extends 'partials/base.html' %}
 {% load static %}
-{% block body_class %}page-template template-pricing{% endblock %}
+{% block body_class %}knowledgebase-portal-page{% endblock %}
 {% block content %}
-    {% include 'partials/header/header-four.html' %}
+<div class="kb-portal">
+    {% include 'partials/header/knowledgebase-header.html' %}
 
-    <!-- shared hosting banner -->
-    <div class="rts-hosting-banner rts-hosting-banner-bg banner-default-height">
-        <div class="container">
-            <div class="row justify-content-sm-center">
-                <div class="banner-area">
-                    <div class="rts-hosting-banner rts-hosting-banner__content w-550">
-                        <span class="starting__price" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Knowledgebase</span>
-                        <h1 class="banner-title" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">
-                            knowledgebase List
-                        </h1>
-                        <p class="slogan" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800"> We collaborate with the providers of best-of-breed technologies, services, and other streams.</p>
-                        <div class="hosting-action">
-                            <a href="{% url 'pricing' %}" class="btn__two secondary__bg secondary__color">Start Now <i class="fa-regular fa-long-arrow-right"></i></a>
+    <style>
+        .kb-home {
+            padding: 38px 0 60px;
+        }
+        .kb-module {
+            background: #fff;
+            border: 1px solid #e4ebf3;
+            border-radius: 24px;
+            padding: 22px;
+            box-shadow: 0 18px 45px rgba(15, 34, 56, 0.06);
+        }
+        .kb-module + .kb-module {
+            margin-top: 22px;
+        }
+        .kb-module-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+        .kb-module-head h2 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 800;
+            color: #12263f;
+        }
+        .kb-module-link {
+            color: #0f7df2;
+            font-weight: 700;
+        }
+        .kb-feature-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr 1fr;
+            gap: 18px;
+        }
+        .kb-hero-card,
+        .kb-stack-card,
+        .kb-list-card {
+            background: #f8fbff;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            border: 1px solid #e7eef7;
+            display: block;
+            color: inherit;
+        }
+        .kb-hero-card img,
+        .kb-stack-card img,
+        .kb-list-card img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .kb-hero-card img {
+            height: 240px;
+        }
+        .kb-stack-card img {
+            height: 144px;
+        }
+        .kb-list-card {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            padding: 12px;
+        }
+        .kb-list-card img {
+            width: 148px;
+            height: 100px;
+            border-radius: 16px;
+            flex-shrink: 0;
+        }
+        .kb-card-body {
+            padding: 16px;
+        }
+        .kb-list-card .kb-card-body {
+            padding: 0;
+        }
+        .kb-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #69819d;
+        }
+        .kb-meta .pill {
+            background: #eaf3ff;
+            color: #0f5bc9;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+        .kb-card-body h3,
+        .kb-card-body h4 {
+            margin: 0 0 10px;
+            color: #10243c;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+        .kb-card-body h3 {
+            font-size: 22px;
+        }
+        .kb-card-body h4 {
+            font-size: 17px;
+        }
+        .kb-card-body p {
+            margin: 0;
+            color: #5f738c;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .kb-side-stack,
+        .kb-post-list {
+            display: grid;
+            gap: 18px;
+        }
+        .kb-row-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .kb-section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .kb-section-column h3 {
+            margin: 0 0 18px;
+            font-size: 17px;
+            font-weight: 800;
+        }
+        .kb-post-list-item {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 14px;
+            align-items: center;
+            background: #f8fbff;
+            border: 1px solid #e7eef7;
+            border-radius: 18px;
+            padding: 10px;
+            color: inherit;
+        }
+        .kb-post-list-item img {
+            width: 92px;
+            height: 68px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .kb-post-list-item h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.45;
+            color: #10243c;
+        }
+        .kb-cta-banner {
+            margin-top: 22px;
+            background: linear-gradient(135deg, #0f7df2 0%, #0a58b5 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 26px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+        .kb-cta-banner h3 {
+            margin: 0 0 8px;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+        }
+        .kb-cta-banner p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.86);
+        }
+        .kb-cta-banner a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #0f5bc9;
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        @media (max-width: 1199px) {
+            .kb-feature-grid,
+            .kb-section-grid,
+            .kb-row-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 991px) {
+            .kb-cta-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        @media (max-width: 640px) {
+            .kb-module {
+                padding: 18px;
+                border-radius: 18px;
+            }
+            .kb-list-card,
+            .kb-post-list-item {
+                grid-template-columns: 1fr;
+                display: grid;
+            }
+            .kb-list-card img,
+            .kb-post-list-item img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
+
+    <main class="kb-home">
+        <div class="kb-shell">
+            <section class="kb-module">
+                <div class="kb-module-head">
+                    <h2>En Yeni Yazilar</h2>
+                    <a class="kb-module-link" href="{% url 'knowledgebase-listing' %}">Tum Kategorileri Gor</a>
+                </div>
+                <div class="kb-feature-grid">
+                    <a class="kb-hero-card" href="{% url 'knowledgebase-article' slug=knowledgebase_articles.0.slug %}">
+                        <img src="{% static knowledgebase_articles.0.image %}" alt="{{ knowledgebase_articles.0.title }}">
+                        <div class="kb-card-body">
+                            <div class="kb-meta">
+                                <span class="pill">{{ knowledgebase_articles.0.category }}</span>
+                                <span>{{ knowledgebase_articles.0.date }}</span>
+                            </div>
+                            <h3>{{ knowledgebase_articles.0.title }}</h3>
+                            <p>{{ knowledgebase_articles.0.summary }}</p>
+                        </div>
+                    </a>
+
+                    <div class="kb-side-stack">
+                        {% for article in knowledgebase_articles|slice:'1:3' %}
+                            <a class="kb-stack-card" href="{% url 'knowledgebase-article' slug=article.slug %}">
+                                <img src="{% static article.image %}" alt="{{ article.title }}">
+                                <div class="kb-card-body">
+                                    <div class="kb-meta">
+                                        <span class="pill">{{ article.category }}</span>
+                                        <span>{{ article.date }}</span>
+                                    </div>
+                                    <h4>{{ article.title }}</h4>
+                                    <p>{{ article.summary }}</p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="kb-side-stack">
+                        {% for article in knowledgebase_articles|slice:'3:5' %}
+                            <a class="kb-stack-card" href="{% url 'knowledgebase-article' slug=article.slug %}">
+                                <img src="{% static article.image %}" alt="{{ article.title }}">
+                                <div class="kb-card-body">
+                                    <div class="kb-meta">
+                                        <span class="pill">{{ article.category }}</span>
+                                        <span>{{ article.date }}</span>
+                                    </div>
+                                    <h4>{{ article.title }}</h4>
+                                    <p>{{ article.summary }}</p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <section class="kb-module">
+                <div class="kb-module-head">
+                    <h2>One Cikan Konular</h2>
+                    <a class="kb-module-link" href="{% url 'knowledgebase-listing' %}">Kategori ve Etiket Listesine Git</a>
+                </div>
+                <div class="kb-row-list">
+                    {% for article in knowledgebase_articles|slice:'0:4' %}
+                        <a class="kb-list-card" href="/knowledgebase/kategoriler-ve-etiketler/?category={{ article.category|urlencode }}">
+                            <img src="{% static article.image %}" alt="{{ article.category }}">
+                            <div class="kb-card-body">
+                                <div class="kb-meta"><span class="pill">{{ article.category }}</span><span>{{ article.read_time }}</span></div>
+                                <h4>{{ article.title }}</h4>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="kb-module">
+                <div class="kb-module-head">
+                    <h2>Bilgi Merkezinden Bolumler</h2>
+                    <a class="kb-module-link" href="{% url 'knowledgebase-listing' %}">Tum Bolumleri Kesfet</a>
+                </div>
+                <div class="kb-section-grid">
+                    <div class="kb-section-column">
+                        <h3>Nedir? Nasil?</h3>
+                        <div class="kb-post-list">
+                            {% for article in knowledgebase_articles|slice:'4:6' %}
+                                <a class="kb-post-list-item" href="{% url 'knowledgebase-article' slug=article.slug %}">
+                                    <img src="{% static article.image %}" alt="{{ article.title }}">
+                                    <div>
+                                        <div class="kb-meta"><span class="pill">{{ article.category }}</span></div>
+                                        <h4>{{ article.title }}</h4>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
-                    <div class="rts-hosting-banner__image mt-md-5">
-                        <img src="{% static 'images/banner/knowledgebase.png' %}" alt="">
-                        <img class="shape-image one" src="{% static 'images/banner/banner__business__mail__image-sm1.svg' %}" alt="">
+
+                    <div class="kb-section-column">
+                        <h3>Domain ve Hosting</h3>
+                        <div class="kb-post-list">
+                            {% for article in knowledgebase_articles|slice:'1:4' %}
+                                <a class="kb-post-list-item" href="{% url 'knowledgebase-article' slug=article.slug %}">
+                                    <img src="{% static article.image %}" alt="{{ article.title }}">
+                                    <div>
+                                        <div class="kb-meta"><span class="pill">{{ article.category }}</span></div>
+                                        <h4>{{ article.title }}</h4>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
                     </div>
+
+                    <div class="kb-section-column">
+                        <h3>Sunucu ve Guvenlik</h3>
+                        <div class="kb-post-list">
+                            {% for article in knowledgebase_articles|slice:'6:8' %}
+                                <a class="kb-post-list-item" href="{% url 'knowledgebase-article' slug=article.slug %}">
+                                    <img src="{% static article.image %}" alt="{{ article.title }}">
+                                    <div>
+                                        <div class="kb-meta"><span class="pill">{{ article.category }}</span></div>
+                                        <h4>{{ article.title }}</h4>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="kb-cta-banner">
+                <div>
+                    <h3>Aradiginiz cevabi bulamadiniz mi?</h3>
+                    <p>Destek ekibimize ulasin ya da kategori ve etiket listesine giderek tum bilgi bankasini tarayin.</p>
+                </div>
+                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                    <a href="{% url 'support' %}">Destek Merkezine Git</a>
+                    <a href="{% url 'knowledgebase-listing' %}">Kategori ve Etiket Listele</a>
                 </div>
             </div>
         </div>
-    </div> 
-    <!-- shared hosting banner end-->
+    </main>
 
-    <!-- KNOWLEDGE BASE ITEM -->
-    <div class="rts-knowledgebase pt--120 pb--60">
-        <div class="container">
-            <div7 class="row g-5">
-                <div class="col-xl-4 col-lg-5">
-                    <div class="rts-sidebar">
-                        <div class="rts-single-widget category-widget knowledge__tab__section">
-                            <h4 class="widget-title">Knowledgebase</h4>
-                            <ul class="list-unstyled cat__counter nav nav-tabs" id="myTab" role="tablist">
-                                
-                                <li class="single-cat nav-item" role="presentation">
-                                    <button class="button-tab" id="share-hosting" data-bs-toggle="tab" data-bs-target="#share-hosting-tab" type="button" role="tab" aria-controls="share-hosting" aria-selected="true" tabindex="0">Share Hosting <span>(10)</span></button>
-                                </li>
-
-                                <li class="single-cat nav-item" role="presentation">
-                                    <button class="button-tab" id="ssl" data-bs-toggle="tab" data-bs-target="#ssl-tab" type="button" role="tab" aria-controls="ssl" aria-selected="false"  tabindex="0">Certificates SSL <span>(5)</span></button>
-                                </li>
-                                <li class="single-cat nav-item" role="presentation">
-                                    <button class="button-tab" id="domain-transfer" data-bs-toggle="tab" data-bs-target="#domain-transfer-tab" type="button" role="tab" aria-controls="domain-transfer" aria-selected="false"  tabindex="0">Domain Transfers <span>(5)</span></button>
-                                </li>
-                                <li class="single-cat nav-item" role="presentation">
-                                    <button class="button-tab" id="cloud-hosting" data-bs-toggle="tab" data-bs-target="#cloud-hosting-tab" type="button" role="tab" aria-controls="cloud-hosting" aria-selected="false"  tabindex="0">Cloud VPS <span>(5)</span></button>
-                                </li>
-                                <li class="single-cat nav-item" role="presentation">
-                                    <button class="button-tab" id="dedicated" data-bs-toggle="tab" data-bs-target="#dedicated-tab" type="button" role="tab" aria-controls="dedicated" aria-selected="false"  tabindex="0">Dedicated Servers <span>(5)</span></button>
-                                </li>
-                                <li class="single-cat nav-item" role="presentation">
-                                    <button class="button-tab" id="email-service" data-bs-toggle="tab" data-bs-target="#email-service-tab" type="button" role="tab" aria-controls="email-service" aria-selected="false"  tabindex="0">Email Service <span>(5)</span></button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-8 col-lg-7">
-                    <div  class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade active show knowledge__content" id="share-hosting-tab" role="tabpanel" aria-labelledby="share-hosting">
-                            <div class="content-list">
-                                <div class="single-content">
-                                    <h5>Share Hosting</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Certificates SSL</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Domain Transfers </h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Cloud VPS</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Dedicated Servers</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane  fade knowledge__content" id="ssl-tab" role="tabpanel" aria-labelledby="ssl">
-                            <div class="content-list">
-                                <div class="single-content">
-                                    <h5>Share Hosting</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Certificates SSL</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Domain Transfers </h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Cloud VPS</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Dedicated Servers</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane  fade knowledge__content" id="domain-transfer-tab" role="tabpanel" aria-labelledby="domain-transfer">
-                            <div class="content-list">
-                                <div class="single-content">
-                                    <h5>Share Hosting</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Certificates SSL</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Domain Transfers </h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Cloud VPS</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Dedicated Servers</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade  knowledge__content" id="cloud-hosting-tab" role="tabpanel" aria-labelledby="cloud-hosting">
-                            <div class="content-list">
-                                <div class="single-content">
-                                    <h5>Share Hosting</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Certificates SSL</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Domain Transfers </h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Cloud VPS</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Dedicated Servers</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade  knowledge__content" id="dedicated-tab" role="tabpanel" aria-labelledby="dedicated">
-                            <div class="content-list">
-                                <div class="single-content">
-                                    <h5>Share Hosting</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Certificates SSL</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Domain Transfers </h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Cloud VPS</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Dedicated Servers</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade  knowledge__content" id="email-service-tab" role="tabpanel" aria-labelledby="email-service">
-                            <div class="content-list">
-                                <div class="single-content">
-                                    <h5>Share Hosting</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Certificates SSL</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Domain Transfers </h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Cloud VPS</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                                <div class="single-content">
-                                    <h5>Dedicated Servers</h5>
-                                    <p class="icon-text"><span><i class="fa-regular fa-file-lines"></i></span>How to Create,
-                                        Update, and Delete a Project?</p>
-                                    <p>A comprehensive guide on how you can create, update, and delete a project on
-                                        the Cloudways platform.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div7 </div>
-        </div>
-    </div>
-    <!-- KNOWLEDGE BASE ITEM END -->
-
-    <!-- SUPPORT AREA -->
-    <div class="rts-support pb--60">
-        <div class="container">
-            <div class="row">
-                <div class="rts-support__wrapper bg-white">
-                    <div class="rts-support__wrapper--content">
-                        <h3 class="title" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">24/7 World-Class Support</h3>
-                        <p data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">Ran into trouble? Contact our Customer Success team any
-                            time via live chat or email.
-                        </p>
-                        <div class="feature" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
-                            <ul class="feature__list">
-                                <li class="feature__item">Receive professional WordPress support</li>
-                                <li class="feature__item">Our specialists are available round</li>
-                            </ul>
-                        </div>
-                        <a href="{% url 'support' %}" class="rts-btn rts-btn-primary support-btn">Get Support <i class="fa-regular fa-chevron-right"></i></a>
-                    </div>
-                    <div class="rts-support__wrapper--image" data-sal="slide-left" data-sal-delay="400" data-sal-duration="800">
-                        <img src="{% static 'images/support/support__image.svg' %}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- SUPPORT AREA END -->
-
-    <!-- HOSTIE CTA -->
-    <div class="rts-cta-two shared-page-bg ">
-        <div class="container">
-            <div class="row">
-                <div class="rts-cta-two__wrapper">
-                    <div class="cta__shape"></div>
-                    <div class="cta-content">
-                        <span data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Need help choosing a plan?</span>
-                        <h4 data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">Need help?
-                            We're always here for you.</h4>
-                    </div>
-                    <div class="cta-btn">
-                        <a href="{% url 'contact' %}" class="contact__us primary__btn btn__two secondary__bg secondary__color">Go to Live chat Page</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- HOSTIE CTA END -->
-{% include 'partials/footer/footer-six.html' %}
+    {% include 'partials/footer/footer-six.html' %}
+</div>
 {% endblock content %}
+

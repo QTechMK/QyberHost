@@ -1,4 +1,4 @@
-﻿{% load static %}
+{% load static %}
 <nav class="rts-header__menu" id="mobile-menu">
     <div class="hostie-menu">
         <ul class="list-unstyled hostie-desktop-menu">
@@ -51,11 +51,11 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'blog' %}">
+                                        <a href="{% url 'knowledgebase' %}">
                                             <img src="{% static 'images/mega-menu/07.svg' %}" alt="icon">
                                             <div class="info">
-                                                <p>Blog</p>
-                                                <span>Read Hostie artical</span>
+                                                <p>Knowledgebase</p>
+                                                <span>Main article hub</span>
                                             </div>
                                         </a>
                                     </li>
@@ -110,11 +110,11 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'blog-list' %}">
+                                        <a href="{% url 'knowledgebase-listing' %}">
                                             <img src="{% static 'images/mega-menu/07.svg' %}" alt="icon">
                                             <div class="info">
-                                                <p>Blog List</p>
-                                                <span>Read Hostie artical</span>
+                                                <p>Category & Tags</p>
+                                                <span>Browse grouped articles</span>
                                             </div>
                                         </a>
                                     </li>
@@ -168,7 +168,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'blog-grid-2' %}">
+                                        <a href="{% url 'knowledgebase-listing' %}">
                                             <img src="{% static 'images/mega-menu/07.svg' %}" alt="icon">
                                             <div class="info">
                                                 <p>Blog Grid</p>
@@ -221,8 +221,8 @@
                                         <a href="{% url 'knowledgebase' %}">
                                             <img src="{% static 'images/mega-menu/11.svg' %}" alt="icon">
                                             <div class="info">
-                                                <p>Knowledgebase</p>
-                                                <span>Read Hostie article</span>
+                                                <p>Knowledgebase Home</p>
+                                                <span>Main knowledge center</span>
                                             </div>
                                         </a>
                                     </li>
@@ -352,4 +352,5 @@
         </ul>
     </div>
 </nav>
+
 

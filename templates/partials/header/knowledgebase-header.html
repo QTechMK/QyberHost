@@ -1,0 +1,260 @@
+{% load static %}
+<style>
+    .kb-portal {
+        background: #f5f7fb;
+        color: #132238;
+        min-height: 100vh;
+    }
+    .kb-portal a {
+        text-decoration: none;
+    }
+    .kb-shell {
+        width: min(1280px, calc(100% - 32px));
+        margin: 0 auto;
+    }
+    .kb-topbar {
+        background: #0d1422;
+        color: #fff;
+        font-size: 14px;
+    }
+    .kb-topbar-inner,
+    .kb-middle-inner,
+    .kb-category-inner,
+    .kb-trending-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+    .kb-topbar-inner {
+        min-height: 54px;
+    }
+    .kb-service-menu,
+    .kb-secondary-menu,
+    .kb-category-menu,
+    .kb-trending-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .kb-service-menu > li,
+    .kb-secondary-menu > li {
+        position: relative;
+    }
+    .kb-service-menu a,
+    .kb-secondary-menu a {
+        color: #fff;
+        font-weight: 600;
+    }
+    .kb-service-menu .submenu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        min-width: 220px;
+        background: #111c2f;
+        border-radius: 14px;
+        padding: 12px;
+        list-style: none;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        z-index: 20;
+    }
+    .kb-service-menu > li:hover .submenu {
+        display: block;
+    }
+    .kb-service-menu .submenu li + li {
+        margin-top: 8px;
+    }
+    .kb-service-menu .submenu a {
+        display: block;
+        color: #d7e5ff;
+        font-weight: 500;
+        padding: 8px 10px;
+        border-radius: 10px;
+    }
+    .kb-service-menu .submenu a:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+    .kb-middle {
+        background: #fff;
+        border-bottom: 1px solid #e7edf5;
+    }
+    .kb-middle-inner {
+        min-height: 92px;
+    }
+    .kb-branding img {
+        max-height: 46px;
+        width: auto;
+    }
+    .kb-search {
+        width: min(420px, 100%);
+        position: relative;
+    }
+    .kb-search input {
+        width: 100%;
+        border: 1px solid #d7e1ec;
+        border-radius: 999px;
+        padding: 15px 56px 15px 20px;
+        background: #f8fbff;
+        color: #132238;
+    }
+    .kb-search button {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 50%;
+        background: #0f7df2;
+        color: #fff;
+    }
+    .kb-category-bar {
+        background: #fff;
+        border-bottom: 1px solid #e7edf5;
+    }
+    .kb-category-inner {
+        min-height: 60px;
+    }
+    .kb-category-menu a {
+        color: #24364d;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    .kb-category-menu a:hover {
+        color: #0f7df2;
+    }
+    .kb-trending {
+        background: linear-gradient(180deg, #ffffff 0%, #f6f9fd 100%);
+        border-bottom: 1px solid #e7edf5;
+    }
+    .kb-trending-inner {
+        min-height: 76px;
+        align-items: flex-start;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+    .kb-trending-title {
+        min-width: 140px;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #5d7088;
+        font-weight: 800;
+        padding-top: 8px;
+    }
+    .kb-trending-list {
+        gap: 14px;
+        flex: 1;
+    }
+    .kb-trending-list li {
+        flex: 1 1 220px;
+    }
+    .kb-trending-list a {
+        color: #132238;
+        font-weight: 700;
+        line-height: 1.45;
+    }
+    @media (max-width: 991px) {
+        .kb-topbar,
+        .kb-category-bar,
+        .kb-trending {
+            display: none;
+        }
+        .kb-middle-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .kb-search {
+            width: 100%;
+        }
+    }
+    @media (max-width: 640px) {
+        .kb-shell {
+            width: min(100% - 20px, 100%);
+        }
+    }
+</style>
+<header class="kb-header">
+    <div class="kb-topbar">
+        <div class="kb-shell kb-topbar-inner">
+            <ul class="kb-service-menu">
+                <li>
+                    <a href="{% url 'domain-checker' %}">Domain</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'domain-checker' %}">Domain Sorgula</a></li>
+                        <li><a href="{% url 'domain-transfer' %}">Domain Transferi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'shared-hosting' %}">Hosting</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'shared-hosting' %}">Limitsiz Hosting</a></li>
+                        <li><a href="{% url 'pricing-two' %}">Ekonomik Hosting</a></li>
+                        <li><a href="{% url 'wordpress-hosting' %}">WordPress Hosting</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'vps-hosting' %}">Sunucu</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'vps-hosting' %}">NVMe VDS Bulut Sunucu</a></li>
+                        <li><a href="{% url 'cloud-hosting' %}">SSD VDS Bulut Sunucu</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'business-mail' %}">E-Mail</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'business-mail' %}">Kurumsal E-Mail</a></li>
+                        <li><a href="{% url 'support' %}">Antispam ve SMTP</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'ssl-certificate' %}">SSL</a></li>
+            </ul>
+            <ul class="kb-secondary-menu">
+                <li><a href="{% url 'about' %}">Hakkimizda</a></li>
+                <li><a href="{% url 'sign-in' %}">Kullanici Paneli</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="kb-middle">
+        <div class="kb-shell kb-middle-inner">
+            <div class="kb-branding">
+                <a href="{% url 'knowledgebase' %}">
+                    <img src="{% static 'images/logo/logo-5.svg' %}" alt="QyberHost Knowledgebase">
+                </a>
+            </div>
+            <form class="kb-search" action="{% url 'knowledgebase-listing' %}" method="get">
+                <input type="text" name="tag" value="" placeholder="Ne aramak istiyorsunuz?">
+                <button type="submit" aria-label="Ara"><i class="fa-regular fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="kb-category-bar">
+        <div class="kb-shell kb-category-inner">
+            <ul class="kb-category-menu">
+                {% for category in knowledgebase_categories %}
+                    <li><a href="/knowledgebase/kategoriler-ve-etiketler/?category={{ category|urlencode }}">{{ category }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="kb-trending">
+        <div class="kb-shell kb-trending-inner">
+            <div class="kb-trending-title">Trend Yazilar</div>
+            <ul class="kb-trending-list">
+                {% for item in knowledgebase_trending %}
+                    <li><a href="{% url 'knowledgebase-article' slug=item.slug %}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</header>
+
