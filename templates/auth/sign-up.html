@@ -14,6 +14,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'auth/css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'auth/css/fontawesome.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'auth/css/login.css' %}">
+    <style>
+        .login-with-btns a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .login-with-btns a.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
     <div class="loader-wrapper" id="loader-wrapper">
@@ -30,39 +42,73 @@
                                 <img src="{% static 'auth/images/logo-2.png' %}" alt="QyberHost" class="avatar">
                             </div>
                             <div class="input-control">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags|default:'info' }} text-start">{{ message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if form.non_field_errors %}
+                                    <div class="alert alert-danger text-start">
+                                        {% for error in form.non_field_errors %}
+                                            <div>{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
                                 <div class="row p-l-5 p-r-5">
                                     <div class="col-md-6 p-l-10 p-r-10">
-                                        <input type="text" placeholder="Enter Username" name="username" required>
+                                        <input type="text" placeholder="Kullanici Adi" name="username" value="{{ form.username.value|default:'' }}" required>
+                                        {% if form.username.errors %}<small class="text-danger d-block text-start">{{ form.username.errors|join:', ' }}</small>{% endif %}
                                     </div>
                                     <div class="col-md-6 p-l-10 p-r-10">
-                                        <input type="email" placeholder="Enter Email" name="email" required>
+                                        <input type="email" placeholder="E-Posta Adresi" name="email" value="{{ form.email.value|default:'' }}" required>
+                                        {% if form.email.errors %}<small class="text-danger d-block text-start">{{ form.email.errors|join:', ' }}</small>{% endif %}
                                     </div>
                                     <div class="col-md-6 p-l-10 p-r-10">
-                                        <input type="password" placeholder="Enter Password" name="password" class="input-checkmark" required>
+                                        <input type="password" placeholder="Sifre" name="password" class="input-checkmark" required>
+                                        {% if form.password.errors %}<small class="text-danger d-block text-start">{{ form.password.errors|join:', ' }}</small>{% endif %}
                                     </div>
                                     <div class="col-md-6 p-l-10 p-r-10">
                                         <span class="password-field-show">
-                                            <input class="password-field input-checkmark" type="password" placeholder="Re-enter Password" name="password_confirm" required>
+                                            <input class="password-field input-checkmark" type="password" placeholder="Sifre Tekrari" name="password_confirm" required>
                                             <span data-toggle=".password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         </span>
+                                        {% if form.password_confirm.errors %}<small class="text-danger d-block text-start">{{ form.password_confirm.errors|join:', ' }}</small>{% endif %}
+                                    </div>
+                                    <div class="col-md-6 p-l-10 p-r-10">
+                                        <select name="role" required>
+                                            <option value="">Kullanici Tipi Secin</option>
+                                            {% for value, label in public_role_choices %}
+                                                <option value="{{ value }}" {% if form.role.value == value %}selected{% endif %}>{{ label }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        {% if form.role.errors %}<small class="text-danger d-block text-start">{{ form.role.errors|join:', ' }}</small>{% endif %}
+                                    </div>
+                                    <div class="col-md-6 p-l-10 p-r-10">
+                                        <input type="text" placeholder="Telefon (istege bagli)" name="phone" value="{{ form.phone.value|default:'' }}">
+                                        {% if form.phone.errors %}<small class="text-danger d-block text-start">{{ form.phone.errors|join:', ' }}</small>{% endif %}
+                                    </div>
+                                    <div class="col-md-12 p-l-10 p-r-10">
+                                        <input type="text" placeholder="Sirket Adi (kurumsal hesaplar icin)" name="company_name" value="{{ form.company_name.value|default:'' }}">
+                                        {% if form.company_name.errors %}<small class="text-danger d-block text-start">{{ form.company_name.errors|join:', ' }}</small>{% endif %}
                                     </div>
                                 </div>
-                                <label class="label-container">I agree with <a href="{% url 'privacy-policy' %}"> privacy policy</a>
-                                    <input type="checkbox" name="privacy_agree">
+                                <label class="label-container">Gizlilik politikasini kabul ediyorum
+                                    <input type="checkbox" name="privacy_agree" {% if form.privacy_agree.value %}checked{% endif %}>
                                     <span class="checkmark"></span>
                                 </label>
+                                {% if form.privacy_agree.errors %}<small class="text-danger d-block text-start">{{ form.privacy_agree.errors|join:', ' }}</small>{% endif %}
                                 <div class="login-btns">
-                                    <button type="submit">Sign up</button>
+                                    <button type="submit">Kayit Ol</button>
                                 </div>
                                 <div class="division-lines">
-                                    <p>or signup with</p>
+                                    <p>veya SSO ile kayit olun</p>
                                 </div>
                                 <div class="login-with-btns">
-                                    <button type="button" class="google"><i class="fab fa-google"></i></button>
-                                    <button type="button" class="facebook"><i class="fab fa-facebook-f"></i></button>
-                                    <button type="button" class="twitter"><i class="fab fa-twitter"></i></button>
-                                    <button type="button" class="linkedin"><i class="fab fa-linkedin-in"></i></button>
-                                    <span class="already-acc">Already you have an account? <a href="{% url 'sign-in' %}" class="login-btn">Login</a></span>
+                                    <a href="{% url 'start-social-login' provider='google' %}" data-base-url="{% url 'start-social-login' provider='google' %}" class="google social-signup-link{% if not sso_state.google %} disabled{% endif %}" {% if not sso_state.google %}aria-disabled="true"{% endif %}><i class="fab fa-google"></i></a>
+                                    <a href="{% url 'start-social-login' provider='facebook' %}" data-base-url="{% url 'start-social-login' provider='facebook' %}" class="facebook social-signup-link{% if not sso_state.facebook %} disabled{% endif %}" {% if not sso_state.facebook %}aria-disabled="true"{% endif %}><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{% url 'start-social-login' provider='twitter' %}" data-base-url="{% url 'start-social-login' provider='twitter' %}" class="twitter social-signup-link{% if not sso_state.twitter %} disabled{% endif %}" {% if not sso_state.twitter %}aria-disabled="true"{% endif %}><i class="fab fa-twitter"></i></a>
+                                    <a href="{% url 'start-social-login' provider='linkedin' %}" data-base-url="{% url 'start-social-login' provider='linkedin' %}" class="linkedin social-signup-link{% if not sso_state.linkedin %} disabled{% endif %}" {% if not sso_state.linkedin %}aria-disabled="true"{% endif %}><i class="fab fa-linkedin-in"></i></a>
+                                    <span class="already-acc">Hesabin var mi? <a href="{% url 'sign-in' %}" class="login-btn">Giris Yap</a></span>
                                 </div>
                             </div>
                         </form>
@@ -75,5 +121,24 @@
     <script src="{% static 'auth/js/particles.min.js' %}"></script>
     <script src="{% static 'auth/js/app.js' %}"></script>
     <script src="{% static 'auth/js/script.js' %}"></script>
+    <script>
+        (function () {
+            const roleSelect = document.querySelector('select[name="role"]');
+            const socialLinks = document.querySelectorAll('.social-signup-link');
+
+            function syncSocialUrls() {
+                const role = roleSelect ? roleSelect.value : '';
+                socialLinks.forEach((link) => {
+                    const baseUrl = link.getAttribute('data-base-url');
+                    link.setAttribute('href', role ? `${baseUrl}?role=${encodeURIComponent(role)}` : baseUrl);
+                });
+            }
+
+            if (roleSelect) {
+                roleSelect.addEventListener('change', syncSocialUrls);
+                syncSocialUrls();
+            }
+        }());
+    </script>
 </body>
 </html>

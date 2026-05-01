@@ -17,6 +17,24 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def load_dotenv_file(dotenv_path):
+    if not dotenv_path.exists():
+        return
+
+    for raw_line in dotenv_path.read_text(encoding='utf-8').splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+
+        key, value = line.split('=', 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        os.environ.setdefault(key, value)
+
+
+load_dotenv_file(BASE_DIR / '.env')
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -26,7 +44,7 @@ SECRET_KEY = 'django-insecure-t-i^k6$n)%q1*#_c!20q&dv0y&un%iq$-^$$5ii(zze%k*tob$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
 
 
 # Application definition
@@ -38,6 +56,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.openid_connect',
+    'allauth.socialaccount.providers.twitter_oauth2',
+    'hostie',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'hostie.urls'
@@ -135,3 +163,84 @@ EMAIL_HOST_USER = 'your_email'
 EMAIL_HOST_PASSWORD = 'your_password'
 EMAIL_USE_SSL = False
 EMAIL_USE_SSL = False
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+ACCOUNT_SIGNUP_FIELDS = ['username*', 'email*', 'password1*', 'password2*']
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_ADAPTER = 'hostie.adapters.QyberHostAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'hostie.adapters.QyberHostSocialAccountAdapter'
+SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID', '')
+GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET', '')
+FACEBOOK_CLIENT_ID = os.getenv('FACEBOOK_CLIENT_ID', '')
+FACEBOOK_CLIENT_SECRET = os.getenv('FACEBOOK_CLIENT_SECRET', '')
+LINKEDIN_CLIENT_ID = os.getenv('LINKEDIN_CLIENT_ID', '')
+LINKEDIN_CLIENT_SECRET = os.getenv('LINKEDIN_CLIENT_SECRET', '')
+TWITTER_CLIENT_ID = os.getenv('TWITTER_CLIENT_ID', '')
+TWITTER_CLIENT_SECRET = os.getenv('TWITTER_CLIENT_SECRET', '')
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'OAUTH_PKCE_ENABLED': True,
+        'APPS': [],
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile'],
+        'APPS': [],
+    },
+    'twitter_oauth2': {
+        'SCOPE': ['tweet.read', 'users.read', 'offline.access'],
+        'APPS': [],
+    },
+    'openid_connect': {
+        'OAUTH_PKCE_ENABLED': True,
+        'APPS': [],
+    },
+}
+
+if GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET:
+    SOCIALACCOUNT_PROVIDERS['google']['APPS'].append({
+        'client_id': GOOGLE_CLIENT_ID,
+        'secret': GOOGLE_CLIENT_SECRET,
+        'key': '',
+    })
+
+if FACEBOOK_CLIENT_ID and FACEBOOK_CLIENT_SECRET:
+    SOCIALACCOUNT_PROVIDERS['facebook']['APPS'].append({
+        'client_id': FACEBOOK_CLIENT_ID,
+        'secret': FACEBOOK_CLIENT_SECRET,
+        'key': '',
+    })
+
+if TWITTER_CLIENT_ID and TWITTER_CLIENT_SECRET:
+    SOCIALACCOUNT_PROVIDERS['twitter_oauth2']['APPS'].append({
+        'client_id': TWITTER_CLIENT_ID,
+        'secret': TWITTER_CLIENT_SECRET,
+        'key': '',
+    })
+
+if LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET:
+    SOCIALACCOUNT_PROVIDERS['openid_connect']['APPS'].append({
+        'provider_id': 'linkedin',
+        'name': 'LinkedIn',
+        'client_id': LINKEDIN_CLIENT_ID,
+        'secret': LINKEDIN_CLIENT_SECRET,
+        'settings': {
+            'server_url': 'https://www.linkedin.com/oauth',
+        },
+    })

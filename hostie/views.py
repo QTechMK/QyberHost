@@ -1,5 +1,12 @@
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.conf import settings
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from .forms import SignInForm, SignUpForm
+from .models import UserProfile
 
 
 KNOWLEDGEBASE_ARTICLES = [
@@ -184,6 +191,34 @@ KNOWLEDGEBASE_CATEGORIES = [
     'Yazilim Pratikleri',
 ]
 
+SSO_PROVIDER_MAP = {
+    'google': {
+        'label': 'Google',
+        'login_path': '/accounts/google/login/',
+    },
+    'facebook': {
+        'label': 'Facebook',
+        'login_path': '/accounts/facebook/login/',
+    },
+    'linkedin': {
+        'label': 'LinkedIn',
+        'login_path': '/accounts/oidc/linkedin/login/',
+    },
+    'twitter': {
+        'label': 'X / Twitter',
+        'login_path': '/accounts/twitter_oauth2/login/',
+    },
+}
+
+
+def get_sso_state():
+    return {
+        'google': bool(settings.GOOGLE_CLIENT_ID and settings.GOOGLE_CLIENT_SECRET),
+        'facebook': bool(settings.FACEBOOK_CLIENT_ID and settings.FACEBOOK_CLIENT_SECRET),
+        'linkedin': bool(settings.LINKEDIN_CLIENT_ID and settings.LINKEDIN_CLIENT_SECRET),
+        'twitter': bool(settings.TWITTER_CLIENT_ID and settings.TWITTER_CLIENT_SECRET),
+    }
+
 
 def get_knowledgebase_context():
     return {
@@ -233,8 +268,29 @@ def affiliate(request):
 
 
 def signUp(request):
+    form = SignUpForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        user = User.objects.create_user(
+            username=form.cleaned_data['username'],
+            email=form.cleaned_data['email'],
+            password=form.cleaned_data['password'],
+        )
+        profile = user.profile
+        profile.role = form.cleaned_data['role']
+        profile.company_name = form.cleaned_data['company_name'].strip()
+        profile.phone = form.cleaned_data['phone'].strip()
+        profile.save()
+
+        login(request, user)
+        messages.success(request, 'Hesabiniz basariyla olusturuldu.')
+        return redirect('home')
+
     context = {
         'page_title': 'QyberHost Django - Sign Up',
+        'form': form,
+        'public_role_choices': UserProfile.PUBLIC_ROLE_CHOICES,
+        'sso_state': get_sso_state(),
     }
     return render(request, 'auth/sign-up.html', context)
 
@@ -268,10 +324,51 @@ def businessMail(request):
 
 
 def signIn(request):
+    form = SignInForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        user = authenticate(
+            request,
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password'],
+        )
+
+        if user is None:
+            form.add_error(None, 'Kullanici adi veya sifre hatali.')
+        else:
+            login(request, user)
+            if not form.cleaned_data.get('remember_me'):
+                request.session.set_expiry(0)
+            messages.success(request, 'Giris basarili.')
+            return redirect('home')
+
     context = {
         'page_title': 'QyberHost Django - Sign In',
+        'form': form,
+        'sso_state': get_sso_state(),
     }
     return render(request, 'auth/sign-in.html', context)
+
+
+def startSocialLogin(request, provider):
+    sso_state = get_sso_state()
+    provider_config = SSO_PROVIDER_MAP.get(provider)
+
+    if provider_config is None:
+        messages.error(request, 'Desteklenmeyen SSO saglayicisi.')
+        return redirect('sign-in')
+
+    if not sso_state.get(provider):
+        messages.warning(request, f"{provider_config['label']} SSO ayarlari henuz tamamlanmadi.")
+        return redirect('sign-in')
+
+    selected_role = request.GET.get('role')
+    if selected_role in dict(UserProfile.PUBLIC_ROLE_CHOICES):
+        request.session['pending_social_role'] = selected_role
+    else:
+        request.session.pop('pending_social_role', None)
+
+    return redirect(provider_config['login_path'])
 
 
 def forgotPassword(request):
