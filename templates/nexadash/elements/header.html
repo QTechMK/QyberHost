@@ -1,20 +1,16 @@
 ﻿{% load static %}
 		<div class="header">
+			{% include 'nexadash/elements/top-strip.html' %}
 			<div class="header-content">
 				<nav class="navbar navbar-expand">
 					<div class="collapse navbar-collapse justify-content-between">
 						<div class="header-left">
-							<form>
-								<div class="input-group search-area">
-									<span class="input-group-text"><button>
-										<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M9.25 14.25C12.5637 14.25 15.25 11.5637 15.25 8.25C15.25 4.93629 12.5637 2.25 9.25 2.25C5.93629 2.25 3.25 4.93629 3.25 8.25C3.25 11.5637 5.93629 14.25 9.25 14.25Z" stroke="#6F767E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M16.75 15.75L13.4875 12.4875" stroke="#6F767E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-										</svg>
-									</button></span>
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-							</form>	
+							<a href="{% url 'nexadash:ecom-checkout' %}" class="btn btn-action carticon d-inline-flex align-items-center" style="gap:8px;">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+									<path fill="currentColor" d="M19.029 13h2.971l-.266 1h-2.992l.287-1zm.863-3h2.812l.296-1h-2.821l-.287 1zm-.576 2h4.387l.297-1h-4.396l-.288 1zm2.684-9l-.743 2h-1.929l-3.474 12h-11.239l-4.615-11h14.812l-.564 2h-11.24l2.938 7h8.428l3.432-12h4.194zm-14.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z"></path>
+								</svg>
+								<span>Sepet</span>
+							</a>
 							<div class="front-menu d-flex align-items-center gap-3 flex-wrap">
 								<a href="{% url 'domain-registration' %}">Domain</a>
 								<div class="dropdown">
@@ -357,5 +353,10 @@
 				</nav>
 			</div>
 		</div>
+
+
+
+
+
 
 

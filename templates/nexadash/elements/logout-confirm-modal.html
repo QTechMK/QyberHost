@@ -1,0 +1,92 @@
+<style>
+    .logout-confirm-modal .modal-content {
+        border: 0;
+        border-radius: 14px;
+        box-shadow: 0 18px 60px rgba(15, 23, 42, 0.24);
+    }
+    .logout-confirm-modal .modal-header {
+        border-bottom: 0;
+        padding: 18px 20px 6px;
+    }
+    .logout-confirm-modal .modal-body {
+        padding: 6px 20px 18px;
+        color: #475467;
+    }
+    .logout-confirm-modal .modal-footer {
+        border-top: 0;
+        padding: 0 20px 20px;
+        gap: 10px;
+    }
+    .logout-confirm-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #101828;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .logout-confirm-title i {
+        color: #dc3545;
+    }
+    .logout-confirm-modal .btn {
+        min-width: 132px;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="modal fade logout-confirm-modal" id="logoutConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title logout-confirm-title">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Oturumu Kapat
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bu oturumu kapatmak istediğinize emin misiniz?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Vazgeç</button>
+                <button type="button" class="btn btn-danger" id="confirmLogoutBtn">Evet, Oturumu Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="logoutPostForm" method="post" action="{% url 'account_logout' %}" class="d-none">
+    {% csrf_token %}
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var modalEl = document.getElementById('logoutConfirmModal');
+        if (!modalEl || !window.bootstrap) {
+            return;
+        }
+
+        var logoutModal = new bootstrap.Modal(modalEl);
+        var confirmBtn = document.getElementById('confirmLogoutBtn');
+        var logoutForm = document.getElementById('logoutPostForm');
+
+        document.addEventListener('click', function (event) {
+            var logoutLink = event.target.closest('a[href]');
+            if (!logoutLink) {
+                return;
+            }
+
+            var href = logoutLink.getAttribute('href') || '';
+            if (href.indexOf('/accounts/logout') !== -1) {
+                event.preventDefault();
+                logoutModal.show();
+            }
+        });
+
+        if (confirmBtn && logoutForm) {
+            confirmBtn.addEventListener('click', function () {
+                logoutForm.submit();
+            });
+        }
+    });
+</script>
