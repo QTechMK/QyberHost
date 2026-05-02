@@ -1,0 +1,450 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Scrollspy.</h2>
+							<p>Make use of Bootstrap's unique Scrollspy styles to seamlessly track and highlight sections within your content, ensuring an intuitive browsing experience.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Scrollspy on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Scrollspy</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#Navbar" class="scroll ">Navbar</a></li>
+									<li><a href="#Nested-Nav" class="scroll ">Nested Nav</a></li>
+									<li><a href="#List-Group" class="scroll ">List Group</a></li>
+									<li><a href="#Simple-Anchors" class="scroll ">Simple Anchors</a></li>
+									
+								</ul>	
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Navbar">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Navbar</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#Navbar-preview" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#Navbar-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent">
+										<div class="tab-pane fade show active" id="Navbar-preview" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body scrollspy">
+												<nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+													<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+													<ul class="nav nav-pills">
+													<li class="nav-item">
+														<a class="nav-link" href="#scrollspyHeading1">First</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" href="#scrollspyHeading2">Second</a>
+													</li>
+													<li class="nav-item dropdown">
+														<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button" aria-expanded="false">Dropdown</a>
+														<ul class="dropdown-menu">
+														<li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+														<li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+														<li><hr class="dropdown-divider"></li>
+														<li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+														</ul>
+													</li>
+													</ul>
+												</nav>
+												<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+													<h4 id="scrollspyHeading1">First heading</h4>
+													<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+													<h4 id="scrollspyHeading2">Second heading</h4>
+													<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+													<h4 id="scrollspyHeading3">Third heading</h4>
+													<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+													<h4 id="scrollspyHeading4">Fourth heading</h4>
+													<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+													<h4 id="scrollspyHeading5">Fifth heading</h4>
+													<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Navbar-html" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+		&lt;ul class="nav nav-pills"&gt;
+		&lt;li class="nav-item"&gt;
+			&lt;a class="nav-link" href="#scrollspyHeading1"&gt;First&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="nav-item"&gt;
+			&lt;a class="nav-link" href="#scrollspyHeading2"&gt;Second&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="nav-item dropdown"&gt;
+			&lt;a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button" aria-expanded="false"&gt;Dropdown&lt;/a&gt;
+			&lt;ul class="dropdown-menu"&gt;
+			&lt;li&gt;&lt;a class="dropdown-item" href="#scrollspyHeading3"&gt;Third&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a class="dropdown-item" href="#scrollspyHeading4"&gt;Fourth&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a class="dropdown-item" href="#scrollspyHeading5"&gt;Fifth&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/nav&gt;
+	&lt;div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0"&gt;
+		&lt;h4 id="scrollspyHeading1"&gt;First heading&lt;/h4&gt;
+		&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+		&lt;h4 id="scrollspyHeading2"&gt;Second heading&lt;/h4&gt;
+		&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+		&lt;h4 id="scrollspyHeading3"&gt;Third heading&lt;/h4&gt;
+		&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+		&lt;h4 id="scrollspyHeading4"&gt;Fourth heading&lt;/h4&gt;
+		&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+		&lt;h4 id="scrollspyHeading5"&gt;Fifth heading&lt;/h4&gt;
+		&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Nested-Nav">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Nested Nav</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#NestedNav" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#Nested-Nav-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-1">
+										<div class="tab-pane fade show active" id="NestedNav" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-4">
+													<nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+														<nav class="nav nav-pills flex-column">
+														<a class="nav-link" href="#item-1">Item 1</a>
+														<nav class="nav nav-pills flex-column">
+															<a class="nav-link ms-3 my-1" href="#item-1-1">Item 1-1</a>
+															<a class="nav-link ms-3 my-1" href="#item-1-2">Item 1-2</a>
+														</nav>
+														<a class="nav-link" href="#item-2">Item 2</a>
+														<a class="nav-link" href="#item-3">Item 3</a>
+														<nav class="nav nav-pills flex-column">
+															<a class="nav-link ms-3 my-1" href="#item-3-1">Item 3-1</a>
+															<a class="nav-link ms-3 my-1" href="#item-3-2">Item 3-2</a>
+														</nav>
+														</nav>
+													</nav>
+													</div>
+												
+													<div class="col-8">
+													<div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+														<div id="item-1">
+														<h4>Item 1</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														</div>
+														<div id="item-1-1">
+														<h5>Item 1-1</h5>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														</div>
+														<div id="item-1-2">
+														<h5>Item 1-2</h5>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														</div>
+														<div id="item-2">
+														<h4>Item 2</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														</div>
+														<div id="item-3">
+														<h4>Item 3</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														</div>
+														<div id="item-3-1">
+														<h5>Item 3-1</h5>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														</div>
+														<div id="item-3-2">
+														<h5>Item 3-2</h5>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														</div>
+													</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Nested-Nav-html" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="row"&gt;
+		&lt;div class="col-4"&gt;
+		&lt;nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end"&gt;
+			&lt;nav class="nav nav-pills flex-column"&gt;
+			&lt;a class="nav-link" href="#item-1"&gt;Item 1&lt;/a&gt;
+			&lt;nav class="nav nav-pills flex-column"&gt;
+				&lt;a class="nav-link ms-3 my-1" href="#item-1-1"&gt;Item 1-1&lt;/a&gt;
+				&lt;a class="nav-link ms-3 my-1" href="#item-1-2"&gt;Item 1-2&lt;/a&gt;
+			&lt;/nav&gt;
+			&lt;a class="nav-link" href="#item-2"&gt;Item 2&lt;/a&gt;
+			&lt;a class="nav-link" href="#item-3"&gt;Item 3&lt;/a&gt;
+			&lt;nav class="nav nav-pills flex-column"&gt;
+				&lt;a class="nav-link ms-3 my-1" href="#item-3-1"&gt;Item 3-1&lt;/a&gt;
+				&lt;a class="nav-link ms-3 my-1" href="#item-3-2"&gt;Item 3-2&lt;/a&gt;
+			&lt;/nav&gt;
+			&lt;/nav&gt;
+		&lt;/nav&gt;
+		&lt;/div&gt;
+
+		&lt;div class="col-8"&gt;
+		&lt;div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0"&gt;
+			&lt;div id="item-1"&gt;
+			&lt;h4&gt;Item 1&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div id="item-1-1"&gt;
+			&lt;h5&gt;Item 1-1&lt;/h5&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div id="item-1-2"&gt;
+			&lt;h5&gt;Item 1-2&lt;/h5&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div id="item-2"&gt;
+			&lt;h4&gt;Item 2&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div id="item-3"&gt;
+			&lt;h4&gt;Item 3&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div id="item-3-1"&gt;
+			&lt;h5&gt;Item 3-1&lt;/h5&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div id="item-3-2"&gt;
+			&lt;h5&gt;Item 3-2&lt;/h5&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="List-Group">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">List Group</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#ListGroup" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#List-Group-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-2">
+										<div class="tab-pane fade show active" id="ListGroup" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-4">
+													<div id="list-example" class="list-group">
+														<a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+														<a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+														<a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+														<a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+													</div>
+													</div>
+													<div class="col-8">
+													<div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+														<h4 id="list-item-1">Item 1</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="list-item-2">Item 2</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="list-item-3">Item 3</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="list-item-4">Item 4</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+													</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="List-Group-html" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="row"&gt;
+		&lt;div class="col-4"&gt;
+		&lt;div id="list-example" class="list-group"&gt;
+			&lt;a class="list-group-item list-group-item-action" href="#list-item-1"&gt;Item 1&lt;/a&gt;
+			&lt;a class="list-group-item list-group-item-action" href="#list-item-2"&gt;Item 2&lt;/a&gt;
+			&lt;a class="list-group-item list-group-item-action" href="#list-item-3"&gt;Item 3&lt;/a&gt;
+			&lt;a class="list-group-item list-group-item-action" href="#list-item-4"&gt;Item 4&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-8"&gt;
+		&lt;div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0"&gt;
+			&lt;h4 id="list-item-1"&gt;Item 1&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="list-item-2"&gt;Item 2&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="list-item-3"&gt;Item 3&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="list-item-4"&gt;Item 4&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Simple-Anchors">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Simple Anchors</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#SimpleAnchors" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#Simple-Anchors-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-3">
+										<div class="tab-pane fade show active" id="SimpleAnchors" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-4">
+													<div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+														<a class="p-1 rounded" href="#simple-list-item-1">Item 1</a>
+														<a class="p-1 rounded" href="#simple-list-item-2">Item 2</a>
+														<a class="p-1 rounded" href="#simple-list-item-3">Item 3</a>
+														<a class="p-1 rounded" href="#simple-list-item-4">Item 4</a>
+														<a class="p-1 rounded" href="#simple-list-item-5">Item 5</a>
+														<a class="p-1 rounded" href="#simple-list-item-6">Item 6</a>
+														<a class="p-1 rounded" href="#simple-list-item-7">Item 7</a>
+													</div>
+													</div>
+													<div class="col-8">
+													<div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+														<h4 id="simple-list-item-1">Item 1</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="simple-list-item-2">Item 2</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="simple-list-item-3">Item 3</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="simple-list-item-4">Item 4</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="simple-list-item-5">Item 5</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="simple-list-item-6">Item 6</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+														<h4 id="simple-list-item-7">Item 7</h4>
+														<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+													</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Simple-Anchors-html" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="row"&gt;
+		&lt;div class="col-4"&gt;
+		&lt;div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center"&gt;
+			&lt;a class="p-1 rounded" href="#simple-list-item-1"&gt;Item 1&lt;/a&gt;
+			&lt;a class="p-1 rounded" href="#simple-list-item-2"&gt;Item 2&lt;/a&gt;
+			&lt;a class="p-1 rounded" href="#simple-list-item-3"&gt;Item 3&lt;/a&gt;
+			&lt;a class="p-1 rounded" href="#simple-list-item-4"&gt;Item 4&lt;/a&gt;
+			&lt;a class="p-1 rounded" href="#simple-list-item-5"&gt;Item 5&lt;/a&gt;
+			&lt;a class="p-1 rounded" href="#simple-list-item-6"&gt;Item 6&lt;/a&gt;
+			&lt;a class="p-1 rounded" href="#simple-list-item-7"&gt;Item 7&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-8"&gt;
+		&lt;div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0"&gt;
+			&lt;h4 id="simple-list-item-1"&gt;Item 1&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="simple-list-item-2"&gt;Item 2&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="simple-list-item-3"&gt;Item 3&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="simple-list-item-4"&gt;Item 4&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="simple-list-item-5"&gt;Item 5&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="simple-list-item-6"&gt;Item 6&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+			&lt;h4 id="simple-list-item-7"&gt;Item 7&lt;/h4&gt;
+			&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>	
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })
+    
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        });
+</script>
+<script>
+    document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
+    el.addEventListener('shown.bs.tab', () => {
+        const target = el.getAttribute('data-bs-target')
+        const scrollElem = document.querySelector(`${target} [data-bs-spy="scroll"]`)
+        bootstrap.ScrollSpy.getOrCreateInstance(scrollElem).refresh()
+    })
+    })
+</script>
+{% endblock %}

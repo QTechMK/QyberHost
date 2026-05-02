@@ -1,0 +1,250 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Toplam Hizmet</span>
+                    <h3 class="mb-0">{{ stats.total }}</h3>
+                    <small>{{ active_account.name }} hesabina bagli hizmetler</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Aktif</span>
+                    <h3 class="mb-0 text-success">{{ stats.active }}</h3>
+                    <small>Kullanima acik hizmetler</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Beklemede</span>
+                    <h3 class="mb-0 text-warning">{{ stats.pending }}</h3>
+                    <small>Kurulum veya odeme asamasindaki hizmetler</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Durduruldu</span>
+                    <h3 class="mb-0 text-danger">{{ stats.suspended }}</h3>
+                    <small>Yenileme/odeme bekleyen hizmetler</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header flex-wrap gap-2">
+                    <div>
+                        <h4 class="card-title mb-1">Hizmetlerim</h4>
+                        <small class="text-muted">Hizmet durumlarinizi, yenilenme tarihlerini ve tutarlari tek ekrandan takip edin.</small>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <input type="search" id="serviceSearch" class="form-control form-control-sm" placeholder="Hizmet veya domain ara" style="width: 220px;">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                Disari Aktar
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="javascript:void(0);" class="dropdown-item" id="exportServicesCsv">CSV</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-3 gap-2">
+                        <div class="btn-group" id="serviceStatusFilters">
+                            <button type="button" class="btn btn-light btn-sm active" data-filter="all">Tum Hizmetler</button>
+                            <button type="button" class="btn btn-light btn-sm" data-filter="active">Aktif</button>
+                            <button type="button" class="btn btn-light btn-sm" data-filter="pending">Beklemede</button>
+                            <button type="button" class="btn btn-light btn-sm" data-filter="suspended">Durduruldu</button>
+                        </div>
+                        <small class="text-muted">
+                            Toplam <span id="visibleServiceCount">{{ stats.total }}</span> kayit goruntuleniyor
+                        </small>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover table-responsive-sm align-middle" id="servicesTable">
+                            <thead>
+                                <tr>
+                                    <th>Urun - Hizmet</th>
+                                    <th class="text-center">Tutar</th>
+                                    <th class="text-center">Yenilenme Tarihi</th>
+                                    <th class="text-center">Durum</th>
+                                    <th class="text-end">Islem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for service in services %}
+                                <tr data-status="{{ service.status }}" data-search="{{ service.name|lower }} {{ service.domain|lower }}">
+                                    <td>
+                                        <strong>{{ service.name }}</strong>
+                                        <a href="javascript:void(0);" class="d-block">{{ service.domain }}</a>
+                                    </td>
+                                    <td class="text-center">
+                                        {{ service.price_display }}<br>
+                                        <small>{{ service.period }}</small>
+                                    </td>
+                                    <td class="text-center">{{ service.renewal_date|date:"d/m/Y" }}</td>
+                                    <td class="text-center">
+                                        <span class="badge badge-{{ service.badge_class }} light">{{ service.status_label }}</span>
+                                    </td>
+                                    <td class="text-end">
+                                        <a href="javascript:void(0);" class="btn btn-default btn-sm">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted py-5">
+                                        Bu hesapta henuz hizmet bulunmuyor.
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 service-side-panel">
+            <div class="card service-sidebar-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Islemler</h4>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'shared-hosting' %}" class="btn btn-primary w-100 mb-2">Yeni Hizmet Siparis Et</a>
+                    <a href="javascript:void(0);" class="btn btn-light w-100">Eklentileri Goruntule</a>
+                </div>
+            </div>
+
+            <div class="card service-sidebar-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Guvenlik</h4>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2">2 Adimli Dogrulama:
+                        <span class="badge badge-danger light">Pasif</span>
+                    </p>
+                    <a href="{% url 'nexadash:account-security' %}" class="btn btn-light btn-sm">Hemen Basla</a>
+                </div>
+            </div>
+
+            {% if can_manage_billing %}
+            <div class="card service-sidebar-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Bakiyeniz</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="mb-0">0.00 TL</h4>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.service-side-panel .service-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.service-side-panel .service-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+
+.service-side-panel .service-sidebar-card .card-body {
+    min-height: 0;
+    padding: 10px 16px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var search = document.getElementById("serviceSearch");
+    var rows = Array.prototype.slice.call(document.querySelectorAll("#servicesTable tbody tr[data-status]"));
+    var count = document.getElementById("visibleServiceCount");
+    var filterButtons = Array.prototype.slice.call(document.querySelectorAll("#serviceStatusFilters [data-filter]"));
+    var exportCsv = document.getElementById("exportServicesCsv");
+    var activeFilter = "all";
+
+    function refreshTable() {
+        var term = search ? search.value.trim().toLowerCase() : "";
+        var visible = 0;
+        rows.forEach(function (row) {
+            var matchStatus = activeFilter === "all" || row.dataset.status === activeFilter;
+            var matchSearch = !term || row.dataset.search.indexOf(term) !== -1;
+            var show = matchStatus && matchSearch;
+            row.style.display = show ? "" : "none";
+            if (show) {
+                visible += 1;
+            }
+        });
+        if (count) {
+            count.textContent = String(visible);
+        }
+    }
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            activeFilter = button.dataset.filter;
+            filterButtons.forEach(function (btn) { btn.classList.remove("active"); });
+            button.classList.add("active");
+            refreshTable();
+        });
+    });
+
+    if (search) {
+        search.addEventListener("input", refreshTable);
+    }
+
+    if (exportCsv) {
+        exportCsv.addEventListener("click", function () {
+            var lines = [["Urun - Hizmet", "Domain/Hostname", "Tutar", "Periyot", "Yenilenme Tarihi", "Durum"]];
+            rows.filter(function (row) { return row.style.display !== "none"; }).forEach(function (row) {
+                var cells = row.querySelectorAll("td");
+                lines.push([
+                    cells[0].querySelector("strong").innerText.trim(),
+                    cells[0].querySelector("a").innerText.trim(),
+                    cells[1].childNodes[0].textContent.trim(),
+                    cells[1].querySelector("small").innerText.trim(),
+                    cells[2].innerText.trim(),
+                    cells[3].innerText.trim()
+                ]);
+            });
+
+            var csv = lines.map(function (line) {
+                return line.map(function (value) {
+                    return '"' + String(value).replace(/"/g, '""') + '"';
+                }).join(",");
+            }).join("\n");
+            var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            var link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "hizmet-listesi.csv";
+            link.click();
+            URL.revokeObjectURL(link.href);
+        });
+    }
+
+    refreshTable();
+});
+</script>
+{% endblock %}

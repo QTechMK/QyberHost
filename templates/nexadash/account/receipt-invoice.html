@@ -1,0 +1,37 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h4 class="card-title mb-0">E-Fatura Detayi - #{{ receipt.id }}</h4>
+                    <a href="{% url 'nexadash:statements' %}" class="btn btn-light btn-sm">Makbuzlara Don</a>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6"><strong>Makbuz No:</strong> {{ receipt.id }}</div>
+                        <div class="col-md-6"><strong>Durum:</strong> {{ receipt.status_label }}</div>
+                        <div class="col-md-6"><strong>Olusturulma:</strong> {{ receipt.created }}</div>
+                        <div class="col-md-6"><strong>Tutar:</strong> {{ receipt.amount }}</div>
+                    </div>
+
+                    {% if receipt.status == "paid" %}
+                        {% if receipt.invoice_ready %}
+                        <div class="alert alert-success">Bu makbuz icin e-fatura hazir. Asagidan indirebilirsiniz.</div>
+                        <a href="javascript:void(0);" class="btn btn-primary">PDF Olarak Indir</a>
+                        {% else %}
+                        <div class="alert alert-warning">Bu makbuz odenmis. E-fatura henuz olusturulmamis.</div>
+                        <button type="button" class="btn btn-primary">E-Fatura Olustur</button>
+                        <p class="text-muted mt-2 mb-0">Not: Uretim ortaminda bu buton GIB/e-fatura servis entegrasyonunu tetikleyecek.</p>
+                        {% endif %}
+                    {% else %}
+                    <div class="alert alert-secondary mb-0">Bu makbuzun durumu "{{ receipt.status_label }}" oldugu icin e-fatura islemi kullanilamaz.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

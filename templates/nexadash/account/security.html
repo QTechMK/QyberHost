@@ -1,0 +1,80 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-1">Hesap Guvenligi</h4>
+                    <small class="text-muted">Tekli oturum acma ve hesap guvenlik ayarlari</small>
+                </div>
+                <div class="card-body">
+                    <h5 class="mb-3">Tekli Oturum Acma (Single Sign-On)</h5>
+
+                    <div class="alert alert-success">
+                        Google hesabi gibi ucuncu taraf uygulamalar, kullanici adi ve sifre girmeden hesabiniza dogrudan erisim saglamak icin Tekli Oturum Acma ozelligini kullanir.
+                    </div>
+
+                    <form action="javascript:void(0);" method="post" class="mb-3">
+                        <div class="form-check form-switch d-flex align-items-center gap-2">
+                            <input class="form-check-input" type="checkbox" role="switch" id="allowSso" checked>
+                            <label class="form-check-label mb-0" for="allowSso">
+                                Tekli Oturum Acma su anda hesabiniz icin etkinlestirilmistir.
+                            </label>
+                        </div>
+                    </form>
+
+                    <p class="mb-0 text-muted">
+                        Hesabiniza erisimde ucuncu parti uygulamalarin direkt erisimini kisitlamak isterseniz bu ozelligi devre disi birakabilirsiniz.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Hesabim</h4></div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'nexadash:account-settings' %}" class="list-group-item list-group-item-action">Cari Hesap Bilgilerim</a>
+                    <a href="{% url 'nexadash:user-management' %}" class="list-group-item list-group-item-action">Hesap Yetkilisi Yonetimi</a>
+                    <a href="{% url 'nexadash:payment-methods' %}" class="list-group-item list-group-item-action">Kayitli Kredi Kartlarim</a>
+                    <a href="{% url 'nexadash:contacts' %}" class="list-group-item list-group-item-action">Bildirim Kisileri</a>
+                    <a href="{% url 'nexadash:account-security' %}" class="list-group-item list-group-item-action active">Hesap Guvenligi</a>
+                    <a href="{% url 'nexadash:email-history' %}" class="list-group-item list-group-item-action">Eposta Gecmisi</a>
+                </div>
+            </div>
+
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Guvenlik</h4></div>
+                <div class="card-body">
+                    <p class="mb-2">2 Adimli Dogrulama: <span class="badge badge-danger">Pasif</span></p>
+                    <a href="{% url 'nexadash:account-security' %}" class="btn btn-sm btn-outline-primary">Hemen Basla</a>
+                </div>
+            </div>
+
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Bakiyeniz</h4></div>
+                <div class="card-body text-center">
+                    <h5 class="mb-2">0.00 TL</h5>
+                    <a href="{% url 'nexadash:add-funds' %}" class="btn btn-sm btn-light">Bakiye Yukle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+</style>
+{% endblock %}
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="DexignZone" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nexadash.dexignzone.com/django/">
+        <meta name="keywords" content="customer panel, dashboard, hosting" />
+        <meta name="description" content="Customer panel dashboard" />
+        <!-- OG:META TAGS -->
+        <meta property="og:title" content="Customer Panel" />
+        <meta property="og:description" content="Customer panel dashboard" />
+        <meta property="og:image" content="{% static 'nexadash/images/social-image.png' %}" />
+        <meta name="format-detection" content="telephone=no">
+        <!-- TWITTER:META TAGS -->
+        <meta name="twitter:title" content="Customer Panel" />
+        <meta name="twitter:description" content="Customer panel dashboard" />
+        <meta name="twitter:image" content="{% static 'nexadash/images/social-image.png' %}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <!-- MOBILE SPECIFIC -->
+        <meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
+        <!-- PAGE TITLE HERE -->
+        <title>{{ page_title|default:'Customer Panel' }}</title>
+        <!-- FAVICONS ICON -->
+        <link rel="shortcut icon" type="image/png" href="{% static 'nexadash/images/favicon.png' %}" />
+        <link rel="stylesheet" href="{% static 'nexadash/vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}">
+        <link rel="stylesheet" href="{% static 'nexadash/css/style.css' %}">
+        {% block additional_css %}
+        {% endblock %}        
+    </head>
+    <body>
+    <!--*******************
+        Preloader start
+    ********************-->
+	<div id="preloader">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+		</div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+
+        {% include 'nexadash/elements/nav-header.html' %}
+
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+
+        {% include 'nexadash/elements/chatbox.html' %}
+
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+		
+		<!--**********************************
+            Header start
+        ***********************************-->
+
+        {% include 'nexadash/elements/header.html' %}
+
+        <!--**********************************
+            Header end 
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        {% include 'nexadash/elements/sidebar.html' %}
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+        {% include 'nexadash/elements/breadcrumb.html' %}
+            {% block message %}
+            {% endblock %}
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->		
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        {% include 'nexadash/elements/footer.html' %}
+        <!--**********************************
+            Footer end
+        ***********************************-->
+	</div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{% static 'nexadash/vendor/global/global.min.js' %}"></script>
+    <script src="{% static 'nexadash/vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'nexadash/js/custom.min.js' %}"></script>
+    <script src="{% static 'nexadash/js/deznav-init.js' %}"></script>
+    
+    {% block additional_js %}
+    {% endblock %}
+</body>
+</html>

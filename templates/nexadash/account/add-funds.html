@@ -1,0 +1,103 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card border-info">
+                <div class="card-header"><h4 class="card-title mb-0">Bakiye Yukle</h4></div>
+                <div class="card-body">
+                    Yukleyeceginiz bakiye sure siniri olmaksizin size ait olacaktir. Ileri vadeli faturalariniz otomatik olarak bakiyenizden dusulecektir.
+                    <strong>Yuklenen bakiyeler iade kapsami disindadir.</strong>
+                </div>
+            </div>
+
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Guvenlik</h4></div>
+                <div class="card-body py-3">
+                    <p class="mb-2">2 Adimli Dogrulama: <span class="badge badge-danger light">Pasif</span></p>
+                    <a href="{% url 'nexadash:account-security' %}" class="btn btn-light btn-sm">Hemen Basla</a>
+                </div>
+            </div>
+
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Bakiyeniz</h4></div>
+                <div class="card-body text-center py-3">
+                    <h4 class="mb-0">{{ balance }}</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header"><h4 class="card-title mb-0">Bakiye Yukle</h4></div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-lg-7">
+                            <form action="javascript:void(0);">
+                                <div class="mb-3">
+                                    <label class="form-label">Yatirilacak Tutar</label>
+                                    <input type="number" class="form-control" min="50" step="0.01" value="50.00" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Odeme Yontemi</label>
+                                    <select class="form-control">
+                                        {% for pm in payment_methods %}
+                                        <option>{{ pm }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Bakiye Yukle</button>
+                            </form>
+                            <p class="text-center text-muted mt-3 mb-0">Omur boyu, dilediginiz zaman kullanabilirsiniz</p>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="table-responsive">
+                                <table class="table table-striped mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Tek seferde en az yatirilabilen tutar</strong></td>
+                                            <td>{{ min_amount }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tek seferde en fazla yatirilabilen tutar</strong></td>
+                                            <td>{{ max_amount }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>En fazla toplam bakiye tutari</strong></td>
+                                            <td>{{ max_total_balance }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-body {
+    min-height: 0;
+    padding: 10px 16px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-body > :last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+{% endblock %}

@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.openid_connect',
     'allauth.socialaccount.providers.twitter_oauth2',
     'hostie',
+    'customer_panel',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +92,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'customer_panel.context_processors.customer_service_nav',
             ],
         },
     },
@@ -164,7 +166,7 @@ EMAIL_HOST_PASSWORD = 'your_password'
 EMAIL_USE_SSL = False
 EMAIL_USE_SSL = False
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/customer-panel/entry/'
 LOGOUT_REDIRECT_URL = 'home'
 SITE_ID = 1
 

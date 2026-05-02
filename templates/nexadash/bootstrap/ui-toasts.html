@@ -1,0 +1,876 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Toasts.</h2>
+							<p>Make use of Bootstrap's unique Toasts styles to display elegant, non-intrusive alerts that seamlessly integrate into your website's design. It create interactive notifications that improve the usability and feedback mechanisms of your application.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Toasts on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Toasts</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#Live-Toast" class="scroll ">Live Toast</a></li>
+								<li><a href="#Basic-example" class="scroll ">Toast Basic example</a></li>
+								<li><a href="#Stacking-Toasts" class="scroll ">Stacking Toasts</a></li>
+								<li><a href="#Color-Scheme" class="scroll ">Toast Color Scheme</a></li>
+								<li><a href="#button-Toasts" class="scroll ">button Toasts</a></li>
+								<li><a href="#Solid-Background" class="scroll ">Solid Background Toasts</a></li>
+									
+								</ul>	
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="card dz-card" id="Live-Toast">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Live Toast</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#LiveToast" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#Live-Toast-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent">	
+											<div class="tab-pane fade show active" id="LiveToast" role="tabpanel" aria-labelledby="home-tab-1">
+												<div class="card-body">
+													<button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn">Top Left Toast</button>
+													<div class="toast-container position-fixed top-0 start-0 p-3">
+														<div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header">
+																<strong class="me-auto">Bootstrap</strong>
+																<small class="text-body-secondary">11 mins ago</small>
+																<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+													</div>
+													<button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn">Top Right Toast</button>
+													<div class="toast-container position-fixed top-0 end-0 p-3">
+														<div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header">
+																<strong class="me-auto">Bootstrap</strong>
+																<small class="text-body-secondary">11 mins ago</small>
+																<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+													</div>
+													<button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn">Bottom Left Toast</button>
+													<div class="toast-container position-fixed bottom-0 start-0 p-3">
+														<div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header">
+																<strong class="me-auto">Bootstrap</strong>
+																<small class="text-body-secondary">11 mins ago</small>
+																<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+													</div>
+													<button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn">Bottm Right Toast</button>
+													<div class="toast-container position-fixed bottom-0 end-0 p-3">
+														<div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header">
+																<strong class="me-auto">Bootstrap</strong>
+																<small class="text-body-secondary">11 mins ago</small>
+																<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="Live-Toast-html" role="tabpanel" aria-labelledby="home-tab-1">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+		
+	&lt;button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn"&gt;Top Left Toast&lt;/button&gt;
+	&lt;div class="toast-container position-fixed top-0 start-0 p-3"&gt;
+		&lt;div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="toast-header"&gt;
+				&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+				&lt;small class="text-body-secondary"&gt;11 mins ago&lt;/small&gt;
+				&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="toast-body"&gt;
+				Hello, world! This is a toast message.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn"&gt;Top Right Toast&lt;/button&gt;
+	&lt;div class="toast-container position-fixed top-0 end-0 p-3"&gt;
+		&lt;div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="toast-header"&gt;
+				&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+				&lt;small class="text-body-secondary"&gt;11 mins ago&lt;/small&gt;
+				&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="toast-body"&gt;
+				Hello, world! This is a toast message.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn"&gt;Bottom Left Toast&lt;/button&gt;
+	&lt;div class="toast-container position-fixed bottom-0 start-0 p-3"&gt;
+		&lt;div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="toast-header"&gt;
+				&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+				&lt;small class="text-body-secondary"&gt;11 mins ago&lt;/small&gt;
+				&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="toast-body"&gt;
+				Hello, world! This is a toast message.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;button type="button" class="btn btn-primary me-2 mb-2 liveToastBtn"&gt;Bottm Right Toast&lt;/button&gt;
+	&lt;div class="toast-container position-fixed bottom-0 end-0 p-3"&gt;
+		&lt;div class="toast livetoast" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="toast-header"&gt;
+				&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+				&lt;small class="text-body-secondary"&gt;11 mins ago&lt;/small&gt;
+				&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="toast-body"&gt;
+				Hello, world! This is a toast message.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="card dz-card" id="Basic-example">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Toast Basic example</h4>
+											
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#Basicexample" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#Basicexample-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-1">	
+											<div class="tab-pane fade show active" id="Basicexample" role="tabpanel" aria-labelledby="home-tab-2">
+												<div class="card-body">
+													<div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+														<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="var(--primary)">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+														<strong class="me-auto">Bootstrap</strong>
+														<small class="text-body-secondary">11 mins ago</small>
+														<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+														</div>
+														<div class="toast-body">
+														Hello, world! This is a toast message.
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="Basicexample-html" role="tabpanel" aria-labelledby="home-tab-2">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="toast show" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+		&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="var(--primary)"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+		&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+		&lt;small class="text-body-secondary"&gt;11 mins ago&lt;/small&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+		&lt;/div&gt;
+		&lt;div class="toast-body"&gt;
+		Hello, world! This is a toast message.
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="card dz-card" id="Stacking-Toasts">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Stacking Toasts</h4>
+											
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#StackingToasts" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#StackingToasts-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-2">	
+											<div class="tab-pane fade show active" id="StackingToasts" role="tabpanel" aria-labelledby="home-tab-3">
+												<div class="card-body">
+													<div class="toast-container position-static">
+														<div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+														<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="var(--primary)">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+															<strong class="me-auto">Bootstrap</strong>
+															<small class="text-body-secondary">just now</small>
+															<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+														</div>
+														<div class="toast-body">
+															See? Just like this.
+														</div>
+														</div>
+													
+														<div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+														<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="var(--secondary)">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+															<strong class="me-auto">Bootstrap</strong>
+															<small class="text-body-secondary">2 seconds ago</small>
+															<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+														</div>
+														<div class="toast-body">
+															Heads up, toasts will stack automatically
+														</div>
+														</div>
+														
+														<div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="#2BC155">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+															<strong class="me-auto">Bootstrap</strong>
+															<small class="text-body-secondary">5 minutes ago</small>
+															<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+															See? Just like this.
+															</div>
+														</div>
+													
+														<div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="#FF2E2E">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+															<strong class="me-auto">Bootstrap</strong>
+															<small class="text-body-secondary">8 seconds ago</small>
+															<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+															Heads up, toasts will stack automatically
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="StackingToasts-html" role="tabpanel" aria-labelledby="home-tab-3">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="toast-container position-static"&gt;
+		&lt;div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+		&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="var(--primary)"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+			&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+			&lt;small class="text-body-secondary"&gt;just now&lt;/small&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+		&lt;/div&gt;
+		&lt;div class="toast-body"&gt;
+			See? Just like this.
+		&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+		&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="var(--secondary)"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+			&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+			&lt;small class="text-body-secondary"&gt;2 seconds ago&lt;/small&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+		&lt;/div&gt;
+		&lt;div class="toast-body"&gt;
+			Heads up, toasts will stack automatically
+		&lt;/div&gt;
+		&lt;/div&gt;
+		
+		&lt;div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="#2BC155"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+			&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+			&lt;small class="text-body-secondary"&gt;5 minutes ago&lt;/small&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="toast-body"&gt;
+			See? Just like this.
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="#FF2E2E"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+			&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+			&lt;small class="text-body-secondary"&gt;8 seconds ago&lt;/small&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="toast-body"&gt;
+			Heads up, toasts will stack automatically
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="card dz-card" id="Color-Scheme">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Toast Color Scheme</h4>
+											
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-4" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-4" data-bs-toggle="tab" data-bs-target="#ColorScheme" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-4" data-bs-toggle="tab" data-bs-target="#ColorScheme-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-3">	
+											<div class="tab-pane fade show active" id="ColorScheme" role="tabpanel" aria-labelledby="home-tab-4">
+												<div class="card-body">
+													<div class="toast-container position-static">
+														<div class="toast show align-items-center mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="d-flex">
+																<div class="toast-body">
+																	Hello, world! This is a toast message.
+																</div>
+																<button type="button" class="btn-close me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+														</div>
+														<div class="toast show align-items-center text-white bg-primary border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="d-flex">
+																<div class="toast-body">
+																	Hello, world! This is a toast message.
+																</div>
+																<button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+														</div>
+														<div class="toast show align-items-center text-white bg-secondary border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="d-flex">
+																<div class="toast-body">
+																	Hello, world! This is a toast message.
+																</div>
+																<button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+														</div>
+														<div class="toast show align-items-center text-white bg-success border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="d-flex">
+																<div class="toast-body">
+																	Hello, world! This is a toast message.
+																</div>
+																<button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+														</div>
+														<div class="toast show align-items-center text-white bg-danger border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="d-flex">
+																<div class="toast-body">
+																	Hello, world! This is a toast message.
+																</div>
+																<button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+														</div>
+														<div class="toast show align-items-center text-white bg-info border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="d-flex">
+																<div class="toast-body">
+																	Hello, world! This is a toast message.
+																</div>
+																<button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+														</div>
+														<div class="toast show align-items-center text-white bg-warning border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="d-flex">
+																<div class="toast-body">
+																	Hello, world! This is a toast message.
+																</div>
+																<button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="ColorScheme-html" role="tabpanel" aria-labelledby="home-tab-4">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="toast-container position-static"&gt;
+		&lt;div class="toast show align-items-center mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="d-flex"&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+				&lt;button type="button" class="btn-close me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="toast show align-items-center text-white bg-primary border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="d-flex"&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+				&lt;button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="toast show align-items-center text-white bg-secondary border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="d-flex"&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+				&lt;button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="toast show align-items-center text-white bg-success border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="d-flex"&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+				&lt;button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="toast show align-items-center text-white bg-danger border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="d-flex"&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+				&lt;button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="toast show align-items-center text-white bg-info border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="d-flex"&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+				&lt;button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="toast show align-items-center text-white bg-warning border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="d-flex"&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+				&lt;button type="button" class="btn-close btn-close-white me-2 m-auto p-3" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> 
+								<div class="col-md-12">
+									<div class="card dz-card" id="button-Toasts">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">button Toasts</h4>
+											
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-5" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-5" data-bs-toggle="tab" data-bs-target="#buttonToasts" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-5" data-bs-toggle="tab" data-bs-target="#buttonToasts-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-4">	
+											<div class="tab-pane fade show active" id="buttonToasts" role="tabpanel" aria-labelledby="home-tab-5">
+												<div class="card-body">
+													<div class="toast-container position-static">
+														<div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+														<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="var(--primary)">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+															<strong class="me-auto">Bootstrap</strong>
+															<small class="text-body-secondary">just now</small>
+															<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+														</div>
+														<div class="toast-body">
+																Hello, world! This is a toast message.
+																<div class="mt-2 pt-2 border-top">
+																<button type="button" class="btn btn-primary btn-sm">Take action</button>
+																<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+																</div>
+															</div>
+														</div>
+													
+														<div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+														<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="#2BC155">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+															<strong class="me-auto">Bootstrap</strong>
+															<small class="text-body-secondary">2 seconds ago</small>
+															<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+														</div>
+														<div class="toast-body">
+																Hello, world! This is a toast message.
+																<div class="mt-2 pt-2 border-top">
+																<button type="button" class="btn btn-success btn-sm">Take action</button>
+																<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+																</div>
+															</div>
+														</div>
+														
+														<div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header">
+															<?xml version="1.0" encoding="UTF-8"?>
+															<svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg">
+															<g fill="none" fill-rule="evenodd">
+															<g transform="translate(-362 -880)" fill="#FF2E2E">
+															<path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"></path>
+															</g>
+															</g>
+															</svg>
+															<strong class="me-auto">Bootstrap</strong>
+															<small class="text-body-secondary">5 minutes ago</small>
+															<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+																<div class="mt-2 pt-2 border-top">
+																<button type="button" class="btn btn-danger btn-sm">Take action</button>
+																<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="buttonToasts-html" role="tabpanel" aria-labelledby="home-tab-5">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="toast-container position-static"&gt;
+		&lt;div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+		&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="var(--primary)"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+			&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+			&lt;small class="text-body-secondary"&gt;just now&lt;/small&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+		&lt;/div&gt;
+		&lt;div class="toast-body"&gt;
+				Hello, world! This is a toast message.
+				&lt;div class="mt-2 pt-2 border-top"&gt;
+				&lt;button type="button" class="btn btn-primary btn-sm"&gt;Take action&lt;/button&gt;
+				&lt;button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast"&gt;Close&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+		&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="#2BC155"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+			&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+			&lt;small class="text-body-secondary"&gt;2 seconds ago&lt;/small&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+		&lt;/div&gt;
+		&lt;div class="toast-body"&gt;
+				Hello, world! This is a toast message.
+				&lt;div class="mt-2 pt-2 border-top"&gt;
+				&lt;button type="button" class="btn btn-success btn-sm"&gt;Take action&lt;/button&gt;
+				&lt;button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast"&gt;Close&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		
+		&lt;div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+			&lt;div class="toast-header"&gt;
+			&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+			&lt;svg class="me-2" width="15px" height="15px" version="1.1" viewBox="-1 0 30 30" xmlns="http://www.w3.org/2000/svg"&gt;
+			&lt;g fill="none" fill-rule="evenodd"&gt;
+			&lt;g transform="translate(-362 -880)" fill="#FF2E2E"&gt;
+			&lt;path d="m365 904 3-6v-8c0-4.418 3.582-8 8-8s8 3.582 8 8v8l3 6h-22zm11 4c-1.305 0-2.403-0.837-2.816-2h5.632c-0.413 1.163-1.511 2-2.816 2zm10-10v-8c0-5.522-4.478-10-10-10s-10 4.478-10 10v8l-4 8h9.101c0.463 2.282 2.48 4 4.899 4s4.436-1.718 4.899-4h9.101l-4-8z"&gt;&lt;/path&gt;
+			&lt;/g&gt;
+			&lt;/g&gt;
+			&lt;/svg&gt;
+			&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+			&lt;small class="text-body-secondary"&gt;5 minutes ago&lt;/small&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="toast-body"&gt;
+				Hello, world! This is a toast message.
+				&lt;div class="mt-2 pt-2 border-top"&gt;
+				&lt;button type="button" class="btn btn-danger btn-sm"&gt;Take action&lt;/button&gt;
+				&lt;button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast"&gt;Close&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> 
+								<div class="col-md-12">
+									<div class="card dz-card" id="Solid-Background">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Solid Background Toast</h4>
+											
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-6" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-6" data-bs-toggle="tab" data-bs-target="#SolidBackground" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-6" data-bs-toggle="tab" data-bs-target="#SolidBackground-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-5">	
+											<div class="tab-pane fade show active" id="SolidBackground" role="tabpanel" aria-labelledby="home-tab-6">
+												<div class="card-body">
+													<div class="toast-container position-static custom-toast">
+														<div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header bg-primary text-white">
+																<strong class="me-auto">Bootstrap</strong>
+																<small>11 mins ago</small>
+																<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+														<div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header bg-secondary text-white">
+																<strong class="me-auto">Bootstrap</strong>
+																<small>11 mins ago</small>
+																<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+														<div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header bg-success text-white">
+																<strong class="me-auto">Bootstrap</strong>
+																<small>11 mins ago</small>
+																<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+														<div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true">
+															<div class="toast-header bg-danger text-white">
+																<strong class="me-auto">Bootstrap</strong>
+																<small>11 mins ago</small>
+																<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+															</div>
+															<div class="toast-body">
+																Hello, world! This is a toast message.
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="SolidBackground-html" role="tabpanel" aria-labelledby="home-tab-6">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+		&lt;div class="toast-container position-static custom-toast"&gt;
+			&lt;div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+				&lt;div class="toast-header bg-primary text-white"&gt;
+					&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+					&lt;small&gt;11 mins ago&lt;/small&gt;
+					&lt;button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+				&lt;div class="toast-header bg-secondary text-white"&gt;
+					&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+					&lt;small&gt;11 mins ago&lt;/small&gt;
+					&lt;button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+				&lt;div class="toast-header bg-success text-white"&gt;
+					&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+					&lt;small&gt;11 mins ago&lt;/small&gt;
+					&lt;button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="toast overflow-hidden show" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+				&lt;div class="toast-header bg-danger text-white"&gt;
+					&lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+					&lt;small&gt;11 mins ago&lt;/small&gt;
+					&lt;button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"&gt;&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="toast-body"&gt;
+					Hello, world! This is a toast message.
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>	
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })   
+</script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+    });
+
+    const toastElList = document.querySelectorAll('.livetoast')
+    const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, {}));
+    const toastTrigger = document.querySelectorAll('.liveToastBtn');
+    toastTrigger.forEach(function(item,index) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastList[index]._element)
+        item.addEventListener('click', () => {
+                toastBootstrap.show()
+        })
+    })
+</script>
+{% endblock %}

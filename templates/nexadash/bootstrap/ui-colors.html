@@ -1,0 +1,519 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Colors.</h2>
+							<p>Make use of Bootstrap's unique Colors styles to improve accessibility. CSS offers a wide range of color properties and functions to customize and harmonize your website's visual appearance.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Colors on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Colors</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#bg-color" class="scroll ">Background color</a></li>
+									<li><a href="#Gradient" class="scroll ">Background Gradient</a></li>
+									<li><a href="#bg-opacity" class="scroll ">Background opacity</a></li>
+									<li><a href="#Other-Colors" class="scroll ">Other Colors</a></li>
+									
+								</ul>	
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="card dz-card" id="bg-color">
+									<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Solid Background Colors</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#bgColor" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#bg-color-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="bgColor" role="tabpanel" aria-labelledby="home-tab">
+												<div class="card-body">
+													<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+													<div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>
+													<div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+													<div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>
+													<div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+													<div class="p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>
+													<div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+													<div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>
+													<div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+													<div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>
+													<div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
+													<div class="p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>
+													<div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+													<div class="p-3 mb-2 bg-light-subtle text-light-emphasis">.bg-light-subtle</div>
+													<div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+													<div class="p-3 mb-2 bg-dark-subtle text-dark-emphasis">.bg-dark-subtle</div>
+													<div class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</div>
+													<div class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</div>
+													<div class="p-3 mb-2 bg-body text-body">.bg-body</div>
+													<div class="p-3 mb-2 bg-black text-white">.bg-black</div>
+													<div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+													<div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="bg-color-html" role="tabpanel" aria-labelledby="home-tab">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="p-3 mb-2 bg-primary text-white"&gt;.bg-primary&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis"&gt;.bg-primary-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-secondary text-white"&gt;.bg-secondary&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis"&gt;.bg-secondary-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-success text-white"&gt;.bg-success&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-success-subtle text-success-emphasis"&gt;.bg-success-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-danger text-white"&gt;.bg-danger&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis"&gt;.bg-danger-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-warning text-dark"&gt;.bg-warning&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis"&gt;.bg-warning-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-info text-dark"&gt;.bg-info&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-info-subtle text-info-emphasis"&gt;.bg-info-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-light text-dark"&gt;.bg-light&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-light-subtle text-light-emphasis"&gt;.bg-light-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-dark text-white"&gt;.bg-dark&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-dark-subtle text-dark-emphasis"&gt;.bg-dark-subtle&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-body-secondary"&gt;.bg-body-secondary&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-body-tertiary"&gt;.bg-body-tertiary&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-body text-body"&gt;.bg-body&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-black text-white"&gt;.bg-black&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-white text-dark"&gt;.bg-white&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-transparent text-body"&gt;.bg-transparent&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-12">
+									<div class="card dz-card" id="Gradient">
+									<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Background Gradient</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#bg-Gradient" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#Gradient-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-1">
+											<div class="tab-pane fade show active" id="bg-Gradient" role="tabpanel" aria-labelledby="home-tab-1">
+												<div class="card-body">
+													<div class="p-3 mb-2 bg-gradient bg-primary text-white">.bg-primary bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-primary-subtle text-primary-emphasis">.bg-primary-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-secondary text-white">.bg-secondary bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-success text-white">.bg-success bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-success-subtle text-success-emphasis">.bg-success-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-danger text-white">.bg-danger bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-danger-subtle text-danger-emphasis">.bg-danger-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-warning text-dark">.bg-warning bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-warning-subtle text-warning-emphasis">.bg-warning-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-info text-dark">.bg-info bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-info-subtle text-info-emphasis">.bg-info-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-light text-dark">.bg-light bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-light-subtle text-light-emphasis">.bg-light-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-dark text-white">.bg-dark bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-dark-subtle text-dark-emphasis">.bg-dark-subtle bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-body-secondary">.bg-body-secondary bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-body-tertiary">.bg-body-tertiary bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-body text-body">.bg-body bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-black text-white">.bg-black bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-white text-dark">.bg-white bg-gradient</div>
+													<div class="p-3 mb-2 bg-gradient bg-transparent text-body">.bg-transparent bg-gradient</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="Gradient-html" role="tabpanel" aria-labelledby="home-tab-1">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="p-3 mb-2 bg-gradient bg-primary text-white"&gt;.bg-primary bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-primary-subtle text-primary-emphasis"&gt;.bg-primary-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-secondary text-white"&gt;.bg-secondary bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-secondary-subtle text-secondary-emphasis"&gt;.bg-secondary-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-success text-white"&gt;.bg-success bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-success-subtle text-success-emphasis"&gt;.bg-success-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-danger text-white"&gt;.bg-danger bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-danger-subtle text-danger-emphasis"&gt;.bg-danger-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-warning text-dark"&gt;.bg-warning bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-warning-subtle text-warning-emphasis"&gt;.bg-warning-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-info text-dark"&gt;.bg-info bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-info-subtle text-info-emphasis"&gt;.bg-info-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-light text-dark"&gt;.bg-light bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-light-subtle text-light-emphasis"&gt;.bg-light-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-dark text-white"&gt;.bg-dark bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-dark-subtle text-dark-emphasis"&gt;.bg-dark-subtle bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-body-secondary"&gt;.bg-body-secondary bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-body-tertiary"&gt;.bg-body-tertiary bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-body text-body"&gt;.bg-body bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-black text-white"&gt;.bg-black bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-white text-dark"&gt;.bg-white bg-gradient&lt;/div&gt;
+	&lt;div class="p-3 mb-2 bg-gradient bg-transparent text-body"&gt;.bg-transparent bg-gradient&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="bg-opacity">
+									<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Background Opacity</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#bgOpacity" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#bg-opacity-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-2">
+											<div class="tab-pane fade show active" id="bgOpacity" role="tabpanel" aria-labelledby="home-tab-2">
+												<div class="card-body">
+													<div class="bg-success p-2 text-white">This is default success background</div>
+													<div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>
+													<div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>
+													<div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>
+													<div class="bg-success p-2 text-dark bg-opacity-10">This is 10% opacity success background</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="bg-opacity-html" role="tabpanel" aria-labelledby="home-tab-2">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="bg-success p-2 text-white"&gt;This is default success background&lt;/div&gt;
+	&lt;div class="bg-success p-2 text-white bg-opacity-75"&gt;This is 75% opacity success background&lt;/div&gt;
+	&lt;div class="bg-success p-2 text-dark bg-opacity-50"&gt;This is 50% opacity success background&lt;/div&gt;
+	&lt;div class="bg-success p-2 text-dark bg-opacity-25"&gt;This is 25% opacity success background&lt;/div&gt;
+	&lt;div class="bg-success p-2 text-dark bg-opacity-10"&gt;This is 10% opacity success background&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Other-Colors">
+									<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Other Colors</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#OtherColors" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#OtherColors-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-3">
+											<div class="tab-pane fade show active" id="OtherColors" role="tabpanel" aria-labelledby="home-tab-3">
+												<div class="card-body">
+													<div class="row">
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-blue-100 text-white">.bs-blue-100</div>
+															<div class="p-3 mb-2 bs-blue-200 text-white">.bs-blue-200</div>
+															<div class="p-3 mb-2 bs-blue-300 text-white">.bs-blue-300</div>
+															<div class="p-3 mb-2 bs-blue-400 text-white">.bs-blue-400</div>
+															<div class="p-3 mb-2 bs-blue-500 text-white">.bs-blue-500</div>
+															<div class="p-3 mb-2 bs-blue-600 text-white">.bs-blue-600</div>
+															<div class="p-3 mb-2 bs-blue-700 text-white">.bs-blue-700</div>
+															<div class="p-3 mb-2 bs-blue-800 text-white">.bs-blue-800</div>
+															<div class="p-3 mb-2 bs-blue-900 text-white">.bs-blue-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-indigo-100 text-white">.bs-indigo-100</div>
+															<div class="p-3 mb-2 bs-indigo-200 text-white">.bs-indigo-200</div>
+															<div class="p-3 mb-2 bs-indigo-300 text-white">.bs-indigo-300</div>
+															<div class="p-3 mb-2 bs-indigo-400 text-white">.bs-indigo-400</div>
+															<div class="p-3 mb-2 bs-indigo-500 text-white">.bs-indigo-500</div>
+															<div class="p-3 mb-2 bs-indigo-600 text-white">.bs-indigo-600</div>
+															<div class="p-3 mb-2 bs-indigo-700 text-white">.bs-indigo-700</div>
+															<div class="p-3 mb-2 bs-indigo-800 text-white">.bs-indigo-800</div>
+															<div class="p-3 mb-2 bs-indigo-900 text-white">.bs-indigo-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-purple-100 text-white">.bs-purple-100</div>
+															<div class="p-3 mb-2 bs-purple-200 text-white">.bs-purple-200</div>
+															<div class="p-3 mb-2 bs-purple-300 text-white">.bs-purple-300</div>
+															<div class="p-3 mb-2 bs-purple-400 text-white">.bs-purple-400</div>
+															<div class="p-3 mb-2 bs-purple-500 text-white">.bs-purple-500</div>
+															<div class="p-3 mb-2 bs-purple-600 text-white">.bs-purple-600</div>
+															<div class="p-3 mb-2 bs-purple-700 text-white">.bs-purple-700</div>
+															<div class="p-3 mb-2 bs-purple-800 text-white">.bs-purple-800</div>
+															<div class="p-3 mb-2 bs-purple-900 text-white">.bs-purple-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-pink-100 text-white">.bs-pink-100</div>
+															<div class="p-3 mb-2 bs-pink-200 text-white">.bs-pink-200</div>
+															<div class="p-3 mb-2 bs-pink-300 text-white">.bs-pink-300</div>
+															<div class="p-3 mb-2 bs-pink-400 text-white">.bs-pink-400</div>
+															<div class="p-3 mb-2 bs-pink-500 text-white">.bs-pink-500</div>
+															<div class="p-3 mb-2 bs-pink-600 text-white">.bs-pink-600</div>
+															<div class="p-3 mb-2 bs-pink-700 text-white">.bs-pink-700</div>
+															<div class="p-3 mb-2 bs-pink-800 text-white">.bs-pink-800</div>
+															<div class="p-3 mb-2 bs-pink-900 text-white">.bs-pink-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-red-100 text-white">.bs-red-100</div>
+															<div class="p-3 mb-2 bs-red-200 text-white">.bs-red-200</div>
+															<div class="p-3 mb-2 bs-red-300 text-white">.bs-red-300</div>
+															<div class="p-3 mb-2 bs-red-400 text-white">.bs-red-400</div>
+															<div class="p-3 mb-2 bs-red-500 text-white">.bs-red-500</div>
+															<div class="p-3 mb-2 bs-red-600 text-white">.bs-red-600</div>
+															<div class="p-3 mb-2 bs-red-700 text-white">.bs-red-700</div>
+															<div class="p-3 mb-2 bs-red-800 text-white">.bs-red-800</div>
+															<div class="p-3 mb-2 bs-red-900 text-white">.bs-red-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-orange-100 text-white">.bs-orange-100</div>
+															<div class="p-3 mb-2 bs-orange-200 text-white">.bs-orange-200</div>
+															<div class="p-3 mb-2 bs-orange-300 text-white">.bs-orange-300</div>
+															<div class="p-3 mb-2 bs-orange-400 text-white">.bs-orange-400</div>
+															<div class="p-3 mb-2 bs-orange-500 text-white">.bs-orange-500</div>
+															<div class="p-3 mb-2 bs-orange-600 text-white">.bs-orange-600</div>
+															<div class="p-3 mb-2 bs-orange-700 text-white">.bs-orange-700</div>
+															<div class="p-3 mb-2 bs-orange-800 text-white">.bs-orange-800</div>
+															<div class="p-3 mb-2 bs-orange-900 text-white">.bs-orange-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-yellow-100 text-white">.bs-yellow-100</div>
+															<div class="p-3 mb-2 bs-yellow-200 text-white">.bs-yellow-200</div>
+															<div class="p-3 mb-2 bs-yellow-300 text-white">.bs-yellow-300</div>
+															<div class="p-3 mb-2 bs-yellow-400 text-white">.bs-yellow-400</div>
+															<div class="p-3 mb-2 bs-yellow-500 text-white">.bs-yellow-500</div>
+															<div class="p-3 mb-2 bs-yellow-600 text-white">.bs-yellow-600</div>
+															<div class="p-3 mb-2 bs-yellow-700 text-white">.bs-yellow-700</div>
+															<div class="p-3 mb-2 bs-yellow-800 text-white">.bs-yellow-800</div>
+															<div class="p-3 mb-2 bs-yellow-900 text-white">.bs-yellow-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-green-100 text-white">.bs-green-100</div>
+															<div class="p-3 mb-2 bs-green-200 text-white">.bs-green-200</div>
+															<div class="p-3 mb-2 bs-green-300 text-white">.bs-green-300</div>
+															<div class="p-3 mb-2 bs-green-400 text-white">.bs-green-400</div>
+															<div class="p-3 mb-2 bs-green-500 text-white">.bs-green-500</div>
+															<div class="p-3 mb-2 bs-green-600 text-white">.bs-green-600</div>
+															<div class="p-3 mb-2 bs-green-700 text-white">.bs-green-700</div>
+															<div class="p-3 mb-2 bs-green-800 text-white">.bs-green-800</div>
+															<div class="p-3 mb-2 bs-green-900 text-white">.bs-green-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-teal-100 text-white">.bs-teal-100</div>
+															<div class="p-3 mb-2 bs-teal-200 text-white">.bs-teal-200</div>
+															<div class="p-3 mb-2 bs-teal-300 text-white">.bs-teal-300</div>
+															<div class="p-3 mb-2 bs-teal-400 text-white">.bs-teal-400</div>
+															<div class="p-3 mb-2 bs-teal-500 text-white">.bs-teal-500</div>
+															<div class="p-3 mb-2 bs-teal-600 text-white">.bs-teal-600</div>
+															<div class="p-3 mb-2 bs-teal-700 text-white">.bs-teal-700</div>
+															<div class="p-3 mb-2 bs-teal-800 text-white">.bs-teal-800</div>
+															<div class="p-3 mb-2 bs-teal-900 text-white">.bs-teal-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-cyan-100 text-white">.bs-cyan-100</div>
+															<div class="p-3 mb-2 bs-cyan-200 text-white">.bs-cyan-200</div>
+															<div class="p-3 mb-2 bs-cyan-300 text-white">.bs-cyan-300</div>
+															<div class="p-3 mb-2 bs-cyan-400 text-white">.bs-cyan-400</div>
+															<div class="p-3 mb-2 bs-cyan-500 text-white">.bs-cyan-500</div>
+															<div class="p-3 mb-2 bs-cyan-600 text-white">.bs-cyan-600</div>
+															<div class="p-3 mb-2 bs-cyan-700 text-white">.bs-cyan-700</div>
+															<div class="p-3 mb-2 bs-cyan-800 text-white">.bs-cyan-800</div>
+															<div class="p-3 mb-2 bs-cyan-900 text-white">.bs-cyan-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bs-gray-100 text-white">.bs-gray-100</div>
+															<div class="p-3 mb-2 bs-gray-200 text-white">.bs-gray-200</div>
+															<div class="p-3 mb-2 bs-gray-300 text-white">.bs-gray-300</div>
+															<div class="p-3 mb-2 bs-gray-400 text-white">.bs-gray-400</div>
+															<div class="p-3 mb-2 bs-gray-500 text-white">.bs-gray-500</div>
+															<div class="p-3 mb-2 bs-gray-600 text-white">.bs-gray-600</div>
+															<div class="p-3 mb-2 bs-gray-700 text-white">.bs-gray-700</div>
+															<div class="p-3 mb-2 bs-gray-800 text-white">.bs-gray-800</div>
+															<div class="p-3 mb-2 bs-gray-900 text-white">.bs-gray-900</div>
+														</div>
+														<div class="col-xl-3 col-sm-6 mb-4">
+															<div class="p-3 mb-2 bg-black text-white">.bg-black</div>
+															<div class="p-3 mb-2 bg-white border">.bg-white</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="OtherColors-html" role="tabpanel" aria-labelledby="home-tab-3">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="row"&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-blue-100 text-white"&gt;.bs-blue-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-200 text-white"&gt;.bs-blue-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-300 text-white"&gt;.bs-blue-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-400 text-white"&gt;.bs-blue-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-500 text-white"&gt;.bs-blue-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-600 text-white"&gt;.bs-blue-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-700 text-white"&gt;.bs-blue-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-800 text-white"&gt;.bs-blue-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-blue-900 text-white"&gt;.bs-blue-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-100 text-white"&gt;.bs-indigo-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-200 text-white"&gt;.bs-indigo-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-300 text-white"&gt;.bs-indigo-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-400 text-white"&gt;.bs-indigo-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-500 text-white"&gt;.bs-indigo-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-600 text-white"&gt;.bs-indigo-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-700 text-white"&gt;.bs-indigo-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-800 text-white"&gt;.bs-indigo-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-indigo-900 text-white"&gt;.bs-indigo-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-purple-100 text-white"&gt;.bs-purple-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-200 text-white"&gt;.bs-purple-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-300 text-white"&gt;.bs-purple-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-400 text-white"&gt;.bs-purple-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-500 text-white"&gt;.bs-purple-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-600 text-white"&gt;.bs-purple-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-700 text-white"&gt;.bs-purple-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-800 text-white"&gt;.bs-purple-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-purple-900 text-white"&gt;.bs-purple-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-pink-100 text-white"&gt;.bs-pink-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-200 text-white"&gt;.bs-pink-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-300 text-white"&gt;.bs-pink-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-400 text-white"&gt;.bs-pink-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-500 text-white"&gt;.bs-pink-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-600 text-white"&gt;.bs-pink-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-700 text-white"&gt;.bs-pink-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-800 text-white"&gt;.bs-pink-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-pink-900 text-white"&gt;.bs-pink-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-red-100 text-white"&gt;.bs-red-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-200 text-white"&gt;.bs-red-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-300 text-white"&gt;.bs-red-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-400 text-white"&gt;.bs-red-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-500 text-white"&gt;.bs-red-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-600 text-white"&gt;.bs-red-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-700 text-white"&gt;.bs-red-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-800 text-white"&gt;.bs-red-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-red-900 text-white"&gt;.bs-red-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-orange-100 text-white"&gt;.bs-orange-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-200 text-white"&gt;.bs-orange-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-300 text-white"&gt;.bs-orange-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-400 text-white"&gt;.bs-orange-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-500 text-white"&gt;.bs-orange-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-600 text-white"&gt;.bs-orange-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-700 text-white"&gt;.bs-orange-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-800 text-white"&gt;.bs-orange-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-orange-900 text-white"&gt;.bs-orange-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-100 text-white"&gt;.bs-yellow-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-200 text-white"&gt;.bs-yellow-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-300 text-white"&gt;.bs-yellow-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-400 text-white"&gt;.bs-yellow-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-500 text-white"&gt;.bs-yellow-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-600 text-white"&gt;.bs-yellow-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-700 text-white"&gt;.bs-yellow-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-800 text-white"&gt;.bs-yellow-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-yellow-900 text-white"&gt;.bs-yellow-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-green-100 text-white"&gt;.bs-green-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-200 text-white"&gt;.bs-green-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-300 text-white"&gt;.bs-green-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-400 text-white"&gt;.bs-green-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-500 text-white"&gt;.bs-green-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-600 text-white"&gt;.bs-green-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-700 text-white"&gt;.bs-green-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-800 text-white"&gt;.bs-green-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-green-900 text-white"&gt;.bs-green-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-teal-100 text-white"&gt;.bs-teal-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-200 text-white"&gt;.bs-teal-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-300 text-white"&gt;.bs-teal-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-400 text-white"&gt;.bs-teal-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-500 text-white"&gt;.bs-teal-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-600 text-white"&gt;.bs-teal-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-700 text-white"&gt;.bs-teal-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-800 text-white"&gt;.bs-teal-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-teal-900 text-white"&gt;.bs-teal-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-100 text-white"&gt;.bs-cyan-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-200 text-white"&gt;.bs-cyan-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-300 text-white"&gt;.bs-cyan-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-400 text-white"&gt;.bs-cyan-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-500 text-white"&gt;.bs-cyan-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-600 text-white"&gt;.bs-cyan-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-700 text-white"&gt;.bs-cyan-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-800 text-white"&gt;.bs-cyan-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-cyan-900 text-white"&gt;.bs-cyan-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bs-gray-100 text-white"&gt;.bs-gray-100&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-200 text-white"&gt;.bs-gray-200&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-300 text-white"&gt;.bs-gray-300&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-400 text-white"&gt;.bs-gray-400&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-500 text-white"&gt;.bs-gray-500&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-600 text-white"&gt;.bs-gray-600&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-700 text-white"&gt;.bs-gray-700&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-800 text-white"&gt;.bs-gray-800&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bs-gray-900 text-white"&gt;.bs-gray-900&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-xl-3 col-sm-6 mb-4"&gt;
+			&lt;div class="p-3 mb-2 bg-black text-white"&gt;.bg-black&lt;/div&gt;
+			&lt;div class="p-3 mb-2 bg-white border"&gt;.bg-white&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>	
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        });
+</script>
+{% endblock %}

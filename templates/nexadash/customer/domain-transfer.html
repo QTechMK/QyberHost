@@ -1,0 +1,555 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid domain-transfer-page">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card transfer-hero">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <span class="badge badge-primary light mb-2">Domain Transferi</span>
+                            <h2 class="mb-2">Alan adiniz bizimle guvende*</h2>
+                            <p class="mb-0 text-muted">
+                                Transfer karsiliginda uygun uzantilarda tescil bitis tarihiniz +365 gun otomatik uzar. Domaininizi, transfer kodunuzu ve fiyat ozetinizi tek ekranda kontrol edin.
+                            </p>
+                        </div>
+                        <div class="col-lg-5 mt-3 mt-lg-0">
+                            <div class="transfer-mini-card">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <div>
+                                    <strong>Guvenli aktarim</strong>
+                                    <small>Domain kilidi kapali ve EPP/Auth kodu hazir oldugunda transfer sureci baslatilabilir.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if not can_manage_billing %}
+    <div class="alert alert-warning">
+        Bu hesapta muhasebe yetkiniz yok. Domain transfer formunu goruntuleyebilirsiniz, fakat sepete ekleme ve odeme islemleri icin hesap sahibi, yonetici veya muhasebe yetkilisi olmaniz gerekir.
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-xl-8">
+            <form id="frmDomainTransfer" method="post" action="javascript:void(0);">
+                {% csrf_token %}
+                <div class="card transfer-form-card">
+                    <div class="card-header flex-wrap gap-2">
+                        <div>
+                            <h4 class="card-title mb-1">Domain Transferi'ne Basla</h4>
+                            <small class="text-muted">Mevcut alan adinizi ve transfer kodunuzu girin.</small>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-lg-7">
+                                <label for="inputTransferDomain" class="form-label">Alan Adiniz</label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       name="domain"
+                                       id="inputTransferDomain"
+                                       placeholder="mevcut alan adinizi giriniz ..com .net vb.">
+                                <small class="text-muted">Ornek: markam.com, markam.com.tr</small>
+                            </div>
+                            <div class="col-lg-5">
+                                <label for="inputAuthCode" class="form-label d-flex justify-content-between gap-2">
+                                    <span>Yetkilendirme Kodu</span>
+                                    <span class="text-primary" title="Transfer kodunu domainin su an kayitli oldugu firmadan almalisiniz.">
+                                        <i class="fa-solid fa-circle-question"></i> Yardim
+                                    </span>
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       name="epp"
+                                       id="inputAuthCode"
+                                       placeholder="Transfer Kodu / EPP kodu">
+                                <small class="text-muted">Kod gizli tutulur ve sadece transfer baslatmak icin kullanilir.</small>
+                            </div>
+                        </div>
+
+                        <div id="transferUnavailable" class="alert alert-warning slim-alert text-center mt-3" style="display: none;"></div>
+
+                        <div class="transfer-detected-box mt-4" id="transferDetectedBox" style="display: none;">
+                            <div>
+                                <small class="text-muted d-block">Algilanan uzanti</small>
+                                <strong id="detectedExtension">-</strong>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">Transfer ucreti</small>
+                                <strong id="detectedPrice">0,00TL</strong>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">Not</small>
+                                <strong id="detectedNote">+365 gun uzatma</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button type="submit"
+                                id="btnTransferDomain"
+                                class="btn btn-primary btn-lg {% if not can_manage_billing %}disabled{% endif %}"
+                                {% if not can_manage_billing %}disabled{% endif %}>
+                            <span class="loader d-none" id="addTransferLoader">
+                                <i class="fa-solid fa-spinner fa-spin me-1"></i>
+                            </span>
+                            <span id="addToCart">Sepete Ekle</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="card transfer-compact-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Transfer icin gerekli kosullar</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <div class="transfer-step">
+                                <i class="fa-solid fa-lock-open"></i>
+                                <div>
+                                    <strong>Domain kilidi kapali olmali</strong>
+                                    <small>Registrar lock aktifse transfer baslatilamaz.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="transfer-step">
+                                <i class="fa-solid fa-key"></i>
+                                <div>
+                                    <strong>EPP/Auth kodu alinmali</strong>
+                                    <small>Kodu mevcut domain firmanizdan talep edin.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="transfer-step">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <div>
+                                    <strong>60 gun kurali kontrol edilmeli</strong>
+                                    <small>Yeni tescil veya yeni transfer sonrasi bazi uzantilarda bekleme olabilir.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="transfer-step">
+                                <i class="fa-solid fa-envelope-circle-check"></i>
+                                <div>
+                                    <strong>Iletisim e-postasi erisilebilir olmali</strong>
+                                    <small>Transfer onaylari domain sahibinin e-postasina gelebilir.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card transfer-compact-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Populer Transfer Ucretleri</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle transfer-price-table">
+                            <thead>
+                                <tr>
+                                    <th>Domain</th>
+                                    <th class="text-center">Transfer</th>
+                                    <th class="text-center">Yenileme</th>
+                                    <th class="text-end">Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for tld in popular_transfer_tlds %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ tld.extension }}</strong>
+                                        {% if tld.sale %}
+                                        <span class="badge badge-warning light ms-2">Indirim</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-center">
+                                        <strong>{{ tld.transfer_display }}</strong>
+                                        <small class="revoked d-block">{{ tld.old_register_display }}</small>
+                                    </td>
+                                    <td class="text-center">{{ tld.renew_display }}</td>
+                                    <td class="text-end">
+                                        <span class="badge badge-success light">Transfer edilebilir</span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4">
+            <div class="card transfer-summary-card transfer-compact-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Transfer Ozeti</h4>
+                </div>
+                <div class="card-body">
+                    <div id="transferCartItems">
+                        <p class="text-muted mb-0">Henuz sepete eklenen transfer yok.</p>
+                    </div>
+                    <hr>
+                    <div class="summary-line">
+                        <span>Transfer Ucreti</span>
+                        <strong id="transferCartSubtotal">0,00TL</strong>
+                    </div>
+                    <div class="summary-line">
+                        <span>Bugun Odenecek</span>
+                        <h4 id="transferCartTotal" class="mb-0">0,00TL</h4>
+                    </div>
+                    <a href="javascript:void(0);" class="btn btn-primary w-100 mt-3 {% if not can_manage_billing %}disabled{% endif %}">
+                        Sepeti Goruntule
+                        <i class="fa-solid fa-cart-shopping ms-1"></i>
+                    </a>
+                    <p class="small text-muted mt-3 mb-0">
+                        * .com, .net, .org gibi jenerik uzantilarda transfer sonrasi tescil bitis tarihiniz uygunluk durumuna gore +365 gun uzar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card transfer-summary-card transfer-compact-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Hizli Bilgi</h4>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2"><strong>Transfer kodu nedir?</strong></p>
+                    <p class="text-muted mb-0">
+                        EPP/Auth code, domain sahibinin transferi onayladigini gosteren ozel koddur. Bu kod olmadan transfer baslatilamaz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ tlds|json_script:"transferTldData" }}
+{{ owned_domains|json_script:"ownedTransferDomainData" }}
+
+<style>
+.domain-transfer-page .transfer-hero {
+    background: linear-gradient(135deg, rgba(52, 72, 94, 0.10), rgba(25, 135, 84, 0.10));
+}
+
+.domain-transfer-page .transfer-mini-card {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    display: flex;
+    gap: 14px;
+    padding: 18px;
+}
+
+.domain-transfer-page .transfer-mini-card i {
+    color: #198754;
+    font-size: 34px;
+}
+
+.domain-transfer-page .transfer-mini-card small,
+.domain-transfer-page .transfer-step small {
+    display: block;
+    color: #7e7e7e;
+}
+
+.domain-transfer-page .transfer-detected-box {
+    align-items: center;
+    background: rgba(245, 247, 250, 0.82);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 14px;
+}
+
+.domain-transfer-page .transfer-compact-card {
+    height: auto !important;
+    margin-bottom: 12px;
+}
+
+.domain-transfer-page .transfer-compact-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+
+.domain-transfer-page .transfer-compact-card .card-body {
+    flex: 0 0 auto;
+    padding: 12px 16px 10px;
+}
+
+.domain-transfer-page .transfer-compact-card .card-body > :last-child,
+.domain-transfer-page .transfer-step > div > :last-child,
+.domain-transfer-page .transfer-summary-card .card-body > :last-child {
+    margin-bottom: 0 !important;
+}
+
+.domain-transfer-page .transfer-compact-card .table-responsive {
+    margin-bottom: 0;
+}
+
+.domain-transfer-page .transfer-compact-card .card-title {
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.domain-transfer-page .transfer-step {
+    align-items: flex-start;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    min-height: 0;
+    padding: 10px 12px;
+}
+
+.domain-transfer-page .transfer-step i {
+    color: #34485e;
+    flex: 0 0 auto;
+    font-size: 18px;
+    margin-top: 3px;
+}
+
+.domain-transfer-page .transfer-step strong {
+    display: block;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.domain-transfer-page .transfer-step small {
+    font-size: 12px;
+    line-height: 1.25;
+}
+
+.domain-transfer-page .transfer-summary-card {
+    position: sticky;
+    top: 90px;
+}
+
+.domain-transfer-page .transfer-cart-item {
+    background: rgba(245, 247, 250, 0.72);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+}
+
+.domain-transfer-page .transfer-price-table {
+    margin-bottom: 0;
+}
+
+.domain-transfer-page .transfer-price-table th,
+.domain-transfer-page .transfer-price-table td {
+    padding: 8px 10px;
+}
+
+.domain-transfer-page .transfer-price-table .badge {
+    padding: 4px 8px;
+}
+
+.domain-transfer-page .summary-line {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.domain-transfer-page .transfer-summary-card hr {
+    margin: 10px 0;
+}
+
+.domain-transfer-page .transfer-summary-card p.small {
+    line-height: 1.35;
+}
+
+.domain-transfer-page .revoked {
+    color: #8b8b8b;
+    text-decoration: line-through;
+}
+
+@media (max-width: 767px) {
+    .domain-transfer-page .transfer-detected-box {
+        grid-template-columns: 1fr;
+    }
+
+    .domain-transfer-page .transfer-summary-card {
+        position: static;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var tlds = JSON.parse(document.getElementById("transferTldData").textContent);
+    var ownedDomains = JSON.parse(document.getElementById("ownedTransferDomainData").textContent);
+    var canManageBilling = {{ can_manage_billing|yesno:"true,false" }};
+    var form = document.getElementById("frmDomainTransfer");
+    var domainInput = document.getElementById("inputTransferDomain");
+    var authInput = document.getElementById("inputAuthCode");
+    var warning = document.getElementById("transferUnavailable");
+    var detectedBox = document.getElementById("transferDetectedBox");
+    var detectedExtension = document.getElementById("detectedExtension");
+    var detectedPrice = document.getElementById("detectedPrice");
+    var detectedNote = document.getElementById("detectedNote");
+    var button = document.getElementById("btnTransferDomain");
+    var loader = document.getElementById("addTransferLoader");
+    var buttonText = document.getElementById("addToCart");
+    var cartItems = document.getElementById("transferCartItems");
+    var cartSubtotal = document.getElementById("transferCartSubtotal");
+    var cartTotal = document.getElementById("transferCartTotal");
+    var transferCart = {};
+
+    function formatTry(amount) {
+        return Number(amount).toLocaleString("tr-TR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + "TL";
+    }
+
+    function normalizeDomain(value) {
+        return value.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/.*$/, "");
+    }
+
+    function findTld(domain) {
+        var sorted = tlds.slice().sort(function (a, b) {
+            return b.extension.length - a.extension.length;
+        });
+        return sorted.find(function (tld) {
+            return domain.endsWith(tld.extension);
+        });
+    }
+
+    function setWarning(message) {
+        if (!message) {
+            warning.style.display = "none";
+            warning.textContent = "";
+            return;
+        }
+        warning.style.display = "block";
+        warning.textContent = message;
+    }
+
+    function updateDetected() {
+        var domain = normalizeDomain(domainInput.value);
+        var tld = findTld(domain);
+
+        if (!domain || !tld) {
+            detectedBox.style.display = "none";
+            return null;
+        }
+
+        detectedExtension.textContent = tld.extension;
+        detectedPrice.textContent = tld.transfer_display || formatTry(tld.transfer);
+        detectedNote.textContent = [".com", ".net", ".org"].indexOf(tld.extension) >= 0 ? "+365 gun uzatma" : "Uzanti politikasina bagli";
+        detectedBox.style.display = "grid";
+        return tld;
+    }
+
+    function validateTransfer() {
+        var domain = normalizeDomain(domainInput.value);
+        var authCode = authInput.value.trim();
+        var tld = updateDetected();
+
+        if (domain.length < 4 || domain.indexOf(".") === -1) {
+            return "Lutfen transfer etmek istediginiz alan adini uzantisi ile birlikte giriniz.";
+        }
+        if (!tld) {
+            return "Bu uzanti icin transfer fiyati henuz tanimli degil. Destek ekibimizden fiyat alabilirsiniz.";
+        }
+        if (ownedDomains.indexOf(domain) !== -1) {
+            return "Bu domain zaten secili hesapta gorunuyor. Transfer yerine domain yonetimi veya yenileme adimlarini kullanabilirsiniz.";
+        }
+        if (authCode.length < 4) {
+            return "Transferi baslatmak icin EPP/Auth kodunu girmeniz gerekiyor.";
+        }
+        if (!canManageBilling) {
+            return "Bu hesapta transferi sepete eklemek icin muhasebe yetkiniz yok.";
+        }
+        return "";
+    }
+
+    function renderCart() {
+        var keys = Object.keys(transferCart);
+        var total = keys.reduce(function (sum, key) {
+            return sum + transferCart[key].price;
+        }, 0);
+
+        if (!keys.length) {
+            cartItems.innerHTML = '<p class="text-muted mb-0">Henuz sepete eklenen transfer yok.</p>';
+        } else {
+            cartItems.innerHTML = keys.map(function (key) {
+                var item = transferCart[key];
+                return '' +
+                    '<div class="transfer-cart-item">' +
+                    '<div class="d-flex justify-content-between gap-2">' +
+                    '<div>' +
+                    '<strong>' + item.domain + '</strong>' +
+                    '<small class="d-block text-muted">' + item.label + '</small>' +
+                    '<small class="d-block text-muted">EPP/Auth kodu alindi</small>' +
+                    '</div>' +
+                    '<strong>' + formatTry(item.price) + '</strong>' +
+                    '</div>' +
+                    '</div>';
+            }).join("");
+        }
+
+        cartSubtotal.textContent = formatTry(total);
+        cartTotal.textContent = formatTry(total);
+    }
+
+    domainInput.addEventListener("input", function () {
+        updateDetected();
+        setWarning("");
+        button.classList.remove("btn-success");
+        button.classList.add("btn-primary");
+        buttonText.textContent = "Sepete Ekle";
+    });
+
+    authInput.addEventListener("input", function () {
+        setWarning("");
+    });
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var domain = normalizeDomain(domainInput.value);
+        var tld = findTld(domain);
+        var error = validateTransfer();
+
+        if (error) {
+            setWarning(error);
+            return;
+        }
+
+        loader.classList.remove("d-none");
+        button.disabled = true;
+
+        window.setTimeout(function () {
+            transferCart[domain] = {
+                domain: domain,
+                label: (tld.extension || "") + " transfer",
+                price: Number(tld.transfer)
+            };
+            renderCart();
+            loader.classList.add("d-none");
+            button.disabled = !canManageBilling;
+            button.classList.remove("btn-primary");
+            button.classList.add("btn-success");
+            buttonText.textContent = "Eklendi";
+            setWarning("");
+        }, 350);
+    });
+});
+</script>
+{% endblock %}

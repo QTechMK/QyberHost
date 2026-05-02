@@ -1,0 +1,381 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid domain-register-page">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card domain-search-hero">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <h2 class="mb-2">Domain Kaydet</h2>
+                            <p class="mb-0 text-muted">
+                                Domain sizin ve isiniz icin onemlidir. Markanizi, adinizi ya da dilediginiz kelimeleri hemen aratin, sahip olun.
+                            </p>
+                        </div>
+                        <div class="col-lg-5 mt-3 mt-lg-0">
+                            <div class="input-group input-group-lg">
+                                <input type="text" id="inputDomain" class="form-control" placeholder="Yeni alan adinizi buraya yazin">
+                                <button type="button" id="btnCheckAvailability" class="btn btn-primary">Hemen Ara</button>
+                            </div>
+                            <small class="text-muted d-block mt-2">Ornek: markam, markam.com veya markam.com.tr</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if not can_manage_billing %}
+    <div class="alert alert-warning">
+        Bu hesapta muhasebe yetkiniz yok. Domain arayabilirsiniz, fakat sepete ekleme ve satin alma islemleri icin hesap sahibi, yonetici veya muhasebe yetkilisi olmaniz gerekir.
+    </div>
+    {% endif %}
+
+    <div class="row" id="domainSearchResults" style="display: none;">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id="idnLanguageSelector" class="alert alert-danger text-center" style="display: none;">
+                        <strong>Dikkat!</strong> Turkce karakterli bir domain kaydediyorsunuz.
+                        <a href="javascript:void(0);" id="convertAsciiLink" class="btn btn-light btn-sm ms-2">Turkce karakterleri cevir ve tekrar sorgula</a>
+                    </div>
+
+                    <div id="primaryLookupResult" class="domain-primary-result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Populer Uzantilar</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3" id="spotlightTlds">
+                        {% for tld in spotlight_tlds %}
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="spotlight-tld" data-extension="{{ tld.extension }}" data-price="{{ tld.register }}" data-price-display="{{ tld.register_display }}">
+                                {% if tld.sale %}
+                                <span class="badge badge-warning light">Indirim</span>
+                                {% endif %}
+                                <h4>{{ tld.extension }}</h4>
+                                <span class="spotlight-price">{{ tld.register_display }}</span>
+                                <button type="button" class="btn btn-outline-primary btn-sm spotlight-add {% if not can_manage_billing %}disabled{% endif %}" {% if not can_manage_billing %}disabled{% endif %}>
+                                    Ekle
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Tum uygun uzantilar</h4>
+                </div>
+                <div class="card-body">
+                    <div id="domainSuggestions" class="list-group domain-suggestions"></div>
+                    <p class="text-muted small mt-3 mb-0">
+                        Domain onerileri yalnizca demo sorgu sonucudur. Gercek musaitlik kontrolu WHOIS/registrar entegrasyonu ile anlik yapilacaktir.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4">
+            <div class="card order-summary-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Sepet Ozeti</h4>
+                </div>
+                <div class="card-body">
+                    <div id="domainCartItems">
+                        <p class="text-muted mb-0">Henuz sepete eklenen domain yok.</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span class="fw-semibold">Toplam Tutar</span>
+                        <strong id="domainCartTotal">0,00TL</strong>
+                    </div>
+                    <a href="javascript:void(0);" class="btn btn-primary w-100 mt-3 {% if not can_manage_billing %}disabled{% endif %}">
+                        Sepeti Goruntule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card promo-card">
+                <div class="card-body">
+                    <i class="fa-solid fa-server fa-3x text-warning mb-3"></i>
+                    <h4>Web sitenizi yayinlayin</h4>
+                    <p class="text-muted">Performans icin hazirlanan hosting, VPS ve SSL paketleriyle alan adinizi hemen yayina alin.</p>
+                    <a href="{% url 'shared-hosting' %}" class="btn btn-warning">Hosting paketlerini incele</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card promo-card">
+                <div class="card-body">
+                    <i class="fa-solid fa-globe fa-3x text-primary mb-3"></i>
+                    <h4>Alan adiniz bizimle guvende</h4>
+                    <p class="text-muted">Transfer sonrasi tescil bitis tarihiniz uygun domainlerde otomatik uzatilabilir.</p>
+                    <a href="{% url 'nexadash:domain-transfer' %}" class="btn btn-primary">Transferi baslatin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title mb-0">Domain Fiyatlari</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Domain</th>
+                            <th class="text-center">Ilk Kayit</th>
+                            <th class="text-center">Transfer</th>
+                            <th class="text-center">Yenileme</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tld in tlds %}
+                        <tr>
+                            <td>
+                                <strong>{{ tld.extension }}</strong>
+                                {% if tld.sale %}
+                                <span class="badge badge-warning light ms-2">Indirim</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <strong>{{ tld.register_display }}</strong>
+                                <small class="revoked d-block">{{ tld.old_register_display }}</small>
+                            </td>
+                            <td class="text-center">
+                                <strong>{{ tld.transfer_display }}</strong>
+                                <small class="revoked d-block">{{ tld.old_register_display }}</small>
+                            </td>
+                            <td class="text-center">
+                                <strong>{{ tld.renew_display }}</strong>
+                                <small class="revoked d-block">{{ tld.old_renew_display }}</small>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ tlds|json_script:"domainTldData" }}
+<script id="ownedDomainData" type="application/json">["hostie-demo.com","cloudpanel-demo.com.tr","vdsdemo.net","maildemo.com.tr"]</script>
+
+<style>
+.domain-register-page .domain-search-hero {
+    background: linear-gradient(135deg, rgba(39, 112, 255, 0.10), rgba(255, 184, 0, 0.10));
+}
+
+.domain-register-page .spotlight-tld {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    padding: 18px;
+    min-height: 150px;
+    background: #fff;
+}
+
+.domain-register-page .spotlight-price {
+    display: block;
+    font-weight: 700;
+    margin: 8px 0 14px;
+}
+
+.domain-register-page .domain-suggestion-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+}
+
+.domain-register-page .order-summary-card {
+    position: sticky;
+    top: 90px;
+}
+
+.domain-register-page .cart-domain-item {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    background: rgba(245, 247, 250, 0.72);
+}
+
+.domain-register-page .revoked {
+    color: #8b8b8b;
+    text-decoration: line-through;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var tlds = JSON.parse(document.getElementById("domainTldData").textContent);
+    var ownedDomains = JSON.parse(document.getElementById("ownedDomainData").textContent);
+    var input = document.getElementById("inputDomain");
+    var searchButton = document.getElementById("btnCheckAvailability");
+    var results = document.getElementById("domainSearchResults");
+    var primary = document.getElementById("primaryLookupResult");
+    var suggestions = document.getElementById("domainSuggestions");
+    var idnWarning = document.getElementById("idnLanguageSelector");
+    var convertAsciiLink = document.getElementById("convertAsciiLink");
+    var cartItems = document.getElementById("domainCartItems");
+    var cartTotal = document.getElementById("domainCartTotal");
+    var cart = {};
+    var currentBase = "";
+
+    function formatTry(amount) {
+        return Number(amount).toLocaleString("tr-TR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + "TL";
+    }
+
+    function convertTurkishToAscii(value) {
+        var letters = { "ç":"c","Ç":"C","ğ":"g","Ğ":"G","ı":"i","İ":"i","ö":"o","Ö":"O","ş":"s","Ş":"S","ü":"u","Ü":"u" };
+        return value.replace(/[çÇğĞıİöÖşŞüÜ]/g, function (char) {
+            return letters[char] || char;
+        });
+    }
+
+    function hasTurkishChars(value) {
+        return /[çÇğĞıİöÖşŞüÜ]/.test(value);
+    }
+
+    function normalizeDomain(value) {
+        return value.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "");
+    }
+
+    function baseName(value) {
+        var normalized = normalizeDomain(value);
+        var matched = tlds.find(function (tld) {
+            return normalized.endsWith(tld.extension);
+        });
+        return matched ? normalized.slice(0, -matched.extension.length) : normalized.split(".")[0];
+    }
+
+    function isAvailable(domain) {
+        return ownedDomains.indexOf(domain) === -1 && domain.indexOf("test") === -1;
+    }
+
+    function addToCart(domain, price, label) {
+        cart[domain] = { domain: domain, price: Number(price), label: label || "1 Yil Kayit" };
+        renderCart();
+    }
+
+    function renderCart() {
+        var keys = Object.keys(cart);
+        var total = keys.reduce(function (sum, key) {
+            return sum + cart[key].price;
+        }, 0);
+
+        if (!keys.length) {
+            cartItems.innerHTML = '<p class="text-muted mb-0">Henuz sepete eklenen domain yok.</p>';
+        } else {
+            cartItems.innerHTML = keys.map(function (key) {
+                var item = cart[key];
+                return '<div class="cart-domain-item"><div class="d-flex justify-content-between gap-2"><div><strong>' + item.domain + '</strong><small class="d-block text-muted">' + item.label + '</small></div><strong>' + formatTry(item.price) + '</strong></div></div>';
+            }).join("");
+        }
+        cartTotal.textContent = formatTry(total);
+    }
+
+    function addButton(domain, price, text) {
+        var disabled = "{{ can_manage_billing|yesno:'false,true' }}" === "true";
+        return '<button type="button" class="btn btn-primary btn-sm btn-domain-add ' + (disabled ? 'disabled' : '') + '" data-domain="' + domain + '" data-price="' + price + '" ' + (disabled ? 'disabled' : '') + '>' + text + '</button>';
+    }
+
+    function renderSearch() {
+        var value = normalizeDomain(input.value);
+        if (value.length < 3) {
+            results.style.display = "block";
+            primary.innerHTML = '<div class="alert alert-danger mb-0">Domain tescili icin sorgunuz en az 3 karakter uzunlugunda olmali.</div>';
+            suggestions.innerHTML = "";
+            return;
+        }
+
+        currentBase = baseName(value);
+        idnWarning.style.display = hasTurkishChars(value) ? "block" : "none";
+        results.style.display = "block";
+
+        var selectedTld = tlds.find(function (tld) {
+            return value.endsWith(tld.extension);
+        }) || tlds[0];
+        var primaryDomain = value.indexOf(".") === -1 ? currentBase + selectedTld.extension : value;
+        var available = isAvailable(primaryDomain);
+
+        primary.innerHTML = available
+            ? '<div class="alert alert-success d-flex flex-wrap align-items-center justify-content-between gap-2 mb-0"><span>Iyi haber! <strong>' + primaryDomain + '</strong> satin almaya musait.</span>' + addButton(primaryDomain, selectedTld.register, 'Sepete Ekle') + '</div>'
+            : '<div class="alert alert-danger mb-0"><strong>' + primaryDomain + '</strong> kayit edilmis, diger uzantilari inceleyiniz.</div>';
+
+        suggestions.innerHTML = tlds.map(function (tld) {
+            var domain = currentBase + tld.extension;
+            var ok = isAvailable(domain);
+            return '<div class="list-group-item"><div class="domain-suggestion-row"><div><strong>' + domain + '</strong>' + (tld.sale ? '<span class="badge badge-warning light ms-2">Indirim</span>' : '') + '</div><div class="d-flex align-items-center gap-2"><strong>' + tld.register_display + '</strong>' + (ok ? addButton(domain, tld.register, 'Sepete Ekle') : '<button class="btn btn-light btn-sm" disabled>Kayit Edilmis</button>') + '</div></div></div>';
+        }).join("");
+
+        document.querySelectorAll(".spotlight-tld").forEach(function (card) {
+            var domain = currentBase + card.dataset.extension;
+            var button = card.querySelector(".spotlight-add");
+            button.dataset.domain = domain;
+            button.dataset.price = card.dataset.price;
+        });
+    }
+
+    searchButton.addEventListener("click", renderSearch);
+    input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            renderSearch();
+        }
+    });
+
+    convertAsciiLink.addEventListener("click", function () {
+        input.value = convertTurkishToAscii(input.value);
+        renderSearch();
+    });
+
+    document.addEventListener("click", function (event) {
+        var button = event.target.closest(".btn-domain-add, .spotlight-add");
+        if (!button || button.disabled) {
+            return;
+        }
+        var domain = button.dataset.domain;
+        var price = button.dataset.price;
+        if (!domain || !price) {
+            renderSearch();
+            return;
+        }
+        addToCart(domain, price, "1 Yil Kayit");
+        button.textContent = "Eklendi";
+        button.classList.remove("btn-primary", "btn-outline-primary");
+        button.classList.add("btn-success");
+    });
+
+    var params = new URLSearchParams(window.location.search);
+    var query = params.get("query");
+    if (query) {
+        input.value = query;
+        renderSearch();
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,589 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Object-Fit.</h2>
+							<p>Implement object-fit in your CSS to specify how media elements like images and videos should behave, allowing for seamless control over their display and layout.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Object-Fit on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Object-Fit</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#Object-Fit-Contain" class="scroll ">Object Fit Contain</a></li>
+									<li><a href="#Object-Fit-Cover" class="scroll ">Object Fit Cover</a></li>
+									<li><a href="#Object-Fit-Fill" class="scroll ">Object Fit Fill</a></li>
+									<li><a href="#Object-Fit-Scale" class="scroll ">Object Fit Scale</a></li>
+									<li><a href="#Object-Fit-None" class="scroll ">Object Fit None</a></li>
+									<li><a href="#object-fit-sm" class="scroll ">Object Fit Contain sm</a></li>
+									<li><a href="#object-fit-md" class="scroll ">Object Fit Cover md</a></li>
+									<li><a href="#object-fit-lg" class="scroll ">Object Fit Fill lg</a></li>
+									<li><a href="#object-fit-xl" class="scroll ">Object Fit Scale xl</a></li>
+									<li><a href="#object-fit-XXl" class="scroll ">Object Fit None XXl</a></li>
+									<li><a href="#Fit-Contain-Vidio" class="scroll ">Object Fit Contain Vidio</a></li>
+									<li><a href="#Fit-Cover-Vidio" class="scroll ">Object Fit Cover Vidio</a></li>
+									<li><a href="#Fit-Fill-Vidio" class="scroll ">Object Fit Fill Vidio</a></li>
+									<li><a href="#Fit-Scale-Vidio" class="scroll ">Object Fit Scale Vidio</a></li>
+									<li><a href="#Fit-None-Vidio" class="scroll ">Object Fit None Vidio</a></li>
+									
+								</ul>	
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Object-Fit-Contain">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Contain</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-contain</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#fit-contain" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#fit-contain-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent">
+										<div class="tab-pane fade show active" id="fit-contain" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-contain border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-contain-html" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-contain border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Object-Fit-Cover">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Cover</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-cover</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#fit-cover" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#fit-cover-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-1">
+										<div class="tab-pane fade show active" id="fit-cover" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-cover border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-cover-html" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-cover border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Object-Fit-Fill">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Fill</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-fill</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#fit-fill" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#fit-fill-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-2">
+										<div class="tab-pane fade show active" id="fit-fill" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-fill border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-fill-html" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-fill border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Object-Fit-Scale">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Scale</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-scale</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#fit-scale" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#fit-scale-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-3">
+										<div class="tab-pane fade show active" id="fit-scale" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-scale border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-scale-html" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-scale border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Object-Fit-None">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit None</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-none</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-4" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-4" data-bs-toggle="tab" data-bs-target="#fit-none" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-4" data-bs-toggle="tab" data-bs-target="#fit-none-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-4">
+										<div class="tab-pane fade show active" id="fit-none" role="tabpanel" aria-labelledby="home-tab-4">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-none border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-none-html" role="tabpanel" aria-labelledby="home-tab-4">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-none border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="object-fit-sm">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Conatin (Responsive - sm)</h4>
+											<p class="m-0 subtitle">Use classe <code>.fit-sm-contain</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-5" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-5" data-bs-toggle="tab" data-bs-target="#fit-sm-contain" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-5" data-bs-toggle="tab" data-bs-target="#fit-sm-contain-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-5">
+										<div class="tab-pane fade show active" id="fit-sm-contain" role="tabpanel" aria-labelledby="home-tab-5">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-sm-contain border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-sm-contain-html" role="tabpanel" aria-labelledby="home-tab-5">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-sm-contain border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="object-fit-md">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Conatin (Responsive - md)</h4>
+											<p class="m-0 subtitle">Use classe <code>.fit-md-contain</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-6" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-6" data-bs-toggle="tab" data-bs-target="#fit-md-contain" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-6" data-bs-toggle="tab" data-bs-target="#fit-md-contain-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-6">
+										<div class="tab-pane fade show active" id="fit-md-contain" role="tabpanel" aria-labelledby="home-tab-6">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-md-contain border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-md-contain-html" role="tabpanel" aria-labelledby="home-tab-6">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-md-contain border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="object-fit-lg">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Conatin (Responsive - lg)</h4>
+											<p class="m-0 subtitle">Use classe <code>.fit-lg-contain</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-7" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-7" data-bs-toggle="tab" data-bs-target="#fit-lg-contain" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-7" data-bs-toggle="tab" data-bs-target="#fit-lg-contain-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-7">
+										<div class="tab-pane fade show active" id="fit-lg-contain" role="tabpanel" aria-labelledby="home-tab-7">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-lg-contain border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-lg-contain-html" role="tabpanel" aria-labelledby="home-tab-7">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-lg-contain border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="object-fit-xl">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Conatin (Responsive - xl)</h4>
+											<p class="m-0 subtitle">Use classe <code>.fit-xl-contain</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-8" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-8" data-bs-toggle="tab" data-bs-target="#fit-xl-contain" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-8" data-bs-toggle="tab" data-bs-target="#fit-xl-contain-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-8">
+										<div class="tab-pane fade show active" id="fit-xl-contain" role="tabpanel" aria-labelledby="home-tab-8">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-xl-contain border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-xl-contain-html" role="tabpanel" aria-labelledby="home-tab-8">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-xl-contain border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="object-fit-XXl">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Conatin (Responsive - XXl)</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-xxl-contain</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-9" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-9" data-bs-toggle="tab" data-bs-target="#fit-xxl-contain" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-9" data-bs-toggle="tab" data-bs-target="#fit-xxl-contain-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-9">
+										<div class="tab-pane fade show active" id="fit-xxl-contain" role="tabpanel" aria-labelledby="home-tab-9">
+											<div class="card-body object-fit-container">
+												<img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-xxl-contain border rounded" alt="...">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="fit-xxl-contain-html" role="tabpanel" aria-labelledby="home-tab-9">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;img src="{% static 'nexadash/images/media/1.jpg' %}" class="object-fit-xxl-contain border rounded" alt="..."&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Fit-Contain-Vidio">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Contain Vidio</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-contain</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-10" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-10" data-bs-toggle="tab" data-bs-target="#vidio-contain" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-10" data-bs-toggle="tab" data-bs-target="#vidio-contain-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-10">
+										<div class="tab-pane fade show active" id="vidio-contain" role="tabpanel" aria-labelledby="home-tab-10">
+											<div class="card-body object-fit-container">
+												<video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-contain border rounded" autoplay loop muted></video>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="vidio-contain-html" role="tabpanel" aria-labelledby="home-tab-10">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-contain border rounded" autoplay loop muted&gt;&lt;/video&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Fit-Cover-Vidio">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Cover Vidio</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-cover</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-11" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-11" data-bs-toggle="tab" data-bs-target="#vidio-cover" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-11" data-bs-toggle="tab" data-bs-target="#vidio-cover-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-11">
+										<div class="tab-pane fade show active" id="vidio-cover" role="tabpanel" aria-labelledby="home-tab-11">
+											<div class="card-body object-fit-container">
+												<video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-cover border rounded" autoplay loop muted></video>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="vidio-cover-html" role="tabpanel" aria-labelledby="home-tab-11">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-cover border rounded" autoplay loop muted&gt;&lt;/video&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Fit-Fill-Vidio">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Fill Vidio</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-fill</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-12" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-12" data-bs-toggle="tab" data-bs-target="#vidio-fill" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-12" data-bs-toggle="tab" data-bs-target="#vidio-fill-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-12">
+										<div class="tab-pane fade show active" id="vidio-fill" role="tabpanel" aria-labelledby="home-tab-12">
+											<div class="card-body object-fit-container">
+												<video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-fill border rounded" autoplay loop muted></video>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="vidio-fill-html" role="tabpanel" aria-labelledby="home-tab-12">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-fill border rounded" autoplay loop muted&gt;&lt;/video&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Fit-Scale-Vidio">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit Scale Vidio</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-scale</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-13" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-13" data-bs-toggle="tab" data-bs-target="#vidio-scale" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-13" data-bs-toggle="tab" data-bs-target="#vidio-scale-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-13">
+										<div class="tab-pane fade show active" id="vidio-scale" role="tabpanel" aria-labelledby="home-tab-13">
+											<div class="card-body object-fit-container">
+												<video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-scale border rounded" autoplay loop muted></video>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="vidio-scale-html" role="tabpanel" aria-labelledby="home-tab-13">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-scale border rounded" autoplay loop muted&gt;&lt;/video&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card dz-card" id="Fit-None-Vidio">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<div>
+											<h4 class="card-title">Object Fit None Vidio</h4>
+											<p class="m-0 subtitle">Use classe <code>.object-fit-none</code> for get desire heading.</p>
+										</div>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-14" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-14" data-bs-toggle="tab" data-bs-target="#vidio-none" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-14" data-bs-toggle="tab" data-bs-target="#vidio-none-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-14">
+										<div class="tab-pane fade show active" id="vidio-none" role="tabpanel" aria-labelledby="home-tab-14">
+											<div class="card-body object-fit-container">
+												<video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-none border rounded" autoplay loop muted></video>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="vidio-none-html" role="tabpanel" aria-labelledby="home-tab-14">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="card-body object-fit-container"&gt;
+	&lt;video src="{% static 'nexadash/images/media/transaction.mp4' %}" class="object-fit-none border rounded" autoplay loop muted&gt;&lt;/video&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>	
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        });
+</script>
+{% endblock %}

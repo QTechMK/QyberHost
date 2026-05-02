@@ -1,0 +1,89 @@
+﻿{% load static %}
+<div class="deznav">
+    <div class="deznav-scroll grid-menu">
+        <ul class="metismenu" id="menu">
+            <li>
+                <a href="{% url 'nexadash:index' %}" aria-expanded="false">
+                    <div class="menu-icon ai-icon">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                    <div class="menu-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <span class="nav-text">Domainlerim</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'nexadash:domains' %}">Domainlerimi Listele</a></li>
+                    <li><a href="{% url 'nexadash:domain-renewals' %}">Domain Yenileme</a></li>
+                    <li><a href="{% url 'nexadash:domain-register' %}">Yeni Domain Kaydı</a></li>
+                    <li><a href="{% url 'nexadash:domain-transfer' %}">Domain Transferi</a></li>
+                    <li><a href="{% url 'nexadash:domain-checker' %}">Domain Sorgula</a></li>
+                    <li><a href="{% url 'nexadash:whois' %}">Whois</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'nexadash:services' %}" aria-expanded="false">
+                    <div class="menu-icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <span class="nav-text">Hizmetlerim</span>
+                </a>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                    <div class="menu-icon">
+                        <i class="fa-solid fa-life-ring"></i>
+                    </div>
+                    <span class="nav-text">Destek Merkezi</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'nexadash:support-new-ticket' %}">Yeni Destek Talebi</a></li>
+                    <li><a href="{% url 'nexadash:support-tickets' %}">Destek Kayıtlarım</a></li>
+                    <li><a href="{% url 'nexadash:support-announcements' %}">Duyurular</a></li>
+                    <li><a href="{% url 'knowledgebase' %}">Bilgi Bankası</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                    <div class="menu-icon">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <span class="nav-text">Muhasebe</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'nexadash:statements' %}">Makbuzlarım</a></li>
+                    <li><a href="{% url 'nexadash:add-funds' %}">Bakiye Yükle</a></li>
+                    <li><a href="{% url 'nexadash:payment-methods' %}">Ödeme Yöntemleri</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                    <div class="menu-icon">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <span class="nav-text">Hesap Yönetimi</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'nexadash:account-overview' %}">Hesap Özeti</a></li>
+                    <li><a href="{% url 'nexadash:account-settings' %}">Hesap Bilgileri</a></li>
+                    <li><a href="{% url 'nexadash:account-security' %}">Güvenlik</a></li>
+                    <li><a href="{% url 'nexadash:account-activity' %}">Giriş Aktivitesi</a></li>
+                    <li><a href="{% url 'nexadash:account-select' %}">Farklı Hesaba Geç</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'home' %}" aria-expanded="false">
+                    <div class="menu-icon">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <span class="nav-text">Siteye Dön</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

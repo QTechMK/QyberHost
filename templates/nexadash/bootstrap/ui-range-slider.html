@@ -1,0 +1,182 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Range Slider.</h2>
+							<p>Make use of Bootstrap's unique range slider styles to create visually appealing, user-friendly sliders for selecting numeric values or ranges. It also enhance user input with smooth, interactive sliders that provide precise control.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Range Slider on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Range Slider</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#Default-Range-Slider" class="scroll ">Default RangeSlider</a></li>
+									<li><a href="#Disabled-Range-Slider" class="scroll ">Disabled RangeSlider</a></li>
+									<li><a href="#Min-and-Max" class="scroll ">Min and Max RangeSlider</a></li>
+									<li><a href="#Steps-Range-Slider" class="scroll ">Steps RangeSlider</a></li>
+									
+								</ul>	
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							
+							<div class="col-md-12">
+								<div class="card dz-card" id="Default-Range-Slider">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Default Range Slider</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#Default-RangeSlider" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#Default-RangeSlider-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent">
+										<div class="tab-pane fade show active" id="Default-RangeSlider" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body">
+												<label for="customRange1" class="form-label">Example range</label>
+												<input type="range" class="form-range" id="customRange1">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Default-RangeSlider-html" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;label for="customRange1" class="form-label">Example range&lt;/label&gt;
+	&lt;input type="range" class="form-range" id="customRange1"&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Disabled-Range-Slider">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Disabled  Range Slider</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#Disabled-RangeSlider" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#Disabled-RangeSlider-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-1">
+										<div class="tab-pane fade show active" id="Disabled-RangeSlider" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body">
+												<label for="disabledRange" class="form-label">Disabled range</label>
+												<input type="range" class="form-range" id="disabledRange" disabled>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Disabled-RangeSlider-html" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;label for="disabledRange" class="form-label">Disabled range&lt;/label&gt;
+	&lt;input type="range" class="form-range" id="disabledRange" disabled&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Min-and-Max">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Min and Max Range Slider</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#Min-Max-rangeslider" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#Min-Max-rangeslider-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-2">
+										<div class="tab-pane fade show active" id="Min-Max-rangeslider" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body">
+												<label for="customRange2" class="form-label">Example range</label>
+												<input type="range" class="form-range" min="0" max="5" id="customRange2">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Min-Max-rangeslider-html" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;label for="customRange2" class="form-label">Example range&lt;/label&gt;
+	&lt;input type="range" class="form-range" min="0" max="5" id="customRange2"&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Steps-Range-Slider">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Steps Range Slider</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#Steps-rangeslider" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#Steps-rangeslider-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-3">
+										<div class="tab-pane fade show active" id="Steps-rangeslider" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body">
+												<label for="customRange3" class="form-label">Example range</label>
+												<input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Steps-rangeslider-html" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;label for="customRange3" class="form-label">Example range&lt;/label&gt;
+	&lt;input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3"&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>	
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        });
+</script>
+{% endblock %}
