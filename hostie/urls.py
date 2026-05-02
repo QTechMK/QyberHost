@@ -9,6 +9,7 @@ from hostie import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('customer-panel/', include('customer_panel.urls')),
     path('', views.indexSix, name='home'),
     path('index-six/', views.indexSix, name='index-six'),
     path('about/', views.about, name='about'),

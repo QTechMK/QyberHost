@@ -1,0 +1,24 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-xl-12 col-xxl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Form CkEditor</h4>
+                        </div>
+                        <div class="card-body custom-ekeditor">
+                            <div id="ckeditor"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

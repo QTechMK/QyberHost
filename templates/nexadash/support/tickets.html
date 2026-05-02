@@ -1,0 +1,58 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Gorunum</h4>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="javascript:void(0);" class="list-group-item d-flex justify-content-between align-items-center">Acik <span class="badge bg-light text-dark">{{ status_counts.acik }}</span></a>
+                    <a href="javascript:void(0);" class="list-group-item d-flex justify-content-between align-items-center">Yanitlandi <span class="badge bg-light text-dark">{{ status_counts.yanitlandi }}</span></a>
+                    <a href="javascript:void(0);" class="list-group-item d-flex justify-content-between align-items-center">Musteri Yanitladi <span class="badge bg-light text-dark">{{ status_counts.musteri_yanitladi }}</span></a>
+                    <a href="javascript:void(0);" class="list-group-item d-flex justify-content-between align-items-center">Cevap Bekleniyor <span class="badge bg-light text-dark">{{ status_counts.cevap_bekleniyor }}</span></a>
+                    <a href="javascript:void(0);" class="list-group-item d-flex justify-content-between align-items-center">Kapandi <span class="badge bg-light text-dark">{{ status_counts.kapandi }}</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="card-title mb-0">Destek Kayitlarim</h4>
+                    <a href="{% url 'nexadash:support-new-ticket' %}" class="btn btn-primary btn-sm">Yeni Destek Talebi</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Departman</th>
+                                    <th>Konu</th>
+                                    <th>Durum</th>
+                                    <th class="text-end">Son Guncelleme</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ticket in tickets %}
+                                <tr>
+                                    <td>{{ ticket.department }}</td>
+                                    <td>
+                                        <div class="fw-semibold">{{ ticket.subject }}</div>
+                                        <small class="text-muted">#{{ ticket.ticket_id }}</small>
+                                    </td>
+                                    <td><span class="badge light badge-secondary">{{ ticket.status }}</span></td>
+                                    <td class="text-end">{{ ticket.updated_at }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

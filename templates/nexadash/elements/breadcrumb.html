@@ -1,0 +1,10 @@
+{% load static %}
+            <div class="page-titles">
+                <h5 class="dashboard_bar">{{page_title}}</h5>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'nexadash:index' %}">
+                        Home </a>
+                    </li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">{{page_title}}</a></li>
+                </ul>
+            </div>

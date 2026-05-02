@@ -1,0 +1,82 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-1">Yeni Destek Talebi</h4>
+                    <small class="text-muted">Ihtiyaciniza uygun departmani secerek destek kaydi olusturun</small>
+                </div>
+                <div class="card-body">
+                    <p class="mb-4">
+                        Sorunlarinizin cozumunu Bilgi Merkezi'nde bulamadiysaniz asagida ilgili departmani secerek destek icin bize bildirim gonderebilirsiniz.
+                    </p>
+
+                    <div class="row g-3">
+                        {% for dept in departments %}
+                        <div class="col-md-6">
+                            <div class="ticket-dept-card">
+                                <h5 class="mb-2">
+                                    <i class="fa fa-envelope text-primary me-2"></i>{{ dept.name }}
+                                </h5>
+                                <p class="text-muted mb-3">{{ dept.description }}</p>
+                                <a href="{% url 'nexadash:support-new-ticket-department' dept.slug %}" class="btn btn-light btn-sm">Departmani Sec</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Son Kayitlariniz</h4></div>
+                <div class="list-group list-group-flush">
+                    {% for ticket in recent_tickets %}
+                    <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                        <div class="small fw-semibold">#{{ ticket.id }} - {{ ticket.subject }}</div>
+                        <small class="text-muted d-flex justify-content-between">
+                            <span>{{ ticket.status }}</span>
+                            <span>{{ ticket.age }}</span>
+                        </small>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Destek Merkezi</h4></div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'nexadash:support-new-ticket' %}" class="list-group-item list-group-item-action active">Yeni Destek Talebi</a>
+                    <a href="{% url 'nexadash:support-tickets' %}" class="list-group-item list-group-item-action">Destek Kayitlarim</a>
+                    <a href="{% url 'nexadash:support-announcements' %}" class="list-group-item list-group-item-action">Duyurular</a>
+                    <a href="{% url 'knowledgebase' %}" class="list-group-item list-group-item-action">Bilgi Bankasi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.ticket-dept-card {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 16px;
+    height: 100%;
+}
+
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                    <div>
+                        <h4 class="card-title mb-1">Kayitli Kredi Kartlarim</h4>
+                        <small class="text-muted">Kredi karti bilgilerinin saklama ve yonetme sayfasi</small>
+                    </div>
+                    <a href="{% url 'nexadash:payment-methods-add' %}" class="btn btn-primary">Yeni Kredi Karti Ekle</a>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info d-flex align-items-start gap-3" role="alert">
+                        <i class="fa fa-shield-alt mt-1"></i>
+                        <div>
+                            <strong>Domainhizmetleri ve Iyzico Isbirligi ile</strong>
+                            <p class="mb-0 mt-1">
+                                Kart bilgileriniz, odeme kartlari islemleri icin zorunlu olan PCI-DSS sertifikali Iyzico altyapisi uzerinde guvenli bir sekilde saklanmaktadir.
+                                Tum odeme islemleriniz banka seviyesi guvenlik standartlariyla korunur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Isim</th>
+                                    <th>Kart Aciklamasi / Tanimi</th>
+                                    <th>Durum</th>
+                                    <th class="text-end">Eylemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if cards %}
+                                    {% for card in cards %}
+                                    <tr>
+                                        <td>{{ card.name }}</td>
+                                        <td>{{ card.label }}</td>
+                                        <td><span class="badge badge-success light">Aktif</span></td>
+                                        <td class="text-end">
+                                            <a href="javascript:void(0);" class="btn btn-light btn-sm">Varsayilan Yap</a>
+                                            <a href="javascript:void(0);" class="btn btn-danger btn-sm">Sil</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                {% else %}
+                                <tr>
+                                    <td colspan="4" class="text-center text-muted py-5">Henuz bir kredi karti bilgisi eklenmedi</td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Hesabim</h4></div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'nexadash:account-settings' %}" class="list-group-item list-group-item-action">Cari Hesap Bilgilerim</a>
+                    <a href="{% url 'nexadash:user-management' %}" class="list-group-item list-group-item-action">Hesap Yetkilisi Yonetimi</a>
+                    <a href="{% url 'nexadash:payment-methods' %}" class="list-group-item list-group-item-action active">Kayitli Kredi Kartlarim</a>
+                    <a href="{% url 'nexadash:contacts' %}" class="list-group-item list-group-item-action">Bildirim Kisileri</a>
+                    <a href="{% url 'nexadash:account-security' %}" class="list-group-item list-group-item-action">Hesap Guvenligi</a>
+                    <a href="{% url 'nexadash:email-history' %}" class="list-group-item list-group-item-action">Eposta Gecmisi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+</style>
+{% endblock %}
+

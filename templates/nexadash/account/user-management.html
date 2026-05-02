@@ -1,0 +1,119 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-1">Hesap Yetkilisi Yonetimi</h4>
+                    <small class="text-muted">Hesabiniza erisim yetkisi olan kullanicilari yonetin</small>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3"><strong>{{ user_count }} Yetkili Mevcut</strong></p>
+
+                    <div class="table-responsive mb-3">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Email Adresi / Son Oturum Acma</th>
+                                    <th class="text-end" style="min-width: 260px;">Eylemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in users %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center flex-wrap gap-2">
+                                            <span>{{ item.email }}</span>
+                                            {% if item.is_owner %}
+                                            <span class="badge badge-info">Hesap Sahibi</span>
+                                            {% endif %}
+                                            {% if item.two_fa_enabled %}
+                                            <span class="badge badge-success light">2FA Acik</span>
+                                            {% else %}
+                                            <span class="badge badge-danger light">2FA Kapali</span>
+                                            {% endif %}
+                                        </div>
+                                        <small class="text-muted d-block mt-1">Son Oturum Acma: {{ item.last_login }}</small>
+                                    </td>
+                                    <td class="text-end">
+                                        <button class="btn btn-light btn-sm" disabled>Izinleri Yonet</button>
+                                        <button class="btn btn-danger btn-sm" disabled>Erisimi Iptal Et</button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-muted mb-4">* Hesap Sahibi tum yetkilere sahiptir.</p>
+
+                    <h5 class="mb-2">Yeni Yetkili Davet Et</h5>
+                    <p class="text-muted mb-3">Yeni bir kullanici davet ederek hesap yonetimini paylasabilirsiniz.</p>
+
+                    <form action="javascript:void(0);" method="post">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3 d-flex flex-wrap gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="permissions" id="permAll" checked>
+                                <label class="form-check-label" for="permAll">Tum Yetkileri Ver</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="permissions" id="permCustom">
+                                <label class="form-check-label" for="permCustom">Yetkileri Ozellestir</label>
+                            </div>
+                        </div>
+
+                        <div class="permission-box mb-3">
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="p1"><label class="form-check-label" for="p1">Ana hesap profil bilgilerini degistirme</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="p2"><label class="form-check-label" for="p2">Alt kullanicilari goruntuleme ve yonetme</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="p3"><label class="form-check-label" for="p3">Urun ve hizmetleri goruntuleme</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="p4"><label class="form-check-label" for="p4">Domain ayarlari ve guncelleme</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="p5"><label class="form-check-label" for="p5">Makbuzlari goruntuleme ve odeme yapma</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="p6"><label class="form-check-label" for="p6">Destek taleplerini goruntuleme ve yanitlama</label></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-info">Erisim Daveti Gonder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Hesabim</h4></div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'nexadash:account-settings' %}" class="list-group-item list-group-item-action">Cari Hesap Bilgilerim</a>
+                    <a href="{% url 'nexadash:user-management' %}" class="list-group-item list-group-item-action active">Hesap Yetkilisi Yonetimi</a>
+                    <a href="{% url 'nexadash:payment-methods' %}" class="list-group-item list-group-item-action">Kayitli Kredi Kartlarim</a>
+                    <a href="{% url 'nexadash:contacts' %}" class="list-group-item list-group-item-action">Bildirim Kisileri</a>
+                    <a href="{% url 'nexadash:account-security' %}" class="list-group-item list-group-item-action">Hesap Guvenligi</a>
+                    <a href="{% url 'nexadash:email-history' %}" class="list-group-item list-group-item-action">Eposta Gecmisi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.permission-box {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+</style>
+{% endblock %}

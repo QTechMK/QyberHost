@@ -1,0 +1,113 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-6 col-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Example</h4>
+							</div>
+							<div class="card-body">
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active" aria-current="page">Home</li>
+									</ol>
+								</nav>
+									
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Library</li>
+									</ol>
+								</nav>
+									
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Home</a></li>
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Library</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Data</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 col-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Dividers</h4>
+							</div>
+							<div class="card-body">
+								<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Library</li>
+									</ol>
+								</nav>
+								<nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Library</li>
+									</ol>
+								</nav>
+								<nav style="--bs-breadcrumb-divider: '~';" aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Library</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 col-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Svg Icon</h4>
+							</div>
+							<div class="card-body">
+								<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Library</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 col-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Without Divider</h4>
+							</div>
+							<div class="card-body">
+								<nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item active"><a href="javascript:void(0);">Home</a></li>
+										<li class="breadcrumb-item" aria-current="page">Library</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        });
+</script>
+{% endblock %}

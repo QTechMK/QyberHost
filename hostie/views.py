@@ -284,7 +284,7 @@ def signUp(request):
 
         login(request, user)
         messages.success(request, 'Hesabiniz basariyla olusturuldu.')
-        return redirect('home')
+        return redirect(settings.LOGIN_REDIRECT_URL)
 
     context = {
         'page_title': 'QyberHost Django - Sign Up',
@@ -340,7 +340,7 @@ def signIn(request):
             if not form.cleaned_data.get('remember_me'):
                 request.session.set_expiry(0)
             messages.success(request, 'Giris basarili.')
-            return redirect('home')
+            return redirect(settings.LOGIN_REDIRECT_URL)
 
     context = {
         'page_title': 'QyberHost Django - Sign In',

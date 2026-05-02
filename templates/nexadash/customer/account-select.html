@@ -1,0 +1,99 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-9 col-lg-10">
+            <div class="card">
+                <div class="card-header border-0 pb-0">
+                    <div>
+                        <h4 class="card-title mb-1">Yonetmek istediginiz hesabi secin</h4>
+                        <p class="mb-0 text-muted">
+                            Yetkiniz her hesap icin ayri tanimlanir. Teknik sorumlular muhasebe ve odeme alanlarina erisemez.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        {% for membership in memberships %}
+                        <div class="col-md-6 mb-4">
+                            <div class="card border h-100 mb-0">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex align-items-start justify-content-between mb-3">
+                                        <div>
+                                            <h5 class="mb-1">{{ membership.account.name }}</h5>
+                                            <span class="badge badge-primary light">{{ membership.account.get_account_type_display }}</span>
+                                            <span class="badge badge-info light">{{ membership.get_role_display }}</span>
+                                        </div>
+                                        <div class="avatar avatar-md bg-primary-light text-primary rounded d-flex align-items-center justify-content-center">
+                                            <i class="fa-solid fa-building"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2 mb-4">
+                                        <div class="col-6">
+                                            <div class="p-2 rounded bg-light">
+                                                <small class="text-muted d-block">Teknik Islemler</small>
+                                                {% if membership.can_manage_technical %}
+                                                <strong class="text-success">Acik</strong>
+                                                {% else %}
+                                                <strong class="text-muted">Kapali</strong>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 rounded bg-light">
+                                                <small class="text-muted d-block">Muhasebe</small>
+                                                {% if membership.can_manage_billing %}
+                                                <strong class="text-success">Acik</strong>
+                                                {% else %}
+                                                <strong class="text-danger">Kapali</strong>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 rounded bg-light">
+                                                <small class="text-muted d-block">Kullanici Yonetimi</small>
+                                                {% if membership.can_manage_users %}
+                                                <strong class="text-success">Acik</strong>
+                                                {% else %}
+                                                <strong class="text-muted">Kapali</strong>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 rounded bg-light">
+                                                <small class="text-muted d-block">Destek Talepleri</small>
+                                                {% if membership.can_open_tickets %}
+                                                <strong class="text-success">Acik</strong>
+                                                {% else %}
+                                                <strong class="text-muted">Kapali</strong>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <form method="post" action="{% url 'nexadash:account-switch' membership.account.id %}" class="mt-auto">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            Bu hesapla devam et <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="col-12">
+                            <div class="alert alert-warning mb-0">
+                                Henuz bagli bir hesap bulunamadi. Sistem otomatik hesap olusturmayi deneyemedi.
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,316 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Toplam Domain</span>
+                    <h3 class="mb-0">{{ stats.total }}</h3>
+                    <small>{{ active_account.name }} hesabina bagli domainler</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Aktif</span>
+                    <h3 class="mb-0 text-success">{{ stats.active }}</h3>
+                    <small>Yonetilebilir ve yayinda olan domainler</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Yakinda Bitiyor</span>
+                    <h3 class="mb-0 text-warning">{{ stats.expiring }}</h3>
+                    <small>30 gun icinde yenilenmesi gerekenler</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Kurtarma Donemi</span>
+                    <h3 class="mb-0 text-danger">{{ stats.redemption }}</h3>
+                    <small>Acil yenileme gerektiren domainler</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header flex-wrap gap-2">
+                    <div>
+                        <h4 class="card-title mb-1">Domainlerimi Listele</h4>
+                        <small class="text-muted">Domain, yenileme, SSL ve durum bilgilerini tek ekrandan takip edin.</small>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <input type="search" id="domainSearch" class="form-control form-control-sm" placeholder="Domain ara" style="width: 220px;">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                Disari Aktar
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="javascript:void(0);" class="dropdown-item" id="exportDomainCsv">CSV</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% if not can_manage_technical %}
+                    <div class="alert alert-warning">
+                        Bu hesapta teknik islem yetkiniz yok. Domainleri goruntuleyebilirsiniz, fakat DNS, kilit, nameserver ve yenileme gibi teknik aksiyonlar kisitlidir.
+                    </div>
+                    {% endif %}
+
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-3 gap-2">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                                Secililer
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item {% if not can_manage_technical %}disabled{% endif %}" href="javascript:void(0);">Isim Sunucularini Yonet</a>
+                                <a class="dropdown-item {% if not can_manage_technical %}disabled{% endif %}" href="javascript:void(0);">Otomatik Yenileme Durumu</a>
+                                <a class="dropdown-item {% if not can_manage_technical %}disabled{% endif %}" href="javascript:void(0);">Koruma Durumu</a>
+                                <a class="dropdown-item {% if not can_manage_technical %}disabled{% endif %}" href="javascript:void(0);">Irtibat Bilgilerini Guncelle</a>
+                                <a class="dropdown-item {% if not can_manage_billing %}disabled{% endif %}" href="javascript:void(0);">Alan Adlarini Yenile</a>
+                            </div>
+                        </div>
+                        <small class="text-muted">
+                            Teknik sorumlu muhasebe islemine erisemez; yenileme/odeme adimlari muhasebe yetkisi ister.
+                        </small>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover table-responsive-sm align-middle" id="domainsTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 34px;">
+                                        <input type="checkbox" id="selectAllDomains" class="form-check-input">
+                                    </th>
+                                    <th style="width: 54px;">SSL</th>
+                                    <th>Domain</th>
+                                    <th>Kayit Tar.</th>
+                                    <th>Yenilenme Tar.</th>
+                                    <th>Oto. Yenileme</th>
+                                    <th>Durum</th>
+                                    <th class="text-end">Islem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for domain in domains %}
+                                <tr data-domain="{{ domain.name|lower }}" data-status="{{ domain.status }}" data-expiring="{% if domain.is_expiring_soon %}1{% else %}0{% endif %}">
+                                    <td>
+                                        <input type="checkbox" class="form-check-input domain-check" value="{{ domain.id }}">
+                                    </td>
+                                    <td>
+                                        {% if domain.ssl_status == "active" %}
+                                        <span class="badge badge-success light" title="Gecerli SSL Sertifikasina Sahip">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </span>
+                                        {% elif domain.ssl_status == "domain_inactive" %}
+                                        <span class="badge badge-danger light" title="Domain Aktif Degil">
+                                            <i class="fa-solid fa-ban"></i>
+                                        </span>
+                                        {% else %}
+                                        <span class="badge badge-warning light" title="SSL Sertifikasi tespit edilemedi">
+                                            <i class="fa-solid fa-unlock"></i>
+                                        </span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="https://{{ domain.name }}" target="_blank" rel="noopener" class="fw-semibold">
+                                            {{ domain.name }}
+                                        </a>
+                                        {% if domain.registrar %}
+                                        <small class="d-block text-muted">{{ domain.registrar }}</small>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ domain.registration_date|date:"d/m/Y" }}</td>
+                                    <td>
+                                        {{ domain.renewal_date|date:"d/m/Y" }}
+                                        {% if domain.is_expiring_soon %}
+                                        <small class="d-block text-warning">Yakinda bitiyor</small>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if domain.auto_renew %}
+                                        <span class="text-success"><i class="fa-solid fa-check"></i> Etkin</span>
+                                        {% else %}
+                                        <span class="text-danger"><i class="fa-solid fa-xmark"></i> Pasif</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if domain.status == "active" %}
+                                        <span class="badge badge-success light">Aktif</span>
+                                        {% elif domain.status == "redemption" %}
+                                        <span class="badge badge-danger light">Kurtarma Donemi</span>
+                                        {% elif domain.status == "expired" %}
+                                        <span class="badge badge-dark light">Suresi Doldu</span>
+                                        {% else %}
+                                        <span class="badge badge-info light">Beklemede</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-end">
+                                        <div class="dropdown">
+                                            <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                Yonet
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item {% if not can_manage_technical %}disabled{% endif %}" href="javascript:void(0);">Alan Adini Yonet</a>
+                                                <a class="dropdown-item {% if not can_manage_technical %}disabled{% endif %}" href="javascript:void(0);">Otomatik Yenileme Durumu</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item {% if not can_manage_billing %}disabled{% endif %}" href="javascript:void(0);">Yenile / Sure Uzat</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="8" class="text-center text-muted py-5">
+                                        Bu hesapta henuz domain bulunmuyor.
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 domain-side-panel">
+            <div class="card domain-sidebar-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Islemler</h4>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'nexadash:domain-renewals' %}" class="btn btn-outline-primary w-100 mb-2 {% if not can_manage_billing %}disabled{% endif %}">
+                        Domain Yenileme
+                    </a>
+                    <a href="{% url 'nexadash:domain-register' %}" class="btn btn-primary w-100 mb-2">
+                        Yeni Domain Satin Al
+                    </a>
+                    <a href="{% url 'nexadash:domain-transfer' %}" class="btn btn-light w-100">
+                        Domain Transferi
+                    </a>
+                </div>
+            </div>
+
+            <div class="card domain-sidebar-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Guvenlik</h4>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2">2 Adimli Dogrulama:
+                        <span class="badge badge-danger light">Pasif</span>
+                    </p>
+                    <a href="{% url 'nexadash:account-security' %}" class="btn btn-light btn-sm">Hemen Basla</a>
+                </div>
+            </div>
+
+            {% if can_manage_billing %}
+            <div class="card domain-sidebar-card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Bakiyeniz</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="mb-0">0.00 TL</h4>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.domain-side-panel .domain-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.domain-side-panel .domain-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+
+.domain-side-panel .domain-sidebar-card .card-body {
+    min-height: 0;
+    padding: 10px 16px;
+}
+
+.domain-side-panel .domain-sidebar-card .card-body > :last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var selectAll = document.getElementById("selectAllDomains");
+    var checks = Array.prototype.slice.call(document.querySelectorAll(".domain-check"));
+    var search = document.getElementById("domainSearch");
+    var rows = Array.prototype.slice.call(document.querySelectorAll("#domainsTable tbody tr[data-domain]"));
+    var exportCsv = document.getElementById("exportDomainCsv");
+
+    if (selectAll) {
+        selectAll.addEventListener("change", function () {
+            checks.forEach(function (checkbox) {
+                checkbox.checked = selectAll.checked;
+            });
+        });
+    }
+
+    checks.forEach(function (checkbox) {
+        checkbox.addEventListener("change", function () {
+            selectAll.checked = checks.length > 0 && checks.every(function (item) { return item.checked; });
+        });
+    });
+
+    if (search) {
+        search.addEventListener("input", function () {
+            var term = search.value.trim().toLowerCase();
+            rows.forEach(function (row) {
+                row.style.display = row.dataset.domain.indexOf(term) === -1 ? "none" : "";
+            });
+        });
+    }
+
+    if (exportCsv) {
+        exportCsv.addEventListener("click", function () {
+            var lines = [["Domain", "Kayit Tarihi", "Yenilenme Tarihi", "Oto. Yenileme", "Durum"]];
+            rows.filter(function (row) {
+                return row.style.display !== "none";
+            }).forEach(function (row) {
+                var cells = row.querySelectorAll("td");
+                lines.push([
+                    cells[2].innerText.trim(),
+                    cells[3].innerText.trim(),
+                    cells[4].innerText.trim(),
+                    cells[5].innerText.trim(),
+                    cells[6].innerText.trim()
+                ]);
+            });
+
+            var csv = lines.map(function (line) {
+                return line.map(function (value) {
+                    return '"' + String(value).replace(/"/g, '""') + '"';
+                }).join(",");
+            }).join("\n");
+            var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            var link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "domain-listesi.csv";
+            link.click();
+            URL.revokeObjectURL(link.href);
+        });
+    }
+});
+</script>
+{% endblock %}

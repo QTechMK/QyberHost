@@ -1,0 +1,225 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid domain-renewals-page">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header flex-wrap gap-2">
+                    <div>
+                        <h4 class="card-title mb-1">Domain Yenilemeleri</h4>
+                        <small class="text-muted">Yenilemek istediginiz domainleri secip sepet ozetinizi olusturun.</small>
+                    </div>
+                    <input id="domainRenewalFilter" type="search" class="form-control form-control-sm" placeholder="Domain Giriniz" style="max-width: 260px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if not can_manage_billing %}
+    <div class="alert alert-warning">
+        Bu hesapta muhasebe yetkiniz yok. Domain yenileme sayfasini goruntuleyebilirsiniz, fakat sepete ekleme ve odeme islemleri icin hesap sahibi, yonetici veya muhasebe yetkilisi olmaniz gerekir.
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-xl-8">
+            <div id="domainRenewals">
+                {% for item in renewal_items %}
+                <div class="card domain-renewal-card" data-domain="{{ item.domain.name|lower }}">
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap align-items-start justify-content-between gap-2 mb-2">
+                            <div>
+                                <h3 class="font-size-24 mb-1">{{ item.domain.name }}</h3>
+                                <p class="mb-0 text-muted">
+                                    Tescil Bitis Tarihi: {{ item.domain.renewal_date|date:"d M Y" }} ({{ item.relative_label }})
+                                </p>
+                            </div>
+                            <span class="badge badge-{{ item.badge_class }} light">{{ item.status_label }}</span>
+                        </div>
+
+                        {% if item.options %}
+                        <form class="renewal-form">
+                            <div class="row align-items-center g-3">
+                                <label class="col-lg-4 col-form-label">
+                                    Sureyi Uzat / Yenile{% if item.domain.status == "redemption" %} *{% endif %}
+                                </label>
+                                <div class="col-lg-5">
+                                    <select class="form-control select-renewal-pricing">
+                                        {% for option in item.options %}
+                                        <option value="{{ option.total }}" data-years="{{ option.years }}" data-label="{{ option.label }}{{ option.recovery_label }}">
+                                            {{ option.label }}{{ option.recovery_label }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 text-lg-end">
+                                    <button type="button"
+                                            class="btn btn-primary btn-sm btn-add-renewal-to-cart {% if not can_manage_billing %}disabled{% endif %}"
+                                            data-domain-id="{{ item.domain.id }}"
+                                            {% if not can_manage_billing %}disabled{% endif %}>
+                                        <span class="to-add">
+                                            <i class="fa-solid fa-cart-plus me-1"></i>
+                                            Sepete Ekle
+                                        </span>
+                                        <span class="added d-none">
+                                            <i class="fa-solid fa-check me-1"></i>
+                                            Eklendi
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        {% else %}
+                        <div class="d-flex justify-content-end">
+                            <span class="text-muted">Bu domain icin yenileme penceresi kapanmis.</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% empty %}
+                <div class="card">
+                    <div class="card-body text-center text-muted py-5">
+                        Bu hesapta yenilenebilir domain bulunmuyor.
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="text-center">
+                <small class="text-muted">
+                    * Domainler suresi dolduktan sonra Grace Period durumuna girebilir. Bu durumda domain sadece minimum tescil suresi kadar yenilenebilir ve kurtarma ucreti uygulanabilir.
+                </small>
+            </div>
+        </div>
+
+        <div class="col-xl-4">
+            <div class="card order-summary-card" id="orderSummary">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Siparis Ozeti</h4>
+                </div>
+                <div class="card-body">
+                    <div id="renewalCartItems" class="renewal-cart-items">
+                        <p class="text-muted mb-0">Henuz sepete eklenen domain yok.</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-start total-due-today">
+                        <div>
+                            <span class="d-block fw-semibold">Toplam Tutar:</span>
+                            <small class="text-muted">Tum vergiler dahil</small>
+                        </div>
+                        <h4 class="mb-0" id="renewalCartTotal">0,00TL</h4>
+                    </div>
+                    <a id="btnGoToCart" class="btn btn-primary btn-lg w-100 mt-3 {% if not can_manage_billing %}disabled{% endif %}" href="javascript:void(0);">
+                        Sepeti Goruntule
+                        <i class="fa-solid fa-cart-shopping ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.domain-renewals-page .domain-renewal-card {
+    margin-bottom: 14px;
+}
+
+.domain-renewals-page .domain-renewal-card .card-body {
+    padding: 18px;
+}
+
+.domain-renewals-page .order-summary-card {
+    position: sticky;
+    top: 90px;
+}
+
+.domain-renewals-page .renewal-cart-item {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    background: rgba(245, 247, 250, 0.72);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var filter = document.getElementById("domainRenewalFilter");
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".domain-renewal-card"));
+    var cartItems = document.getElementById("renewalCartItems");
+    var cartTotal = document.getElementById("renewalCartTotal");
+    var cart = {};
+
+    function formatTry(amount) {
+        return amount.toLocaleString("tr-TR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + "TL";
+    }
+
+    function recalculateTotals() {
+        var keys = Object.keys(cart);
+        var total = keys.reduce(function (sum, key) {
+            return sum + cart[key].price;
+        }, 0);
+
+        if (!keys.length) {
+            cartItems.innerHTML = '<p class="text-muted mb-0">Henuz sepete eklenen domain yok.</p>';
+        } else {
+            cartItems.innerHTML = keys.map(function (key) {
+                var item = cart[key];
+                return '' +
+                    '<div class="renewal-cart-item">' +
+                    '<div class="d-flex justify-content-between gap-2">' +
+                    '<div>' +
+                    '<strong>' + item.domain + '</strong>' +
+                    '<small class="d-block text-muted">' + item.label + '</small>' +
+                    '</div>' +
+                    '<strong>' + formatTry(item.price) + '</strong>' +
+                    '</div>' +
+                    '</div>';
+            }).join("");
+        }
+
+        cartTotal.textContent = formatTry(total);
+    }
+
+    if (filter) {
+        filter.addEventListener("input", function () {
+            var term = filter.value.trim().toLowerCase();
+            cards.forEach(function (card) {
+                card.style.display = card.dataset.domain.indexOf(term) === -1 ? "none" : "";
+            });
+        });
+    }
+
+    document.querySelectorAll(".btn-add-renewal-to-cart").forEach(function (button) {
+        button.addEventListener("click", function () {
+            if (button.disabled) {
+                return;
+            }
+
+            var card = button.closest(".domain-renewal-card");
+            var select = card.querySelector(".select-renewal-pricing");
+            var selected = select.options[select.selectedIndex];
+            var domain = card.dataset.domain;
+            var price = parseFloat(selected.value);
+
+            cart[button.dataset.domainId] = {
+                domain: domain,
+                label: selected.dataset.label || selected.textContent.trim(),
+                price: price
+            };
+
+            button.querySelector(".to-add").classList.add("d-none");
+            button.querySelector(".added").classList.remove("d-none");
+            button.classList.remove("btn-primary");
+            button.classList.add("btn-success");
+            recalculateTotals();
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,482 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Spinners.</h2>
+							<p>Make use of Bootstrap's unique Spinners styles to provide visual feedback for ongoing processes, ensuring users are aware of background activities.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Spinners on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Spinners</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#Default-Spinner" class="scroll ">Default Spinner</a></li>
+									<li><a href="#Growing-Spinner" class="scroll ">Growing Spinner</a></li>
+									<li><a href="#Colorfull-Spinners" class="scroll ">Colorfull Spinners</a></li>
+									<li><a href="#Colorfull-Growing" class="scroll ">Colorfull Growing</a></li>
+									<li><a href="#Alighment-Flex" class="scroll ">Alighment Flex</a></li>
+									<li><a href="#Spinner-Sizes" class="scroll ">Spinner Sizes</a></li>
+									<li><a href="#Buttons-Spinner" class="scroll ">Buttons Spinner</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							
+							<div class="col-md-12">
+								<div class="card dz-card" id="Default-Spinner">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Default Spinner</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#DefaultSpinner" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#Default-Spinner-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent">
+										<div class="tab-pane fade show active" id="DefaultSpinner" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body">
+												<div class="spinner-border" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Default-Spinner-html" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="spinner-border" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Growing-Spinner">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Growing Spinner</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#GrowingSpinner" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#Growing-Spinner-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-1">
+										<div class="tab-pane fade show active" id="GrowingSpinner" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body">
+												<div class="spinner-grow" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Growing-Spinner-html" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="spinner-grow" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Colorfull-Spinners">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Colorfull Spinners</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#ColorfullSpinners" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#Colorfull-Spinners-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-2">
+										<div class="tab-pane fade show active" id="ColorfullSpinners" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body">
+												<div class="spinner-border text-primary" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border text-secondary" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border text-success" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border text-danger" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border text-warning" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border text-info" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border text-light" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border text-dark" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Colorfull-Spinners-html" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="spinner-border text-primary" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border text-secondary" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border text-success" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border text-danger" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border text-warning" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border text-info" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border text-light" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border text-dark" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Colorfull-Growing">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Colorfull Growing Spinners</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#ColorfullGrowing" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#Colorfull-Growing-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-3">
+										<div class="tab-pane fade show active" id="ColorfullGrowing" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body">
+												<div class="spinner-grow text-primary" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow text-secondary" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow text-success" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow text-danger" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow text-warning" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow text-info" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow text-light" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow text-dark" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Colorfull-Growing-html" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="spinner-grow text-primary" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow text-secondary" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow text-success" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow text-danger" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow text-warning" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow text-info" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow text-light" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow text-dark" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Alighment-Flex">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Alighment Flex</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-4" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-4" data-bs-toggle="tab" data-bs-target="#AlighmentFlex" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-4" data-bs-toggle="tab" data-bs-target="#Alighment-Flex-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-4">
+										<div class="tab-pane fade show active" id="AlighmentFlex" role="tabpanel" aria-labelledby="home-tab-4">
+											<div class="card-body">
+												<div class="d-flex justify-content-center">
+													<div class="spinner-border" role="status">
+													<span class="visually-hidden">Loading...</span>
+													</div>
+												</div>
+												<div class="d-flex align-items-center">
+													<strong role="status">Loading...</strong>
+													<div class="spinner-border ms-auto" aria-hidden="true"></div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Alighment-Flex-html" role="tabpanel" aria-labelledby="home-tab-4">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="d-flex justify-content-center"&gt;
+		&lt;div class="spinner-border" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="d-flex align-items-center"&gt;
+		&lt;strong role="status"&gt;Loading...&lt;/strong&gt;
+		&lt;div class="spinner-border ms-auto" aria-hidden="true"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card dz-card" id="Spinner-Sizes">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Spinner Sizes</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-5" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-5" data-bs-toggle="tab" data-bs-target="#SpinnerSizes" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-5" data-bs-toggle="tab" data-bs-target="#Spinner-Sizes-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-5">
+										<div class="tab-pane fade show active" id="SpinnerSizes" role="tabpanel" aria-labelledby="home-tab-5">
+											<div class="card-body d-flex flex-wrap align-items-center">
+												<div class="spinner-border me-4 spinner-border-sm" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow me-4 spinner-grow-sm" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-border me-4" style="width: 3rem; height: 3rem;" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+												<div class="spinner-grow me-4" style="width: 3rem; height: 3rem;" role="status">
+													<span class="visually-hidden">Loading...</span>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Spinner-Sizes-html" role="tabpanel" aria-labelledby="home-tab-5">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="spinner-border me-4 spinner-border-sm" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow me-4 spinner-grow-sm" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-border me-4" style="width: 3rem; height: 3rem;" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="spinner-grow me-4" style="width: 3rem; height: 3rem;" role="status"&gt;
+		&lt;span class="visually-hidden"&gt;Loading...&lt;/span&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="card dz-card" id="Buttons-Spinner">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Buttons Spinner</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-6" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-6" data-bs-toggle="tab" data-bs-target="#ButtonsSpinner" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-6" data-bs-toggle="tab" data-bs-target="#Buttons-Spinner-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-6">
+										<div class="tab-pane fade show active" id="ButtonsSpinner" role="tabpanel" aria-labelledby="home-tab-6">
+											<div class="card-body d-flex flex-wrap align-items-center">
+												<button class="btn btn-primary mb-2 me-2" type="button" disabled>
+													<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+													<span class="visually-hidden" role="status">Loading...</span>
+												</button>
+												<button class="btn btn-primary mb-2 me-2" type="button" disabled>
+													<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+												<button class="btn btn-primary mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span class="visually-hidden" role="status">Loading...</span>
+												</button>
+												<button class="btn btn-primary mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+												<button class="btn btn-secondary mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+												<button class="btn btn-success mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+												<button class="btn btn-danger mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+												<button class="btn btn-warning mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+												<button class="btn btn-info mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+												<button class="btn btn-dark mb-2 me-2" type="button" disabled>
+													<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+													<span role="status">Loading...</span>
+												</button>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Buttons-Spinner-html" role="tabpanel" aria-labelledby="home-tab-6">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;button class="btn btn-primary mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-border spinner-border-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span class="visually-hidden" role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-primary mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-border spinner-border-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-primary mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span class="visually-hidden" role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-primary mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-secondary mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-success mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-danger mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-warning mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-info mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;button class="btn btn-dark mb-2 me-2" type="button" disabled&gt;
+		&lt;span class="spinner-grow spinner-grow-sm" aria-hidden="true"&gt;&lt;/span&gt;
+		&lt;span role="status"&gt;Loading...&lt;/span&gt;
+	&lt;/button&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>		
+{% endblock %}
+
+{% block additional_js %}
+    <script>hljs.highlightAll();
+    hljs.configure({ ignoreUnescapedHTML: true })
+        
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+            });
+    </script>
+{% endblock %}

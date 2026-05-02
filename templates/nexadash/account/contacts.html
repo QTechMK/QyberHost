@@ -1,0 +1,138 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-1">Bildirim Kisileri</h4>
+                    <small class="text-muted">Alt kullanicilar ve bildirim iletisim bilgileri</small>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <form class="row g-2 align-items-center" action="javascript:void(0);" method="post">
+                            <label class="col-md-3 col-form-label">Bildirim Kisisi Sec</label>
+                            <div class="col-md-7">
+                                <select class="form-control">
+                                    {% for c in contacts %}
+                                    <option selected>{{ c.full_name }} - {{ c.email }}</option>
+                                    {% endfor %}
+                                    <option>Yeni Bildirim Kisisi Ekle</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-light w-100">Git</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    {% with c=contacts.0 %}
+                    <form class="row g-3" action="javascript:void(0);" method="post">
+                        <div class="col-md-6">
+                            <label class="form-label">Adi</label>
+                            <input type="text" class="form-control" value="Fatih">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Soyadi</label>
+                            <input type="text" class="form-control" value="Kuroglu">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Firma Adi</label>
+                            <input type="text" class="form-control" value="{{ c.company }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">E-posta</label>
+                            <input type="email" class="form-control" value="{{ c.email }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Telefon Numarasi</label>
+                            <input type="text" class="form-control" value="{{ c.phone }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Vergi Numarasi</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Adres</label>
+                            <input type="text" class="form-control" value="{{ c.address1 }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Adres (Devami)</label>
+                            <input type="text" class="form-control" value="{{ c.address2 }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Sehir</label>
+                            <input type="text" class="form-control" value="{{ c.city }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Ilce</label>
+                            <input type="text" class="form-control" value="{{ c.state }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Posta Kodu</label>
+                            <input type="text" class="form-control" value="{{ c.postcode }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Ulke</label>
+                            <input type="text" class="form-control" value="{{ c.country }}">
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <h5>Hangi Konularda E-posta Bildirimleri Alsin?</h5>
+                            <div class="mail-pref-box">
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="m1"><label class="form-check-label" for="m1">Genel E-postalari</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="m2"><label class="form-check-label" for="m2">Odeme E-postalari</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="m3"><label class="form-check-label" for="m3">Destek E-postalari</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="m4"><label class="form-check-label" for="m4">Servis/Hizmet E-postalari</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="m5"><label class="form-check-label" for="m5">Domain E-postalari</label></div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center pt-2">
+                            <button type="submit" class="btn btn-primary">Degisiklikleri Kaydet</button>
+                            <button type="reset" class="btn btn-light">Vazgec</button>
+                            <button type="button" class="btn btn-danger">Alt Kullanici Sil</button>
+                        </div>
+                    </form>
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Hesabim</h4></div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'nexadash:account-settings' %}" class="list-group-item list-group-item-action">Cari Hesap Bilgilerim</a>
+                    <a href="{% url 'nexadash:user-management' %}" class="list-group-item list-group-item-action">Hesap Yetkilisi Yonetimi</a>
+                    <a href="{% url 'nexadash:payment-methods' %}" class="list-group-item list-group-item-action">Kayitli Kredi Kartlarim</a>
+                    <a href="{% url 'nexadash:contacts' %}" class="list-group-item list-group-item-action active">Bildirim Kisileri</a>
+                    <a href="{% url 'nexadash:account-security' %}" class="list-group-item list-group-item-action">Hesap Guvenligi</a>
+                    <a href="{% url 'nexadash:email-history' %}" class="list-group-item list-group-item-action">Eposta Gecmisi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.mail-pref-box {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+</style>
+{% endblock %}
+

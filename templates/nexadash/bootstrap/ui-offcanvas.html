@@ -1,0 +1,392 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Offcanvas.</h2>
+							<p>Make use of Bootstrap's unique Offcanvas styles to enhance your website's navigation and sidebar experience by providing a smooth, responsive way to reveal additional content or menus from the side of the screen.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Offcanvas on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Offcanvas</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#Live-Demo" class="scroll ">Live Demo</a></li>
+									<li><a href="#Body-Scrolling" class="scroll ">Body Scrolling</a></li>
+									<li><a href="#scrolling-backdrop" class="scroll ">Body scrolling and backdrop</a></li>
+									<li><a href="#Static-backdrop" class="scroll ">Static Backdrop</a></li>
+									<li><a href="#Placement" class="scroll ">Placement</a></li>
+									
+								</ul>	
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							<div class="col-12">
+								<div class="card dz-card" id="Live-Demo">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Live Demo</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#LiveDemo" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#Live-Demo-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent">
+										<div class="tab-pane fade show active" id="LiveDemo" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body">
+												<a class="btn btn-primary me-2 mb-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+													Link with href
+												</a>
+												<button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+													Button with data-bs-target
+												</button>
+												<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+													<div class="offcanvas-header">
+														<h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+													</div>
+													<div class="offcanvas-body">
+														<div>
+															Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+														</div>
+														<div class="dropdown mt-3">
+															<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+															Dropdown button
+															</button>
+															<ul class="dropdown-menu">
+																<li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+																<li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+																<li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Live-Demo-html" role="tabpanel" aria-labelledby="home-tab">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;a class="btn btn-primary me-2 mb-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"&gt;
+	Link with href
+	&lt;/a&gt;
+	&lt;button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"&gt;
+	Button with data-bs-target
+	&lt;/button&gt;
+	&lt;div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"&gt;
+	&lt;div class="offcanvas-header"&gt;
+		&lt;h5 class="offcanvas-title" id="offcanvasExampleLabel"&gt;Offcanvas&lt;/h5&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="offcanvas-body"&gt;
+		&lt;div&gt;
+			Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+		&lt;/div&gt;
+		&lt;div class="dropdown mt-3"&gt;
+			&lt;button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"&gt;
+			Dropdown button
+			&lt;/button&gt;
+			&lt;ul class="dropdown-menu"&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="card dz-card" id="Body-Scrolling">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Body Scrolling</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#BodyScrolling" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#Body-Scrolling-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-1">
+										<div class="tab-pane fade show active" id="BodyScrolling" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body">
+												<button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
+				
+												<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+													<div class="offcanvas-header">
+														<h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+													</div>
+													<div class="offcanvas-body">
+														<p>Try scrolling the rest of the page to see this option in action.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Body-Scrolling-html" role="tabpanel" aria-labelledby="home-tab-1">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"&gt;Enable body scrolling&lt;/button&gt;
+			
+	&lt;div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel"&gt;
+	&lt;div class="offcanvas-header"&gt;
+		&lt;h5 class="offcanvas-title" id="offcanvasScrollingLabel"&gt;Offcanvas with body scrolling&lt;/h5&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="offcanvas-body"&gt;
+		&lt;p&gt;Try scrolling the rest of the page to see this option in action.&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="card dz-card" id="scrolling-backdrop">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Body scrolling and backdrop</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#scrollingbackdrop" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#scrolling-backdrop-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-2">
+										<div class="tab-pane fade show active" id="scrollingbackdrop" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body">
+												<button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+
+												<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+													<div class="offcanvas-header">
+														<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+													</div>
+													<div class="offcanvas-body">
+														<p>Try scrolling the rest of the page to see this option in action.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="scrolling-backdrop-html" role="tabpanel" aria-labelledby="home-tab-2">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"&gt;Enable both scrolling & backdrop&lt;/button&gt;
+												
+	&lt;div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"&gt;
+	&lt;div class="offcanvas-header"&gt;
+		&lt;h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"&gt;Backdrop with scrolling&lt;/h5&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="offcanvas-body"&gt;
+		&lt;p&gt;Try scrolling the rest of the page to see this option in action.&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="card dz-card" id="Static-backdrop">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Static backdrop</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#Staticbackdrop" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#Static-backdrop-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-3">
+										<div class="tab-pane fade show active" id="Staticbackdrop" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body">
+												<button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+													Toggle static offcanvas
+												</button>
+												
+												<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+													<div class="offcanvas-header">
+														<h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+													</div>
+													<div class="offcanvas-body">
+														<div>
+															I will not close if you click outside of me.
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Static-backdrop-html" role="tabpanel" aria-labelledby="home-tab-3">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"&gt;
+	Toggle static offcanvas
+	&lt;/button&gt;
+
+	&lt;div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel"&gt;
+	&lt;div class="offcanvas-header"&gt;
+		&lt;h5 class="offcanvas-title" id="staticBackdropLabel"&gt;Offcanvas&lt;/h5&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="offcanvas-body"&gt;
+		&lt;div&gt;
+			I will not close if you click outside of me.
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="card dz-card" id="Placement">
+									<div class="card-header flex-wrap border-0 pb-2">
+										<h4 class="card-title">Placement</h4>
+										<ul class="nav nav-tabs dzm-tabs" id="myTab-4" role="tablist">
+											<li class="nav-item" role="presentation">
+												<button class="nav-link active " id="home-tab-4" data-bs-toggle="tab" data-bs-target="#Placement-Preview" type="button" role="tab"  aria-selected="true">Preview</button>
+											</li>
+											<li class="nav-item" role="presentation">
+												<button class="nav-link " id="profile-tab-4" data-bs-toggle="tab" data-bs-target="#Placement-html" type="button" role="tab"  aria-selected="false">HTML</button>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-content" id="myTabContent-4">
+										<div class="tab-pane fade show active" id="Placement-Preview" role="tabpanel" aria-labelledby="home-tab-4">
+											<div class="card-body">
+												<button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+												<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+													<div class="offcanvas-header">
+														<h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+													</div>
+													<div class="offcanvas-body">
+													Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+													Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+													</div>
+												</div>
+				
+												<button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+												<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+													<div class="offcanvas-header">
+														<h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+													</div>
+													<div class="offcanvas-body">
+													Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+													Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+													</div>
+												</div>
+				
+												<button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+												<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+													<div class="offcanvas-header">
+														<h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+													</div>
+													<div class="offcanvas-body small">
+													Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+													Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="Placement-html" role="tabpanel" aria-labelledby="home-tab-4">
+											<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas&lt;/button&gt;
+	&lt;div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"&gt;
+	&lt;div class="offcanvas-header"&gt;
+		&lt;h5 class="offcanvas-title" id="offcanvasTopLabel"&gt;Offcanvas top&lt;/h5&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="offcanvas-body"&gt;
+	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+	&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"&gt;Toggle right offcanvas&lt;/button&gt;
+	&lt;div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"&gt;
+	&lt;div class="offcanvas-header"&gt;
+		&lt;h5 class="offcanvas-title" id="offcanvasRightLabel"&gt;Offcanvas right&lt;/h5&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="offcanvas-body"&gt;
+	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+	&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"&gt;Toggle bottom offcanvas&lt;/button&gt;
+	&lt;div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel"&gt;
+	&lt;div class="offcanvas-header"&gt;
+		&lt;h5 class="offcanvas-title" id="offcanvasBottomLabel"&gt;Offcanvas bottom&lt;/h5&gt;
+		&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="offcanvas-body small"&gt;
+	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+	&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>		
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        });
+</script>
+{% endblock %}

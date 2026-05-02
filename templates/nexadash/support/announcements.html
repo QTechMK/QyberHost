@@ -1,0 +1,42 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Aylik</h4>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for month in months %}
+                    <a href="javascript:void(0);" class="list-group-item list-group-item-action">{{ month }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Duyurular ve Haberler</h4>
+                </div>
+                <div class="card-body">
+                    {% for item in announcements %}
+                    <div class="pb-4 mb-4 border-bottom">
+                        <h5 class="mb-2">{{ item.title }}</h5>
+                        <p class="text-muted mb-2">{{ item.summary }}</p>
+                        <small class="text-muted"><i class="fa fa-calendar me-1"></i>{{ item.date }}</small>
+                    </div>
+                    {% endfor %}
+
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-light btn-sm" disabled>Onceki Sayfa</button>
+                        <button class="btn btn-light btn-sm">Sonraki Sayfa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

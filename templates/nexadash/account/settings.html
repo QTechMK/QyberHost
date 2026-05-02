@@ -1,0 +1,210 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-1">Cari Hesap Bilgilerim</h4>
+                    <small class="text-muted">Hesap bilgilerinizi guvenli sekilde goruntuleyin ve guncelleyin</small>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        Kilitli bolumlerde bilgi guncellemesi icin destek talebi olusturmaniz gerekir. Bu uygulama guvenliginiz icindir.
+                    </div>
+
+                    <form action="javascript:void(0);" method="post" class="row g-3">
+                        <div class="col-12">
+                            <h6 class="section-title">Kisisel Bilgileriniz</h6>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Adi</label>
+                            <input type="text" class="form-control" value="Volkan" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Soyadi</label>
+                            <input type="text" class="form-control" value="Dortkardes" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">E-posta</label>
+                            <input type="email" class="form-control" value="volkandortkardes@qtechnology.com.mk" readonly>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">GSM Numarasi</label>
+                            <input type="text" class="form-control" value="+389 70 643 191" readonly>
+                            <small class="text-muted">Bilgilendirme SMS'leri icin gereklidir.</small>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Telefon Numarasi</label>
+                            <input type="text" class="form-control" value="+389 70 643 191" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">TC Kimlik No</label>
+                            <input type="text" class="form-control" value="40582509430" readonly>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <h6 class="section-title">Adres Bilgileriniz</h6>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Adres</label>
+                            <input type="text" class="form-control" value="Ohridska Ulitsa No 50-2/8" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Ilce</label>
+                            <input type="text" class="form-control" value="-" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Sehir</label>
+                            <input type="text" class="form-control" value="Skopje" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Ulke</label>
+                            <input type="text" class="form-control" value="Macedonia" readonly>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <h6 class="section-title">Sirket Bilgileriniz</h6>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Firma Adi</label>
+                            <input type="text" class="form-control" value="Kjy Technology Dooel Skopje" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Vergi Dairesi</label>
+                            <input type="text" class="form-control" value="40582509430" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Vergi Hesap Numarasi</label>
+                            <input type="text" class="form-control" value="" readonly>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <h6 class="section-title">Diger Bilgiler</h6>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Odeme Yontemi</label>
+                            <select class="form-control">
+                                <option>Varsayilani Kullan (Siparis basina ayarla)</option>
+                                <option selected>Kredi Karti (3D Secure)</option>
+                                <option>KuveytTurk Havale/EFT</option>
+                                <option>Ziraat Bankasi Havale/EFT</option>
+                                <option>YapiKredi Bankasi Havale/EFT</option>
+                                <option>Enpara Havale/EFT</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Bizden Nasil Haberdar Oldunuz?</label>
+                            <select class="form-control">
+                                <option selected>Yok</option>
+                                <option>Facebook</option>
+                                <option>Twitter</option>
+                                <option>Google</option>
+                                <option>Arkadas Tavsiyesi</option>
+                                <option>Forumlar</option>
+                                <option>Reklamlar</option>
+                                <option>Diger</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="option-box">
+                                <h6>Ucretsiz SMS Bilgilendirmeleri</h6>
+                                <p class="mb-2">Yenileme, son odeme tarihi ve guvenlik bildirimleri SMS ile iletilir.</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="smsOptin">
+                                    <label class="form-check-label" for="smsOptin">Pasif</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="option-box">
+                                <h6>Kampanya ve Firsat Aboneligi</h6>
+                                <p class="mb-2">E-posta ve SMS ile kampanya bildirimleri alabilirsiniz.</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="campOptin" checked>
+                                    <label class="form-check-label" for="campOptin">Aktif</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pt-2 text-center">
+                            <button type="submit" class="btn btn-primary">Degisiklikleri Kaydet</button>
+                            <button type="reset" class="btn btn-light">Vazgec</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Hesabim</h4></div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'nexadash:account-settings' %}" class="list-group-item list-group-item-action active">Cari Hesap Bilgilerim</a>
+                    <a href="{% url 'nexadash:user-management' %}" class="list-group-item list-group-item-action">Hesap Yetkilisi Yonetimi</a>
+                    <a href="{% url 'nexadash:payment-methods' %}" class="list-group-item list-group-item-action">Kayitli Kredi Kartlarim</a>
+                    <a href="{% url 'nexadash:contacts' %}" class="list-group-item list-group-item-action">Bildirim Kisileri</a>
+                    <a href="{% url 'nexadash:account-security' %}" class="list-group-item list-group-item-action">Hesap Guvenligi</a>
+                    <a href="{% url 'nexadash:email-history' %}" class="list-group-item list-group-item-action">Eposta Gecmisi</a>
+                </div>
+            </div>
+
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Guvenlik</h4></div>
+                <div class="card-body">
+                    <p class="mb-2">2 Adimli Dogrulama: <span class="badge badge-danger">Pasif</span></p>
+                    <a href="{% url 'nexadash:account-security' %}" class="btn btn-sm btn-outline-primary">Hemen Basla</a>
+                </div>
+            </div>
+
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Bakiyeniz</h4></div>
+                <div class="card-body text-center">
+                    <h5 class="mb-2">0.00 TL</h5>
+                    <a href="{% url 'nexadash:add-funds' %}" class="btn btn-sm btn-light">Bakiye Yukle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.section-title {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 8px;
+    margin-bottom: 2px;
+    color: #0b5ed7;
+}
+
+.form-control[readonly] {
+    background: #f5f6f8;
+    color: #495057;
+}
+
+.option-box {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 14px;
+    height: 100%;
+}
+
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+</style>
+{% endblock %}

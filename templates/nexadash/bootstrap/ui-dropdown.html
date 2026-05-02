@@ -1,0 +1,1434 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!--element-area-->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Dropdown.</h2>
+							<p>Make use of Bootstrap's unique Dropdown styles to enhance actions in forms, dialogs, and
+								various other elements, featuring comprehensive support for multiple sizes, states, and
+								additional functionalities.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Dropdown on Bootstrap</a>
+						</div>
+						<div class="demo-right-inner dz-scroll " id="right-sidebar">
+							<h4 class="title">Dropdown</h4>
+							<div class="demo-right-tabs" id="rightSidebarScroll">
+								<ul class="navbar-nav" id="menu-bar">
+									<li><a href="#basic-dropdown" class="scroll">Basic Dropdown</a></li>
+									<li><a href="#dropdown-divider" class="scroll">Dropdown Divider</a></li>
+									<li><a href="#dropdown-header" class="scroll">Dropdown Header</a></li>
+									<li><a href="#align-right" class="scroll">Align Right</a></li>
+									<li><a href="#dropright" class="scroll">Dropright</a></li>
+									<li><a href="#dropstart" class="scroll">Dropstart</a></li>
+									<li><a href="#button-dropdowns" class="scroll">Button Dropdowns</a></li>
+									<li><a href="#sizing" class="scroll">Sizing</a></li>
+									<li><a href="#custom-style" class="scroll">Custom Style</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							<!-- row -->
+							<div class="row">
+								<!-- Column  -->
+								<div class="col-xl-12">
+									<div class="card dz-card" id="basic-dropdown">
+										<div class="card-header border-0  flex-wrap">
+											<div>
+												<h4 class="card-title">Basic Dropdown</h4>
+												<p class="m-0 subtitle">A dropdown menu is a toggleable menu that allows the
+													user to choose one value.
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab" data-bs-toggle="tab"
+														data-bs-target="#BasicDropdown" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab" data-bs-toggle="tab"
+														data-bs-target="#BasicDropdown-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="BasicDropdown" role="tabpanel"
+												aria-labelledby="home-tab">
+												<div class="card-body pt-0">
+													<div class="basic-dropdown">
+														<div class="dropdown">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																Dropdown button
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade " id="BasicDropdown-html" role="tabpanel"
+												aria-labelledby="home-tab">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"><code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;div class="dropdown"&gt;
+			&lt;button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				Dropdown button
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Column  -->
+								<!-- Column  -->
+								<div class="col-xl-12">
+									<div class="card dz-card" id="#dropdown-divider">
+										<div class="card-header flex-wrap d-flex justify-content-between border-0 ">
+											<div>
+												<h4 class="card-title">Dropdown Divider</h4>
+												<p class="m-0 subtitle">The
+													<code>.dropdown-divider</code> class is used to separate links inside
+													the dropdown menu.
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab1" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab1" data-bs-toggle="tab"
+														data-bs-target="#DropdownDivider" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab1" data-bs-toggle="tab"
+														data-bs-target="#DropdownDivider-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent1">
+											<div class="tab-pane fade show active" id="DropdownDivider" role="tabpanel"
+												aria-labelledby="home-tab">
+												<div class="card-body pt-0">
+
+													<div class="basic-dropdown">
+														<div class="dropdown">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																Dropdown button
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	link</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade " id="DropdownDivider-html" role="tabpanel"
+												aria-labelledby="home-tab1">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"> <code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;div class="dropdown"&gt;
+			&lt;button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				Dropdown button
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+				&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Another link&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+								<!-- /Column  -->
+								<!-- Column  -->
+								<div class="col-xl-12 ">
+									<div class="card dz-card" id="dropdown-header">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">Dropdown Header</h4>
+												<p class="m-0 subtitle">The
+													<code>.dropdown-header</code> class is used to add headers inside the
+													dropdown menu
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab3" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab3" data-bs-toggle="tab"
+														data-bs-target="#DropdownHeader" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab3" data-bs-toggle="tab"
+														data-bs-target="#DropdownHeader-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent3">
+											<div class="tab-pane fade show active" id="DropdownHeader" role="tabpanel"
+												aria-labelledby="home-tab3">
+												<div class="card-body pt-0">
+
+													<div class="basic-dropdown">
+														<div class="dropdown">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																Dropdown button
+															</button>
+															<div class="dropdown-menu">
+																<h5 class="dropdown-header">Dropdown header</h5>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+																<h5 class="dropdown-header">Dropdown header</h5>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	link</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="DropdownHeader-html" role="tabpanel"
+												aria-labelledby="home-tab3">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"><code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;div class="dropdown"&gt;
+			&lt;button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				Dropdown button
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;h5 class="dropdown-header"&gt;Dropdown header&lt;/h5&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+				&lt;h5 class="dropdown-header"&gt;Dropdown header&lt;/h5&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another link&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- /Column  -->
+
+								<!-- Column  -->
+								<div class="col-xl-12">
+									<div class="card dz-card" id="disable-active">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">Disable and Active items</h4>
+												<p class="m-0 subtitle">The
+													<code>.dropdown-header</code> class is used to add headers inside the
+													dropdown menu
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab4" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab4" data-bs-toggle="tab"
+														data-bs-target="#DisableActive" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab4" data-bs-toggle="tab"
+														data-bs-target="#DisableActive-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent4">
+											<div class="tab-pane fade show active" id="DisableActive" role="tabpanel"
+												aria-labelledby="home-tab4">
+												<div class="card-body pt-0">
+													<div class="basic-dropdown">
+														<div class="dropdown">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																Dropdown button
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Normal</a>
+																<a class="dropdown-item active"
+																	href="javascript:void(0);">Active</a>
+																<a class="dropdown-item disabled"
+																	href="javascript:void(0);">Disabled</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="DisableActive-html" role="tabpanel"
+												aria-labelledby="home-tab4">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"><code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;div class="dropdown"&gt;
+			&lt;button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				Dropdown button
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Normal&lt;/a&gt;
+				&lt;a class="dropdown-item active" href="javascript:void(0);"&gt;Active&lt;/a&gt;
+				&lt;a class="dropdown-item disabled" href="javascript:void(0);"&gt;Disabled&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- /Column  -->
+								<!-- Column  -->
+								<div class="col-xl-12 ">
+									<div class="card dz-card" id="align-right">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">Align Right</h4>
+												<p class="m-0 subtitle">To right-align the dropdown, add the
+													<code>.dropdown-menu-end</code> class to the element with
+													<br>.dropdown-menu
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab5" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab5" data-bs-toggle="tab"
+														data-bs-target="#AlignRight" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab5" data-bs-toggle="tab"
+														data-bs-target="#AlignRight-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent5">
+											<div class="tab-pane fade show active" id="AlignRight" role="tabpanel"
+												aria-labelledby="home-tab5">
+												<div class="card-body pt-0">
+													<div class="basic-dropdown">
+														<div class="dropdown">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																Dropdown button
+															</button>
+															<div class="dropdown-menu dropdown-menu-end">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="AlignRight-html" role="tabpanel"
+												aria-labelledby="home-tab5">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"> <code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;div class="dropdown"&gt;
+			&lt;button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				Dropdown button
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- /Column  -->
+								<!-- Column  -->
+								<div class="col-xl-12 ">
+									<div class="card dz-card" id="dropup">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">Dropup</h4>
+												<p class="m-0 subtitle">The
+													<code>.dropup</code> class makes the dropdown menu expand upwards
+													instead of downwards
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab6" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab6" data-bs-toggle="tab"
+														data-bs-target="#Dropup" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab6" data-bs-toggle="tab"
+														data-bs-target="#Dropup-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent6">
+											<div class="tab-pane fade show active" id="Dropup" role="tabpanel"
+												aria-labelledby="home-tab6">
+												<div class="card-body pt-0">
+
+													<div class="basic-dropdown">
+														<!-- Default dropup button -->
+														<div class="btn-group dropup mb-1">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																Dropup
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+															</div>
+														</div>
+														<!-- Split dropup button -->
+														<div class="btn-group dropup mb-1">
+															<button type="button" class="btn btn-primary">
+																Split dropup
+															</button>
+															<button type="button"
+																class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+																<span class="sr-only">Toggle Dropdown</span>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade " id="Dropup-html" role="tabpanel"
+												aria-labelledby="home-tab6">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"><code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;!-- Default dropup button --&gt;
+		&lt;div class="btn-group dropup mb-1"&gt;
+			&lt;button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				Dropup
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;javascript:void(0);
+		&lt;!-- Split dropup button --&gt;
+		&lt;div class="btn-group dropup mb-1"&gt;
+			&lt;button type="button" class="btn btn-primary"&gt;
+				Split dropup
+			&lt;/button&gt;
+			&lt;button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+				&lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Column  -->
+								<!-- Column  -->
+								<div class="col-xl-12">
+									<div class="card dz-card" id="dropright">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">Dropright</h4>
+												<p class="m-0 subtitle">Trigger dropdown menus at the right of the elements
+													by
+													<code>.dropend</code> to the parent
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab7" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab7" data-bs-toggle="tab"
+														data-bs-target="#Dropright" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab7" data-bs-toggle="tab"
+														data-bs-target="#Dropright-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent7">
+											<div class="tab-pane fade show active" id="Dropright" role="tabpanel"
+												aria-labelledby="home-tab7">
+												<div class="card-body pt-0">
+
+													<div class="basic-dropdown">
+														<!-- Default dropright button -->
+														<div class="btn-group dropend mb-1">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																Dropright
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+															</div>
+														</div>
+
+														<!-- Split dropright button -->
+														<div class="btn-group dropend mb-1">
+															<button type="button" class="btn btn-primary">
+																Split dropright
+															</button>
+															<button type="button"
+																class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+																<span class="sr-only">Toggle Dropright</span>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade " id="Dropright-html" role="tabpanel"
+												aria-labelledby="home-tab7">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"> <code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;!-- Default dropright button --&gt;
+		&lt;div class="btn-group dropend mb-1"&gt;
+			&lt;button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				Dropright
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;!-- Split dropright button --&gt;
+		&lt;div class="btn-group dropend mb-1"&gt;
+			&lt;button type="button" class="btn btn-primary"&gt;
+				Split dropright
+			&lt;/button&gt;
+			&lt;button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+				&lt;span class="sr-only"&gt;Toggle Dropright&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- /Column  -->
+								<!-- Column  -->
+								<div class="col-xl-12 ">
+									<div class="card dz-card" id="dropstart">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">dropstart </h4>
+												<p class="m-0 subtitle">Trigger dropdown menus at the right of by adding
+													<code>.dropstart </code> to the parent element
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab8" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab8" data-bs-toggle="tab"
+														data-bs-target="#Dropstart" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab8" data-bs-toggle="tab"
+														data-bs-target="#Dropstart-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent8">
+											<div class="tab-pane fade show active" id="Dropstart" role="tabpanel"
+												aria-labelledby="home-tab8">
+												<div class="card-body pt-0">
+													<div class="basic-dropdown">
+														<!-- Default dropstart button -->
+														<div class="btn-group dropstart mb-1">
+															<button type="button" class="btn btn-primary dropdown-toggle"
+																data-bs-toggle="dropdown">
+																dropstart
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	1</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	2</a>
+																<a class="dropdown-item" href="javascript:void(0);">Link
+																	3</a>
+															</div>
+														</div>
+
+														<!-- Split dropstart button -->
+														<div class="btn-group mb-1">
+															<div class="btn-group dropstart " role="group">
+																<button type="button"
+																	class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+																	data-bs-toggle="dropdown">
+																	<span class="sr-only">Toggle dropstart</span>
+																</button>
+																<div class="dropdown-menu">
+																	<a class="dropdown-item" href="javascript:void(0);">Link
+																		1</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Link
+																		2</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Link
+																		3</a>
+																</div>
+															</div>
+															<button type="button" class="btn btn-primary">
+																Split dropstart
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade " id="Dropstart-html" role="tabpanel"
+												aria-labelledby="home-tab8">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"> <code class="language-html">&lt;div class="basic-dropdown"&gt;
+		&lt;!-- Default dropstart button --&gt;
+		&lt;div class="btn-group dropstart mb-1"&gt;
+			&lt;button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"&gt;
+				dropstart
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;!-- Split dropstart button --&gt;
+		&lt;div class="btn-group mb-1"&gt;
+			&lt;div class="btn-group dropstart " role="group"&gt;
+				&lt;button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+					&lt;span class="sr-only"&gt;Toggle dropstart&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;div class="dropdown-menu"&gt;
+					&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 1&lt;/a&gt;
+					&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 2&lt;/a&gt;
+					&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Link 3&lt;/a&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;button type="button" class="btn btn-primary"&gt;
+				Split dropstart
+			&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Column  -->
+
+
+								<!-- Column  -->
+								<div class="col-xl-12" id="button-dropdowns">
+									<div class="card dz-card">
+										<div class="card-header flex-wrap border-0">
+											<h4 class="card-title">Button Dropdowns</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab9" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab9" data-bs-toggle="tab"
+														data-bs-target="#ButtonDropdowns" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab9" data-bs-toggle="tab"
+														data-bs-target="#ButtonDropdowns-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent9">
+											<div class="tab-pane fade show active" id="ButtonDropdowns" role="tabpanel"
+												aria-labelledby="home-tab9">
+												<div class="card-body pt-0">
+													<div class="button-dropdown">
+														<div class="btn-group mb-1">
+															<button type="button" class="btn btn-primary">Primary</button>
+															<button type="button"
+																class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+														<div class="btn-group mb-1">
+															<button type="button"
+																class="btn btn-secondary">Secondary</button>
+															<button type="button"
+																class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+
+														<div class="btn-group mb-1">
+															<button type="button" class="btn btn-success">Success</button>
+															<button type="button"
+																class="btn btn-success dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+
+														<div class="btn-group mb-1">
+															<button type="button" class="btn btn-info">Info</button>
+															<button type="button"
+																class="btn btn-info dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+
+														<div class="btn-group mb-1">
+															<button type="button" class="btn btn-warning">Warning</button>
+															<button type="button"
+																class="btn btn-warning dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+
+														<div class="btn-group mb-1">
+															<button type="button" class="btn btn-danger">Danger</button>
+															<button type="button"
+																class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown">
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade " id="ButtonDropdowns-html" role="tabpanel"
+												aria-labelledby="home-tab9">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"> <code class="language-html">&lt;div class="button-dropdown"&gt;
+	&lt;div class="btn-group mb-1"&gt;
+		&lt;button type="button" class="btn btn-primary"&gt;Primary&lt;/button&gt;
+		&lt;button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+		&lt;/button&gt;
+		&lt;div class="dropdown-menu"&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+			&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;javascript:void(0);
+	&lt;div class="btn-group mb-1"&gt;
+		&lt;button type="button" class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+		&lt;button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+		&lt;/button&gt;
+		&lt;div class="dropdown-menu"&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+			&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="btn-group mb-1"&gt;
+		&lt;button type="button" class="btn btn-success"&gt;Success&lt;/button&gt;
+		&lt;button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+		&lt;/button&gt;
+		&lt;div class="dropdown-menu"&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+			&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="btn-group mb-1"&gt;
+		&lt;button type="button" class="btn btn-info"&gt;Info&lt;/button&gt;
+		&lt;button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+		&lt;/button&gt;
+		&lt;div class="dropdown-menu"&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+			&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="btn-group mb-1"&gt;
+		&lt;button type="button" class="btn btn-warning"&gt;Warning&lt;/button&gt;
+		&lt;button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+		&lt;/button&gt;
+		&lt;div class="dropdown-menu"&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+			&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="btn-group mb-1"&gt;
+		&lt;button type="button" class="btn btn-danger"&gt;Danger&lt;/button&gt;
+		&lt;button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"&gt;
+		&lt;/button&gt;
+		&lt;div class="dropdown-menu"&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+			&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+			&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Column  -->
+
+
+								<!-- Column  -->
+								<div class="col-xl-12 ">
+									<div class="card dz-card" id="sizing">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">Sizing</h4>
+												<p class="m-0 subtitle">Button dropdowns work with buttons of all sizes
+													dropdown buttons.</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab10" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab10" data-bs-toggle="tab"
+														data-bs-target="#Sizing" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab10" data-bs-toggle="tab"
+														data-bs-target="#Sizing-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent10">
+											<div class="tab-pane fade show active" id="Sizing" role="tabpanel"
+												aria-labelledby="home-tab10">
+												<div class="card-body pt-0">
+													<div class="dropdown-size">
+														<!-- Large button groups (default and split) -->
+														<div class="btn-group mb-1">
+															<button class="btn btn-primary btn-lg dropdown-toggle"
+																type="button" data-bs-toggle="dropdown">
+																Large button
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+														<div class="btn-group mb-1">
+															<button class="btn btn-primary btn-lg" type="button">
+																Large split button
+															</button>
+															<button type="button"
+																class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false">
+																<span class="sr-only">Toggle Dropdown</span>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+
+														<!-- Small button groups (default and split) -->
+														<div class="btn-group mb-1">
+															<button class="btn btn-primary btn-sm dropdown-toggle"
+																type="button" data-bs-toggle="dropdown">
+																Small button
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+														<div class="btn-group mb-1">
+															<button class="btn btn-primary btn-sm" type="button">
+																Small split button
+															</button>
+															<button type="button"
+																class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split"
+																data-bs-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false">
+																<span class="sr-only">Toggle Dropdown</span>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Action</a>
+																<a class="dropdown-item" href="javascript:void(0);">Another
+																	action</a>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Something else here</a>
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item"
+																	href="javascript:void(0);">Separated link</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade " id="Sizing-html" role="tabpanel"
+												aria-labelledby="home-tab10">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"> <code class="language-html">&lt;div class="dropdown-size"&gt;
+		&lt;!-- Large button groups (default and split) --&gt;
+		&lt;div class="btn-group mb-1"&gt;
+			&lt;button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown"&gt;
+				Large button
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+				&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="btn-group mb-1"&gt;
+			&lt;button class="btn btn-primary btn-lg" type="button"&gt;
+				Large split button
+			&lt;/button&gt;
+			&lt;button type="button" class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+				&lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+				&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;!-- Small button groups (default and split) --&gt;
+		&lt;div class="btn-group mb-1"&gt;
+			&lt;button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"&gt;
+				Small button
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+				&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="btn-group mb-1"&gt;
+			&lt;button class="btn btn-primary btn-sm" type="button"&gt;
+				Small split button
+			&lt;/button&gt;
+			&lt;button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+				&lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;
+				&lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Separated link&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- /Column  -->
+								<!-- Column  -->
+								<div class="col-lg-12">
+									<div class="card dz-card" id="custom-style">
+										<div class="card-header flex-wrap border-0">
+											<div>
+												<h4 class="card-title">Custom style</h4>
+												<p class="m-0 subtitle">Use
+													<code>.custom-dropdown</code> this class for this style
+												</p>
+											</div>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab11" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab11" data-bs-toggle="tab"
+														data-bs-target="#CustomStyle" type="button" role="tab"
+														aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab11" data-bs-toggle="tab"
+														data-bs-target="#CustomStyle-html" type="button" role="tab"
+														aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent11">
+											<div class="tab-pane fade show active" id="CustomStyle" role="tabpanel"
+												aria-labelledby="home-tab11">
+												<div class="card-body pt-0">
+													<div class="row">
+														<div class="col-xl-3 col-md-3 col-sm-4 col-6 ">
+															<div class="dropdown custom-dropdown">
+																<div data-bs-toggle="dropdown">Last 7 days
+																	<i class="fa fa-angle-down ms-3"></i>
+																</div>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		1 Month</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		6 Month</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		10 Month</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xl-3 col-md-3 mb-3 col-sm-4 col-6">
+															<div class="dropdown custom-dropdown">
+																<button type="button" class="btn btn-sm btn-outline-primary"
+																	data-bs-toggle="dropdown">Last 7 days
+																	<i class="fa fa-angle-down ms-3"></i>
+																</button>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		1 Month</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		6 Month</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		10 Month</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xl-3 col-md-3 col-sm-4 col-6 mb-3 mb-sm-0">
+															<div class="dropdown custom-dropdown">
+																<button type="button" class="btn btn-sm btn-outline-primary"
+																	data-bs-toggle="dropdown">Last 1 Hour
+																	<i class="fa fa-angle-down ms-3"></i>
+																</button>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		1 hour</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		2 hour</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		3 hour</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xl-3 col-md-3 col-sm-4 col-6 mb-3 mb-sm-0">
+															<div class="dropdown custom-dropdown">
+																<button type="button" class="btn btn-sm btn-primary"
+																	data-bs-toggle="dropdown">Last 7 days
+																	<i class="fa fa-angle-down ms-3"></i>
+																</button>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		1 Month</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		6 Month</a>
+																	<a class="dropdown-item" href="javascript:void(0);">Last
+																		10 Month</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xl-3 col-md-3 col-sm-4 col-6 mb-3 mb-sm-0">
+															<div class="dropdown custom-dropdown">
+																<button type="button"
+																	class="btn btn-sm btn-primary d-flex align-items-center"
+																	data-bs-toggle="dropdown">
+																	<i class="ti-search me-2 mt-1"></i> 3 AM
+																	<i class="fa fa-angle-down ms-3"></i>
+																</button>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="javascript:void(0);">6
+																		AM</a>
+																	<a class="dropdown-item" href="javascript:void(0);">9
+																		AM</a>
+																	<a class="dropdown-item" href="javascript:void(0);">12
+																		AM</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xl-6 col-md-3 col-sm-4 col-6 mb-3 mb-sm-0">
+															<div class="dropdown custom-dropdown">
+																<button type="button"
+																	class="btn btn-sm btn-primary flex-wrap"
+																	data-bs-toggle="dropdown">
+																	<i class="ti-calendar me-3"></i> March 20, 2018 &nbsp;
+																	To &nbsp;April
+																	20, 2018
+																	<i class="fa fa-angle-down ms-3"></i>
+																</button>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="javascript:void(0);">May
+																		20, 2018 &nbsp; To &nbsp; June 20,
+																		2018</a>
+																	<a class="dropdown-item" href="javascript:void(0);">July
+																		20, 2018 &nbsp; To &nbsp; August
+																		20, 2018</a>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-3 col-md-3 col-sm-4 col-6">
+															<div class="dropdown">
+																<button type="button" class="btn btn-primary sharp"
+																	data-bs-toggle="dropdown">
+																	<svg width="15" height="15" viewBox="0 0 16 16"
+																		fill="none" xmlns="http://www.w3.org/2000/svg">
+																		<path
+																			d="M8.0101 13.8999C7.7367 13.8999 7.50277 13.8034 7.30833 13.6104C7.11388 13.4173 7.01666 13.1853 7.01666 12.9142C7.01666 12.6536 7.11277 12.4221 7.305 12.2199C7.49722 12.0177 7.7283 11.9166 7.99823 11.9166C8.27718 11.9166 8.51111 12.0178 8.7 12.2202C8.88888 12.4226 8.98333 12.6559 8.98333 12.9202C8.98333 13.1845 8.88947 13.4138 8.70176 13.6083C8.51405 13.8027 8.2835 13.8999 8.0101 13.8999ZM8.0101 8.98325C7.7367 8.98325 7.50277 8.88714 7.30833 8.69492C7.11388 8.5027 7.01666 8.27162 7.01666 8.00168C7.01666 7.72273 7.11277 7.48881 7.305 7.29992C7.49722 7.11103 7.7283 7.01658 7.99823 7.01658C8.27718 7.01658 8.51111 7.11044 8.7 7.29815C8.88888 7.48586 8.98333 7.71642 8.98333 7.98982C8.98333 8.26322 8.88947 8.49714 8.70176 8.69159C8.51405 8.88603 8.2835 8.98325 8.0101 8.98325ZM8.0101 4.08325C7.7367 4.08325 7.50277 3.98505 7.30833 3.78864C7.11388 3.59222 7.01666 3.35611 7.01666 3.0803C7.01666 2.80449 7.11277 2.56936 7.305 2.37492C7.49722 2.18047 7.7283 2.08325 7.99823 2.08325C8.27718 2.08325 8.51111 2.18126 8.7 2.37729C8.88888 2.5733 8.98333 2.80921 8.98333 3.08502C8.98333 3.36083 8.88947 3.59616 8.70176 3.791C8.51405 3.98584 8.2835 4.08325 8.0101 4.08325Z"
+																			fill="#fff" />
+																	</svg>
+																</button>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-3 col-md-3 col-sm-4 col-6">
+															<div class="dropdown">
+																<button type="button" class="btn btn-primary sharp"
+																	data-bs-toggle="dropdown">
+																	<svg width="15" height="15" viewBox="0 0 16 16"
+																		fill="none" xmlns="http://www.w3.org/2000/svg">
+																		<path
+																			d="M8.0101 13.8999C7.7367 13.8999 7.50277 13.8034 7.30833 13.6104C7.11388 13.4173 7.01666 13.1853 7.01666 12.9142C7.01666 12.6536 7.11277 12.4221 7.305 12.2199C7.49722 12.0177 7.7283 11.9166 7.99823 11.9166C8.27718 11.9166 8.51111 12.0178 8.7 12.2202C8.88888 12.4226 8.98333 12.6559 8.98333 12.9202C8.98333 13.1845 8.88947 13.4138 8.70176 13.6083C8.51405 13.8027 8.2835 13.8999 8.0101 13.8999ZM8.0101 8.98325C7.7367 8.98325 7.50277 8.88714 7.30833 8.69492C7.11388 8.5027 7.01666 8.27162 7.01666 8.00168C7.01666 7.72273 7.11277 7.48881 7.305 7.29992C7.49722 7.11103 7.7283 7.01658 7.99823 7.01658C8.27718 7.01658 8.51111 7.11044 8.7 7.29815C8.88888 7.48586 8.98333 7.71642 8.98333 7.98982C8.98333 8.26322 8.88947 8.49714 8.70176 8.69159C8.51405 8.88603 8.2835 8.98325 8.0101 8.98325ZM8.0101 4.08325C7.7367 4.08325 7.50277 3.98505 7.30833 3.78864C7.11388 3.59222 7.01666 3.35611 7.01666 3.0803C7.01666 2.80449 7.11277 2.56936 7.305 2.37492C7.49722 2.18047 7.7283 2.08325 7.99823 2.08325C8.27718 2.08325 8.51111 2.18126 8.7 2.37729C8.88888 2.5733 8.98333 2.80921 8.98333 3.08502C8.98333 3.36083 8.88947 3.59616 8.70176 3.791C8.51405 3.98584 8.2835 4.08325 8.0101 4.08325Z"
+																			fill="#fff" />
+																	</svg>
+																</button>
+																<div class="dropdown-menu dropdown-menu-end">
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="CustomStyle-html" role="tabpanel"
+												aria-labelledby="home-tab11">
+												<div class="card-body p-0 code-area">
+													<pre class="m-0"> <code class="language-html">&lt;div class="row"&gt;
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;div data-bs-toggle="dropdown"&gt;Last 7 days
+				&lt;i class="fa fa-angle-down ms-3"&gt;&lt;/i&gt;
+			&lt;/div&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 1 Month&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 6 Month&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 10 Month&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="dropdown"&gt;Last 7 days
+				&lt;i class="fa fa-angle-down ms-3"&gt;&lt;/i&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 1 Month&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 6 Month&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 10 Month&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="dropdown"&gt;Last 1 Hour
+				&lt;i class="fa fa-angle-down ms-3"&gt;&lt;/i&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 1 hour&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 2 hour&lt;/a&gt;
+				&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Last 3 hour&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;button type="button" class="btn btn-sm btn-primary" data-bs-toggle="dropdown"&gt;Last 7 days
+				&lt;i class="fa fa-angle-down ms-3"&gt;&lt;/i&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Last 1 Month&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Last 6 Month&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Last 10 Month&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;button type="button" class="btn btn-sm btn-primary" data-bs-toggle="dropdown"&gt;
+				&lt;i class="ti-search mr-3"&gt;&lt;/i&gt; 3 AM
+				&lt;i class="fa fa-angle-down ms-3"&gt;&lt;/i&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;6 AM&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;9 AM&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;12 AM&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;button type="button" class="btn btn-sm btn-primary" data-bs-toggle="dropdown"&gt;
+				&lt;i class="ti-calendar m-r-5"&gt;&lt;/i&gt; March 20, 2018 &nbsp; To &nbsp;April
+				20, 2018
+				&lt;i class="fa fa-angle-down ms-3"&gt;&lt;/i&gt;
+			&lt;/button&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;May 20, 2018 &nbsp; To &nbsp; June 20,
+					2018&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;July 20, 2018 &nbsp; To &nbsp; August
+					20, 2018&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown"&gt;
+				&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"&gt;&lt;g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"&gt;&lt;rect x="0" y="0" width="24" height="24"/&gt;&lt;circle fill="#000000" cx="12" cy="5" r="2"/&gt;&lt;circle fill="#000000" cx="12" cy="12" r="2"/&gt;&lt;circle fill="#000000" cx="12" cy="19" r="2"/&gt;&lt;/g&gt;&lt;/svg&gt;
+			&lt;/div&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Option 1&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Option 2&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Option 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="col-xl-3"&gt;
+		&lt;div class="dropdown custom-dropdown"&gt;
+			&lt;div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown"&gt;
+				&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"&gt;&lt;g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"&gt;&lt;rect x="0" y="0" width="24" height="24"/&gt;&lt;circle fill="#000000" cx="12" cy="5" r="2"/&gt;&lt;circle fill="#000000" cx="12" cy="12" r="2"/&gt;&lt;circle fill="#000000" cx="12" cy="19" r="2"/&gt;&lt;/g&gt;&lt;/svg&gt;
+			&lt;/div&gt;
+			&lt;div class="dropdown-menu dropdown-menu-end"&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Option 1&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Option 2&lt;/a&gt;
+				&lt;a class="dropdown-item"  href="javascript:void(0);"&gt;Option 3&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- /Column  -->
+							</div>
+							<!-- /row -->
+						</div>
+					</div>
+				</div>
+				<!--/element-area-->
+
+			</div>
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+	hljs.configure({ ignoreUnescapedHTML: true })
+
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', (event) => {
+		document.querySelectorAll('pre code').forEach((el) => {
+			hljs.highlightElement(el);
+		});
+	});
+</script>
+{% endblock %}

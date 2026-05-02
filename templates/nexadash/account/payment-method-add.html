@@ -1,0 +1,83 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-1">Yeni Kredi Karti Ekle</h4>
+                    <small class="text-muted">3D Secure odeme yontemi ile yeni kart tanimlayin</small>
+                </div>
+                <div class="card-body">
+                    <form action="javascript:void(0);" method="post" class="row g-3">
+                        <div class="col-12">
+                            <div class="alert alert-warning mb-0" role="alert">
+                                Kart bilgileriniz PCI-DSS sertifikali altyapida saklanir. Kart kaydi sonrasi odemelerinizde hizli kullanim saglanir.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputDescription" class="form-label">Kart Aciklamasi / Tanimi</label>
+                            <input id="inputDescription" type="text" class="form-control" placeholder="Orn: Bonus Kartim">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputType" class="form-label">Tur</label>
+                            <input id="inputType" type="text" class="form-control" value="Kredi Karti (3D Secure)" disabled>
+                        </div>
+
+                        <div class="col-md-7">
+                            <label for="inputCardNumber" class="form-label">Kart Numarasi</label>
+                            <input id="inputCardNumber" type="text" class="form-control" placeholder="0000 0000 0000 0000">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="inputCardExpiry" class="form-label">Son Kullanma Tarihi</label>
+                            <input id="inputCardExpiry" type="text" class="form-control" placeholder="AA / YY">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="inputCardCvv" class="form-label">CVV</label>
+                            <input id="inputCardCvv" type="password" class="form-control" maxlength="4" placeholder="000">
+                        </div>
+
+                        <div class="col-12 d-flex gap-2 pt-1">
+                            <button type="submit" class="btn btn-primary">Degisiklikleri Kaydet</button>
+                            <a href="{% url 'nexadash:payment-methods' %}" class="btn btn-light">Vazgec</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 compact-side-panel">
+            <div class="card compact-sidebar-card">
+                <div class="card-header"><h4 class="card-title mb-0">Hesabim</h4></div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'nexadash:account-settings' %}" class="list-group-item list-group-item-action">Cari Hesap Bilgilerim</a>
+                    <a href="{% url 'nexadash:user-management' %}" class="list-group-item list-group-item-action">Hesap Yetkilisi Yonetimi</a>
+                    <a href="{% url 'nexadash:payment-methods' %}" class="list-group-item list-group-item-action active">Kayitli Kredi Kartlarim</a>
+                    <a href="{% url 'nexadash:contacts' %}" class="list-group-item list-group-item-action">Bildirim Kisileri</a>
+                    <a href="{% url 'nexadash:account-security' %}" class="list-group-item list-group-item-action">Hesap Guvenligi</a>
+                    <a href="{% url 'nexadash:email-history' %}" class="list-group-item list-group-item-action">Eposta Gecmisi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.compact-side-panel .compact-sidebar-card {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.compact-side-panel .compact-sidebar-card .card-header {
+    min-height: 0;
+    padding: 12px 16px 8px;
+}
+</style>
+{% endblock %}
+

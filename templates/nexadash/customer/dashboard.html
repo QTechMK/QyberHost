@@ -1,0 +1,166 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body d-flex flex-wrap align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted d-block mb-1">Aktif hesap</span>
+                        <h3 class="mb-1">{{ active_account.name }}</h3>
+                        <div>
+                            <span class="badge badge-primary light">{{ active_account.get_account_type_display }}</span>
+                            <span class="badge badge-info light">{{ active_membership.get_role_display }}</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 mt-md-0">
+                        <a href="{% url 'nexadash:account-select' %}" class="btn btn-outline-primary">
+                            Farkli hesaba gec
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Aktif Hizmetler</span>
+                    <h3 class="mb-0">0</h3>
+                    <small>Hosting, VPS, SSL ve mail servisleri</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Domainler</span>
+                    <h3 class="mb-0">0</h3>
+                    <small>Kayitli ve transfer surecindeki domainler</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Destek Talepleri</span>
+                    <h3 class="mb-0">0</h3>
+                    <small>Acik veya bekleyen ticketlar</small>
+                </div>
+            </div>
+        </div>
+        {% if permissions.billing %}
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <span class="text-muted">Odenmemis Faturalar</span>
+                    <h3 class="mb-0">0</h3>
+                    <small>Muhasebe yetkiniz aktif</small>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-xl-3 col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <span class="text-muted">Muhasebe</span>
+                    <h3 class="mb-0 text-warning">Kisitli</h3>
+                    <small>Bu hesapta fatura ve odeme yetkiniz yok</small>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="row">
+        {% if permissions.technical %}
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Teknik Islemler</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">Sunucularim</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">Domain DNS Yonetimi</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">SSL Sertifikalari</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">Backup ve Snapshot</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if permissions.billing %}
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Muhasebe</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">Faturalarim</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">Bakiye Yukle</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">Odeme Yontemleri</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="javascript:void(0)" class="btn btn-light w-100 text-start">Makbuzlar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Destek Merkezi</h4>
+                </div>
+                <div class="card-body">
+                    {% if permissions.tickets %}
+                    <a href="{% url 'nexadash:support-new-ticket' %}" class="btn btn-primary me-2 mb-2">Yeni destek talebi</a>
+                    {% endif %}
+                    <a href="javascript:void(0)" class="btn btn-light me-2 mb-2">Destek kayitlarim</a>
+                    <a href="{% url 'knowledgebase' %}" class="btn btn-light mb-2">Bilgi Bankasi</a>
+                </div>
+            </div>
+        </div>
+
+        {% if permissions.users or permissions.affiliate %}
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Ek Yetkiler</h4>
+                </div>
+                <div class="card-body">
+                    {% if permissions.users %}
+                    <a href="javascript:void(0)" class="btn btn-light me-2 mb-2">Bildirim kisileri</a>
+                    <a href="javascript:void(0)" class="btn btn-light me-2 mb-2">Alt kullanicilar</a>
+                    {% endif %}
+                    {% if permissions.affiliate %}
+                    <a href="javascript:void(0)" class="btn btn-light mb-2">Affiliate paneli</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

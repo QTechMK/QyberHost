@@ -1,0 +1,1303 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+        
+{% block additional_css %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+        
+{% block content %}
+			<div class="container">
+				<!-- row -->
+				<div class="element-wrapper">
+					<div class="element-right ">
+						<div class="p-4 border-bottom">
+							<h2>Navbar.</h2>
+							<p>Make use of Bootstrap's unique navbar styles to create a responsive and visually appealing navigation bar that enhances user interaction and utilize them to design an intuitive navigation system that integrates branding elements and enhances site navigation.</p>
+							<a href="javascript:void(0);" class="btn btn-primary">Navbar on Bootstrap</a>
+						</div>	
+						<div class="demo-right ">
+							<div class="demo-right-inner dlab-scroll navigation navbar " id="right-sidebar">
+								<h4 class="title">Navbar</h4>
+								<ul class="navbar-nav nav" id="menu-bar">
+									<li><a href="#Default-Navbar" class="scroll ">Default Navbar</a></li>
+									<li><a href="#Navbar-Text" class="scroll ">Navbar Text</a></li>
+									<li><a href="#Image-text" class="scroll ">Image text</a></li>
+									<li><a href="#multiple-Nav" class="scroll ">Multiple Nav</a></li>
+									<li><a href="#Forms-Navbar" class="scroll ">Forms Navbar</a></li>
+									<li><a href="#Navbar-with-text" class="scroll ">Navbar with text</a></li>
+									<li><a href="#Color-Schemes" class="scroll ">Color Schemes</a></li>
+									<li><a href="#Navbar-Container" class="scroll ">Navbar Container</a></li>
+									<li><a href="#Placement" class="scroll ">Navbar Placement</a></li>
+									<li><a href="#Responsive-Behaviour" class="scroll ">Navbar Responsive Behaviour</a></li>
+									<li><a href="#External-Content" class="scroll ">Navbar External Content</a></li>
+									<li><a href="#Offcanvas" class="scroll ">Offcanvas</a></li>
+									<li><a href="#Offcanvas-2" class="scroll ">Offcanvas 2</a></li>
+									
+								</ul>	
+							</div>
+						</div>
+					</div>
+					<div class="demo-view">
+						<div class="container-fluid">
+							<div class="row navbar-page">
+								<div class="col-12">
+									<div class="card dz-card" id="Default-Navbar">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Deafult Navbar</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#DefaultNavbar" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#Default-Navbar-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="DefaultNavbar" role="tabpanel" aria-labelledby="home-tab">
+												<div class="card-body navbar_content">
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+														<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														<div class="collapse navbar-collapse" id="navbarSupportedContent">
+															<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+															<li class="nav-item">
+																<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Link</a>
+															</li>
+															<li class="nav-item dropdown">
+																<a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+																Dropdown
+																</a>
+																<ul class="dropdown-menu">
+																<li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+																<li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+																<li><hr class="dropdown-divider"></li>
+																<li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+																</ul>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+															</li>
+															</ul>
+															<form class="d-flex" role="search">
+															<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+															<button class="btn btn-outline-success" type="submit">Search</button>
+															</form>
+														</div>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="Default-Navbar-html" role="tabpanel" aria-labelledby="home-tab">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;div class="collapse navbar-collapse" id="navbarSupportedContent"&gt;
+			&lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Link&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item dropdown"&gt;
+				&lt;a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+				Dropdown
+				&lt;/a&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;form class="d-flex" role="search"&gt;
+			&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+			&lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+			&lt;/form&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Navbar-Text">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Navbar Text</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-1" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-1" data-bs-toggle="tab" data-bs-target="#NavbarText" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#NavbarText-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-1">
+											<div class="tab-pane fade show active" id="NavbarText" role="tabpanel" aria-labelledby="home-tab-1">
+												<div class="card-body navbar_content">
+													<!-- As a link -->
+													<nav class="navbar bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Navbar (As a link)</a>
+														</div>
+													</nav>
+													
+													<!-- As a heading -->
+													<nav class="navbar bg-body-tertiary">
+														<div class="container-fluid">
+														<span class="navbar-brand mb-0 h1">Navbar (As a heading)</span>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="NavbarText-html" role="tabpanel" aria-labelledby="home-tab-1">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	<!-- As a link -->
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+	&lt;div class="container-fluid"&gt;
+	&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar (As a link)&lt;/a&gt;
+	&lt;/div&gt;
+	&lt;/nav&gt;
+
+	<!-- As a heading -->
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+	&lt;div class="container-fluid"&gt;
+	&lt;span class="navbar-brand mb-0 h1"&gt;Navbar (As a heading)&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Image-text">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Navbar With Image and text </h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-2" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-2" data-bs-toggle="tab" data-bs-target="#Imagetext" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#Image-text-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-2">
+											<div class="tab-pane fade show active" id="Imagetext" role="tabpanel" aria-labelledby="home-tab-2">
+												<div class="card-body navbar_content">
+													<nav class="navbar bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">
+															<svg class="d-inline-block align-text-top" width="25" height="25" viewBox="0 0 30 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path fill-rule="evenodd" clip-rule="evenodd" d="M17.9757 0.803847C16.1193 -0.267949 13.8322 -0.267949 11.9757 0.803847L3 5.986C1.14359 7.05779 0 9.03856 0 11.1822V21.5464C0 23.69 1.14359 25.6708 3 26.7426L11.9757 31.9247C13.8322 32.9965 16.1193 32.9965 17.9757 31.9247L26.9515 26.7426C28.8079 25.6708 29.9515 23.69 29.9515 21.5464V11.1821C29.9515 9.03855 28.8079 7.05779 26.9515 5.986L17.9757 0.803847ZM16.4757 6.08629C15.5475 5.5504 14.4039 5.5504 13.4757 6.0863L6.8247 9.92627C5.8965 10.4622 5.3247 11.4526 5.3247 12.5243V20.2043C5.3247 21.2761 5.8965 22.2665 6.82471 22.8024L13.4757 26.6423C14.4039 27.1782 15.5475 27.1782 16.4757 26.6423L23.1268 22.8024C24.055 22.2665 24.6268 21.2761 24.6268 20.2043V12.5243C24.6268 11.4525 24.055 10.4622 23.1268 9.92627L16.4757 6.08629Z" fill="#0D6EFD"></path>
+															</svg>
+															Bootstrap
+														</a>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="Image-text-html" role="tabpanel" aria-labelledby="home-tab-2">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;
+			&lt;img src="{% static 'nexadash/images/logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"&gt;
+			Bootstrap
+		&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="multiple-Nav">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title"> Nav with lists, links and dropdowns </h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-3" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-3" data-bs-toggle="tab" data-bs-target="#multiple-navbar" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#multipleNav-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-3">
+											<div class="tab-pane fade show active" id="multiple-navbar" role="tabpanel" aria-labelledby="home-tab-3">
+												<div class="card-body navbar_content">
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+														<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														<div class="collapse navbar-collapse" id="navbarNav">
+															<ul class="navbar-nav">
+															<li class="nav-item">
+																<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Features</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Pricing</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+															</li>
+															</ul>
+														</div>
+														</div>
+													</nav>
+					
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+														<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+															<div class="navbar-nav">
+															<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+															<a class="nav-link" href="javascript:void(0);">Features</a>
+															<a class="nav-link" href="javascript:void(0);">Pricing</a>
+															<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+															</div>
+														</div>
+														</div>
+													</nav>
+					
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+														<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														<div class="collapse navbar-collapse" id="navbarNavDropdown">
+															<ul class="navbar-nav">
+															<li class="nav-item">
+																<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Features</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Pricing</a>
+															</li>
+															<li class="nav-item dropdown">
+																<a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+																Dropdown link
+																</a>
+																<ul class="dropdown-menu">
+																<li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+																<li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+																<li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+																</ul>
+															</li>
+															</ul>
+														</div>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="multipleNav-html" role="tabpanel" aria-labelledby="home-tab-3">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;div class="collapse navbar-collapse" id="navbarNav"&gt;
+			&lt;ul class="navbar-nav"&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Features&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Pricing&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;div class="collapse navbar-collapse" id="navbarNavAltMarkup"&gt;
+			&lt;div class="navbar-nav"&gt;
+			&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+			&lt;a class="nav-link" href="javascript:void(0);"&gt;Features&lt;/a&gt;
+			&lt;a class="nav-link" href="javascript:void(0);"&gt;Pricing&lt;/a&gt;
+			&lt;a class="nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;div class="collapse navbar-collapse" id="navbarNavDropdown"&gt;
+			&lt;ul class="navbar-nav"&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Features&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Pricing&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item dropdown"&gt;
+				&lt;a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+				Dropdown link
+				&lt;/a&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Forms-Navbar">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Forms Navbar</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-4" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-4" data-bs-toggle="tab" data-bs-target="#FormsNavbar" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-4" data-bs-toggle="tab" data-bs-target="#FormsNavbar-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-4">
+											<div class="tab-pane fade show active" id="FormsNavbar" role="tabpanel" aria-labelledby="home-tab-4">
+												<div class="card-body navbar_content">
+													<nav class="navbar bg-body-tertiary">
+														<div class="container-fluid">
+														<form class="d-flex" role="search">
+															<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+															<button class="btn btn-outline-primary" type="submit">Search</button>
+														</form>
+														</div>
+													</nav>
+					
+													<nav class="navbar bg-body-tertiary mb-4">
+														<div class="container-fluid">
+														<a class="navbar-brand">Navbar</a>
+														<form class="d-flex" role="search">
+															<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+															<button class="btn btn-outline-primary" type="submit">Search</button>
+														</form>
+														</div>
+													</nav>
+					
+													<h6 class="mb-3 fw-medium">Input groups in navbar forms</h6>
+													<nav class="navbar bg-body-tertiary mb-4">
+														<form class="container-fluid">
+															<div class="input-group">
+																<span class="input-group-text" id="basic-addon1">@</span>
+																<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+															</div>
+														</form>
+													</nav>
+													
+													<h6 class="mb-3 fw-medium">Various buttons are supported as part of these navbar forms</h6>
+													<nav class="navbar bg-body-tertiary">
+														<form class="container-fluid justify-content-start">
+														<button class="btn btn-outline-success me-2" type="button">Main button</button>
+														<button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+														</form>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="FormsNavbar-html" role="tabpanel" aria-labelledby="home-tab-4">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;form class="d-flex" role="search"&gt;
+			&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+			&lt;button class="btn btn-outline-primary" type="submit"&gt;Search&lt;/button&gt;
+		&lt;/form&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+
+	&lt;nav class="navbar bg-body-tertiary mb-4"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand"&gt;Navbar&lt;/a&gt;
+		&lt;form class="d-flex" role="search"&gt;
+			&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+			&lt;button class="btn btn-outline-primary" type="submit"&gt;Search&lt;/button&gt;
+		&lt;/form&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+
+	&lt;h6 class="mb-3 fw-medium"&gt;Input groups in navbar forms&lt;/h6&gt;
+	&lt;nav class="navbar bg-body-tertiary mb-4"&gt;
+		&lt;form class="container-fluid"&gt;
+			&lt;div class="input-group"&gt;
+				&lt;span class="input-group-text" id="basic-addon1"&gt;@&lt;/span&gt;
+				&lt;input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;
+	&lt;/nav&gt;
+
+	&lt;h6 class="mb-3 fw-medium"&gt;Various buttons are supported as part of these navbar forms&lt;/h6&gt;
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+		&lt;form class="container-fluid justify-content-start"&gt;
+		&lt;button class="btn btn-outline-success me-2" type="button"&gt;Main button&lt;/button&gt;
+		&lt;button class="btn btn-sm btn-outline-secondary" type="button"&gt;Smaller button&lt;/button&gt;
+		&lt;/form&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Navbar-with-text">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Navbar With text</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-5" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-5" data-bs-toggle="tab" data-bs-target="#NavbarWithText" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-5" data-bs-toggle="tab" data-bs-target="#Navbar-text-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-5">
+											<div class="tab-pane fade show active" id="NavbarWithText" role="tabpanel" aria-labelledby="home-tab-5">
+												<div class="card-body navbar_content">
+													<nav class="navbar bg-body-tertiary">
+														<div class="container-fluid">
+														<span class="navbar-text text-black">
+															Navbar text with an inline element
+														</span>
+														</div>
+													</nav>
+					
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Navbar w/ text</a>
+														<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														<div class="collapse navbar-collapse" id="navbarText">
+															<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+															<li class="nav-item">
+																<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Features</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Pricing</a>
+															</li>
+															</ul>
+															<span class="navbar-text text-black">
+															Navbar text with an inline element
+															</span>
+														</div>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="Navbar-text-html" role="tabpanel" aria-labelledby="home-tab-5">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;span class="navbar-text text-black"&gt;
+			Navbar text with an inline element
+		&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar w/ text&lt;/a&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;div class="collapse navbar-collapse" id="navbarText"&gt;
+			&lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Features&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Pricing&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;span class="navbar-text text-black"&gt;
+			Navbar text with an inline element
+			&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Color-Schemes">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Color Schemes</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-6" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-6" data-bs-toggle="tab" data-bs-target="#ColorSchemes" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-6" data-bs-toggle="tab" data-bs-target="#ColorSchemes-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-6">
+											<div class="tab-pane fade show active" id="ColorSchemes" role="tabpanel" aria-labelledby="home-tab-6">
+												<div class="card-body navbar_content">
+													<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+														<div class="container-fluid">
+															<a class="navbar-brand">Navbar</a>
+															<form class="d-flex" role="search">
+															<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+															<button class="btn btn-light" type="submit">Search</button>
+															</form>
+														</div>
+													</nav>
+													
+													<nav class="navbar bg-primary" data-bs-theme="dark">
+														<div class="container-fluid">
+															<a class="navbar-brand">Navbar</a>
+															<form class="d-flex" role="search">
+															<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+															<button class="btn btn-light" type="submit">Search</button>
+															</form>
+														</div>
+													</nav>
+													
+													<nav class="navbar" style="background-color: #e3f2fd;">
+														<div class="container-fluid">
+															<a class="navbar-brand">Navbar</a>
+															<form class="d-flex" role="search">
+															<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+															<button class="btn btn-light" type="submit">Search</button>
+															</form>
+														</div>
+													</nav>
+													
+												</div>
+											</div>
+											<div class="tab-pane fade" id="ColorSchemes-html" role="tabpanel" aria-labelledby="home-tab-6">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark"&gt;
+		&lt;div class="container-fluid"&gt;
+			&lt;a class="navbar-brand"&gt;Navbar&lt;/a&gt;
+			&lt;form class="d-flex" role="search"&gt;
+			&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+			&lt;button class="btn btn-light" type="submit"&gt;Search&lt;/button&gt;
+			&lt;/form&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+
+	&lt;nav class="navbar bg-primary" data-bs-theme="dark"&gt;
+		&lt;div class="container-fluid"&gt;
+			&lt;a class="navbar-brand"&gt;Navbar&lt;/a&gt;
+			&lt;form class="d-flex" role="search"&gt;
+			&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+			&lt;button class="btn btn-light" type="submit"&gt;Search&lt;/button&gt;
+			&lt;/form&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+
+	&lt;nav class="navbar" style="background-color: #e3f2fd;"&gt;
+		&lt;div class="container-fluid"&gt;
+			&lt;a class="navbar-brand"&gt;Navbar&lt;/a&gt;
+			&lt;form class="d-flex" role="search"&gt;
+			&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+			&lt;button class="btn btn-light" type="submit"&gt;Search&lt;/button&gt;
+			&lt;/form&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Navbar-Container">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Navbar Container</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-7" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-7" data-bs-toggle="tab" data-bs-target="#NavbarContainer" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-7" data-bs-toggle="tab" data-bs-target="#NavbarContainer-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-7">
+											<div class="tab-pane fade show active" id="NavbarContainer" role="tabpanel" aria-labelledby="home-tab-7">
+												<div class="card-body navbar_content">
+													<div class="container">
+														<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+															<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+														</div>
+														</nav>
+													</div>
+													
+													<h6>Use any of the responsive containers to change how wide the content in your navbar is presented</h6>
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-md">
+														<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="NavbarContainer-html" role="tabpanel" aria-labelledby="home-tab-7">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="container"&gt;
+		&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+			&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;/nav&gt;
+	&lt;/div&gt;
+
+	&lt;h6&gt;Use any of the responsive containers to change how wide the content in your navbar is presented&lt;/h6&gt;
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-md"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Placement">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Placement</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-8" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-8" data-bs-toggle="tab" data-bs-target="#NavPlacement" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-8" data-bs-toggle="tab" data-bs-target="#NavPlacement-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-8">
+											<div class="tab-pane fade show active" id="NavPlacement" role="tabpanel" aria-labelledby="home-tab-8">
+												<div class="card-body navbar_content">
+													<nav class="navbar bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Default</a>
+														</div>
+													</nav>
+													<nav class="navbar fixed-top bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Fixed top</a>
+														</div>
+													</nav>
+													<nav class="navbar fixed-bottom bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Fixed bottom</a>
+														</div>
+													</nav>
+													<nav class="navbar sticky-top bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Sticky top</a>
+														</div>
+													</nav>
+													<nav class="navbar sticky-bottom bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Sticky bottom</a>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="NavPlacement-html" role="tabpanel" aria-labelledby="home-tab-8">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Default&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	&lt;nav class="navbar fixed-top bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Fixed top&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	&lt;nav class="navbar fixed-bottom bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Fixed bottom&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	&lt;nav class="navbar sticky-top bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Sticky top&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	&lt;nav class="navbar sticky-bottom bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Sticky bottom&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Responsive-Behaviour">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Responsive Behaviour</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-9" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-9" data-bs-toggle="tab" data-bs-target="#ResponsiveNav" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-9" data-bs-toggle="tab" data-bs-target="#ResponsiveNav-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-9">
+											<div class="tab-pane fade show active" id="ResponsiveNav" role="tabpanel" aria-labelledby="home-tab-9">
+												<div class="card-body navbar_content">
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+															<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+																<span class="navbar-toggler-icon"></span>
+															</button>
+															<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+																<a class="navbar-brand" href="javascript:void(0);">Hidden brand</a>
+																<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+																<li class="nav-item">
+																	<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link" href="javascript:void(0);">Link</a>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+																</li>
+																</ul>
+																<form class="d-flex" role="search">
+																<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+																<button class="btn btn-outline-success" type="submit">Search</button>
+																</form>
+															</div>
+														</div>
+													</nav>
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+															<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+															<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+																<span class="navbar-toggler-icon"></span>
+															</button>
+															<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+																<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+																<li class="nav-item">
+																	<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link" href="javascript:void(0);">Link</a>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+																</li>
+																</ul>
+																<form class="d-flex" role="search">
+																<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+																<button class="btn btn-outline-success" type="submit">Search</button>
+																</form>
+															</div>
+														</div>
+													</nav>
+													<nav class="navbar navbar-expand-lg bg-body-tertiary">
+														<div class="container-fluid">
+															<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+																<span class="navbar-toggler-icon"></span>
+															</button>
+															<a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+															<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+																<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+																<li class="nav-item">
+																	<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link" href="javascript:void(0);">Link</a>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+																</li>
+																</ul>
+																<form class="d-flex" role="search">
+																<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+																<button class="btn btn-outline-success" type="submit">Search</button>
+																</form>
+															</div>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="ResponsiveNav-html" role="tabpanel" aria-labelledby="home-tab-9">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+			&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"&gt;
+				&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;div class="collapse navbar-collapse" id="navbarTogglerDemo01"&gt;
+				&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Hidden brand&lt;/a&gt;
+				&lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link" href="javascript:void(0);"&gt;Link&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;form class="d-flex" role="search"&gt;
+				&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+				&lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+				&lt;/form&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+			&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+			&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"&gt;
+				&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;div class="collapse navbar-collapse" id="navbarTogglerDemo02"&gt;
+				&lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link" href="javascript:void(0);"&gt;Link&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;form class="d-flex" role="search"&gt;
+				&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+				&lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+				&lt;/form&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+			&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"&gt;
+				&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Navbar&lt;/a&gt;
+			&lt;div class="collapse navbar-collapse" id="navbarTogglerDemo03"&gt;
+				&lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link" href="javascript:void(0);"&gt;Link&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+					&lt;a class="nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;form class="d-flex" role="search"&gt;
+				&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+				&lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+				&lt;/form&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="External-Content">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">External Content</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-10" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-10" data-bs-toggle="tab" data-bs-target="#ExternalContent" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-10" data-bs-toggle="tab" data-bs-target="#ExternalContent-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-10">
+											<div class="tab-pane fade show active" id="ExternalContent" role="tabpanel" aria-labelledby="home-tab-10">
+												<div class="card-body navbar_content">
+													<div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+														<div class="bg-dark p-4">
+														<h5 class="text-body-emphasis h4">Collapsed content</h5>
+														<span class="text-body-secondary">Toggleable via the navbar brand.</span>
+														</div>
+													</div>
+													<nav class="navbar navbar-dark bg-dark">
+														<div class="container-fluid">
+														<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="ExternalContent-html" role="tabpanel" aria-labelledby="home-tab-10">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark"&gt;
+		&lt;div class="bg-dark p-4"&gt;
+		&lt;h5 class="text-body-emphasis h4"&gt;Collapsed content&lt;/h5&gt;
+		&lt;span class="text-body-secondary"&gt;Toggleable via the navbar brand.&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;nav class="navbar navbar-dark bg-dark"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Offcanvas">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Offcanvas</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-11" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-11" data-bs-toggle="tab" data-bs-target="#OffcanvasNav" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-11" data-bs-toggle="tab" data-bs-target="#OffcanvasNav-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-11">
+											<div class="tab-pane fade show active" id="OffcanvasNav" role="tabpanel" aria-labelledby="home-tab-11">
+												<div class="card-body navbar_content">
+													<nav class="navbar bg-body-tertiary">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Offcanvas navbar</a>
+														<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+															<div class="offcanvas-header">
+															<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+															<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+															</div>
+															<div class="offcanvas-body">
+															<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+																<li class="nav-item">
+																<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+																</li>
+																<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Link</a>
+																</li>
+																<li class="nav-item dropdown">
+																<a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+																	Dropdown
+																</a>
+																<ul class="dropdown-menu">
+																	<li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+																	<li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+																	<li>
+																	<hr class="dropdown-divider">
+																	</li>
+																	<li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+																</ul>
+																</li>
+															</ul>
+															<form class="d-flex mt-3" role="search">
+																<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+																<button class="btn btn-outline-success" type="submit">Search</button>
+															</form>
+															</div>
+														</div>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="OffcanvasNav-html" role="tabpanel" aria-labelledby="home-tab-11">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar bg-body-tertiary"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Offcanvas navbar&lt;/a&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"&gt;
+			&lt;div class="offcanvas-header"&gt;
+			&lt;h5 class="offcanvas-title" id="offcanvasNavbarLabel"&gt;Offcanvas&lt;/h5&gt;
+			&lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="offcanvas-body"&gt;
+			&lt;ul class="navbar-nav justify-content-end flex-grow-1 pe-3"&gt;
+				&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Link&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item dropdown"&gt;
+				&lt;a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+					Dropdown
+				&lt;/a&gt;
+				&lt;ul class="dropdown-menu"&gt;
+					&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;
+					&lt;hr class="dropdown-divider"&gt;
+					&lt;/li&gt;
+					&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;form class="d-flex mt-3" role="search"&gt;
+				&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+				&lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+			&lt;/form&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="card dz-card" id="Offcanvas-2">
+										<div class="card-header flex-wrap border-0 pb-2">
+											<h4 class="card-title">Offcanvas</h4>
+											<ul class="nav nav-tabs dzm-tabs" id="myTab-12" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active " id="home-tab-12" data-bs-toggle="tab" data-bs-target="#OffcanvasNav-2" type="button" role="tab"  aria-selected="true">Preview</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link " id="profile-tab-12" data-bs-toggle="tab" data-bs-target="#OffcanvasNav-2-html" type="button" role="tab"  aria-selected="false">HTML</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="myTabContent-12">
+											<div class="tab-pane fade show active" id="OffcanvasNav-2" role="tabpanel" aria-labelledby="home-tab-12">
+												<div class="card-body navbar_content">
+													<nav class="navbar navbar-dark bg-dark">
+														<div class="container-fluid">
+														<a class="navbar-brand" href="javascript:void(0);">Offcanvas dark navbar</a>
+														<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+															<span class="navbar-toggler-icon"></span>
+														</button>
+														<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+															<div class="offcanvas-header">
+															<h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+															<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+															</div>
+															<div class="offcanvas-body">
+															<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+																<li class="nav-item">
+																<a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+																</li>
+																<li class="nav-item">
+																<a class="nav-link" href="javascript:void(0);">Link</a>
+																</li>
+																<li class="nav-item dropdown">
+																<a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+																	Dropdown
+																</a>
+																<ul class="dropdown-menu dropdown-menu-dark">
+																	<li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+																	<li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+																	<li>
+																	<hr class="dropdown-divider">
+																	</li>
+																	<li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+																</ul>
+																</li>
+															</ul>
+															<form class="d-flex mt-3" role="search">
+																<input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+																<button class="btn btn-success" type="submit">Search</button>
+															</form>
+															</div>
+														</div>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="OffcanvasNav-2-html" role="tabpanel" aria-labelledby="home-tab-12">
+												<div class="card-body p-0 code-area">
+	<pre class="m-0"><code class="language-html">
+	&lt;nav class="navbar navbar-dark bg-dark"&gt;
+		&lt;div class="container-fluid"&gt;
+		&lt;a class="navbar-brand" href="javascript:void(0);"&gt;Offcanvas dark navbar&lt;/a&gt;
+		&lt;button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"&gt;
+			&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel"&gt;
+			&lt;div class="offcanvas-header"&gt;
+			&lt;h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"&gt;Dark offcanvas&lt;/h5&gt;
+			&lt;button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="offcanvas-body"&gt;
+			&lt;ul class="navbar-nav justify-content-end flex-grow-1 pe-3"&gt;
+				&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link active" aria-current="page" href="javascript:void(0);"&gt;Home&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item"&gt;
+				&lt;a class="nav-link" href="javascript:void(0);"&gt;Link&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="nav-item dropdown"&gt;
+				&lt;a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+					Dropdown
+				&lt;/a&gt;
+				&lt;ul class="dropdown-menu dropdown-menu-dark"&gt;
+					&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Action&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;
+					&lt;hr class="dropdown-divider"&gt;
+					&lt;/li&gt;
+					&lt;li&gt;&lt;a class="dropdown-item" href="javascript:void(0);"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;form class="d-flex mt-3" role="search"&gt;
+				&lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+				&lt;button class="btn btn-success" type="submit"&gt;Search&lt;/button&gt;
+			&lt;/form&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+	</code></pre>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column ends -->
+				</div>
+			</div>
+{% endblock %}
+
+{% block additional_js %}
+<script>hljs.highlightAll();
+hljs.configure({ ignoreUnescapedHTML: true })
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        });
+</script>
+{% endblock %}
