@@ -225,11 +225,24 @@ def activity(request):
     }
     return render(request,'nexadash/profile/activity.html',context)
 
+@require_active_membership
 def account_overview(request):
-    context={
-        "page_title":"Account Overview"
+    user = request.user
+    profile = getattr(user, "profile", None)
+    full_name = user.get_full_name().strip()
+    first_name = user.first_name or (full_name.split(" ")[0] if full_name else "")
+    last_name = user.last_name or (" ".join(full_name.split(" ")[1:]) if full_name and len(full_name.split(" ")) > 1 else "")
+
+    context = {
+        "page_title": "Hesabiniz",
+        "profile_data": {
+            "first_name": first_name,
+            "last_name": last_name,
+            "email": user.email or "",
+            "phone": getattr(profile, "phone", "") if profile else "",
+        },
     }
-    return render(request,'nexadash/account/overview.html',context)
+    return render(request, 'nexadash/account/overview.html', context)
 
 def account_settings(request):
     context={
@@ -243,6 +256,24 @@ def account_security(request):
         "page_title":"Hesap Guvenligi"
     }
     return render(request,'nexadash/account/security.html',context)
+
+@require_active_membership
+def account_login_security(request):
+    context = {
+        "page_title": "Guvenlik ve Giris Ayarlari",
+        "linked_accounts": [
+            {"provider": "Google", "full_name": "Tamara Petrova Fax", "email": "tamarapetrova@qtechnology.com.mk"},
+            {"provider": "Google", "full_name": "Volkan Dortkardes", "email": "volkandortkardes@qtechnology.com.mk"},
+        ],
+    }
+    return render(request, "nexadash/account/login-security.html", context)
+
+@require_active_membership
+def account_change_password(request):
+    context = {
+        "page_title": "Sifre Degistir"
+    }
+    return render(request, "nexadash/account/change-password.html", context)
 
 def account_activity(request):
     context={
@@ -309,6 +340,14 @@ def add_funds(request):
 def payment_methods(request):
     context = {
         "page_title": "Kayitli Kredi Kartlarim",
+        "cards": [],
+    }
+    return render(request, "nexadash/account/payment-methods.html", context)
+
+@require_account_permission("billing")
+def payment_methods_billing(request):
+    context = {
+        "page_title": "Odeme Yontemleri",
         "cards": [],
     }
     return render(request, "nexadash/account/payment-methods.html", context)
@@ -425,11 +464,34 @@ def support_announcements(request):
     }
     return render(request, "nexadash/support/announcements.html", context)
 
+@require_account_permission("affiliate")
 def referrals(request):
-    context={
-        "page_title":"Referrals"
+    context = {
+        "page_title": "Satis Ortakligi",
+        "affiliate_stats": {
+            "today_earnings": "0 TL",
+            "total_earnings": "0 TL",
+            "confirmed_balance": "0 TL",
+            "total_paid": "0 TL",
+            "today_customers": 0,
+            "total_customers": 0,
+            "today_hits": 0,
+            "total_hits": 0,
+        },
+        "referral_url": "https://ornekalanadi.com/r/68",
+        "notifications_count": 19,
+        "notifications": [
+            "Siparis #4749 iptal edildi.",
+            "Siparis #4749 onaylandi.",
+            "Destek talebiniz otomatik kapatildi.",
+            "Bayilik aktivasyonunuz tamamlandi.",
+            "Fatura #15306 onaylandi.",
+        ],
+        "referrals_rows": [],
+        "withdrawals_rows": [],
+        "hits_rows": [],
     }
-    return render(request,'nexadash/account/referrals.html',context)
+    return render(request, "nexadash/account/referrals.html", context)
 
 def api_keys(request):
     context={

@@ -58,7 +58,7 @@
                 <ul aria-expanded="false">
                     <li><a href="{% url 'nexadash:statements' %}">Makbuzlarım</a></li>
                     <li><a href="{% url 'nexadash:add-funds' %}">Bakiye Yükle</a></li>
-                    <li><a href="{% url 'nexadash:payment-methods' %}">Ödeme Yöntemleri</a></li>
+                    <li><a href="{% url 'nexadash:payment-methods-billing' %}">Ödeme Yöntemleri</a></li>
                 </ul>
             </li>
             <li>
@@ -69,11 +69,18 @@
                     <span class="nav-text">Hesap Yönetimi</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{% url 'nexadash:account-overview' %}">Hesap Özeti</a></li>
-                    <li><a href="{% url 'nexadash:account-settings' %}">Hesap Bilgileri</a></li>
-                    <li><a href="{% url 'nexadash:account-security' %}">Güvenlik</a></li>
-                    <li><a href="{% url 'nexadash:account-activity' %}">Giriş Aktivitesi</a></li>
+                    <li><a href="{% url 'nexadash:account-settings' %}">Cari Hesap Bilgilerim</a></li>
+                    <li><a href="{% url 'nexadash:user-management' %}">Hesap Yetkilisi Yonetimi</a></li>
+                    <li><a href="{% url 'nexadash:payment-methods' %}">Kayitli Kredi Kartlarim</a></li>
+                    <li><a href="{% url 'nexadash:contacts' %}">Bildirim Kisileri</a></li>
+                    <li><a href="{% url 'nexadash:account-security' %}">Hesap Guvenligi</a></li>
+                    <li><a href="{% url 'nexadash:referrals' %}">Satis Ortakligi</a></li>
+                    <li><a href="{% url 'nexadash:email-history' %}">Eposta Gecmisi</a></li>
+                    <li><a href="{% url 'nexadash:account-overview' %}">Hesabiniz</a></li>
                     <li><a href="{% url 'nexadash:account-select' %}">Farklı Hesaba Geç</a></li>
+                    <li><a href="{% url 'nexadash:account-change-password' %}">Sifre Degistir</a></li>
+                    <li><a href="{% url 'nexadash:account-login-security' %}">Guvenlik ve Giris Ayarlari</a></li>
+                    <li><a href="{% url 'account_logout' %}">Oturumu Kapat</a></li>
                 </ul>
             </li>
             <li>
