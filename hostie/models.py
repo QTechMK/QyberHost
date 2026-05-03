@@ -43,6 +43,8 @@ class UserProfile(models.Model):
     company_name = models.CharField(max_length=255, blank=True)
     phone = models.CharField(max_length=30, blank=True)
     is_sso_enabled = models.BooleanField(default=False)
+    sso_provider = models.CharField(max_length=32, blank=True)
+    sso_email = models.EmailField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

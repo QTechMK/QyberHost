@@ -1,0 +1,124 @@
+{% extends 'nexadash/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid service-addons-page">
+    {% if messages %}
+    <div class="row">
+        <div class="col-xl-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card addons-hero-card">
+                <div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <div>
+                        <span class="badge badge-primary light mb-2">Kategoriler</span>
+                        <h3 class="mb-1">Urun Ek Hizmetleri</h3>
+                        <p class="mb-0 text-muted">Hizmetlerinize ek lisans ve guvenlik paketleri ekleyebilirsiniz.</p>
+                    </div>
+                    <a href="{% url 'nexadash:ecom-checkout' %}" class="btn btn-primary {% if not can_manage_billing %}disabled{% endif %}">
+                        Sepeti Goruntule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-3">
+            <div class="card addon-sidebar-card addon-category-card">
+                <div class="card-header"><h4 class="card-title mb-0">Kategoriler</h4></div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <a href="{% url 'nexadash:service-addons' %}" class="list-group-item list-group-item-action active">Urun Ek Hizmetleri</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card addon-sidebar-card addon-actions-card">
+                <div class="card-header"><h4 class="card-title mb-0">Islemler</h4></div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <a href="{% url 'nexadash:domain-renewals' %}" class="list-group-item list-group-item-action">Domain Yenileme</a>
+                        <a href="{% url 'nexadash:domain-register' %}" class="list-group-item list-group-item-action">Yeni Domain Kaydi</a>
+                        <a href="{% url 'nexadash:domain-transfer' %}" class="list-group-item list-group-item-action">Domain Transferi</a>
+                        <a href="{% url 'nexadash:ecom-checkout' %}" class="list-group-item list-group-item-action">Sepeti Goruntule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-9">
+            <div class="row g-3">
+                {% for addon in addons %}
+                <div class="col-md-6">
+                    <div class="card addon-product-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="addon_index" value="{{ forloop.counter0 }}">
+                            <h4 class="mb-2">{{ addon.name }}</h4>
+                            <p class="text-muted mb-3">{{ addon.description }}</p>
+                            <div class="mt-3">
+                                <label class="form-label mb-1">Hizmet Secin</label>
+                                <select class="form-select form-select-sm" name="service_id" {% if not service_choices %}disabled{% endif %} required>
+                                    {% for service in service_choices %}
+                                    <option value="{{ service.id }}">{{ service.name }} - {{ service.domain }}</option>
+                                    {% empty %}
+                                    <option>Hizmet bulunamadi</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center gap-2">
+                                <strong class="text-primary">{{ addon.price_display }}</strong>
+                                <button type="submit" class="btn btn-success btn-sm {% if not can_manage_billing %}disabled{% endif %}" {% if not can_manage_billing or not service_choices %}disabled{% endif %}>
+                                    Siparis Ver
+                                </button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.service-addons-page .addons-hero-card {
+    background: linear-gradient(135deg, rgba(52, 72, 94, 0.10), rgba(255, 184, 0, 0.12));
+}
+.service-addons-page .addon-sidebar-card,
+.service-addons-page .addon-product-card {
+    margin-bottom: 12px;
+}
+.service-addons-page .addon-sidebar-card .card-body {
+    padding: 0 !important;
+}
+.service-addons-page .addon-sidebar-card .list-group {
+    margin-bottom: 0 !important;
+}
+.service-addons-page .addon-sidebar-card .list-group-item {
+    margin-bottom: 0 !important;
+}
+.service-addons-page .addon-category-card,
+.service-addons-page .addon-category-card .card-body {
+    height: auto !important;
+    min-height: 0 !important;
+}
+.service-addons-page .addon-actions-card,
+.service-addons-page .addon-actions-card .card-body {
+    height: auto !important;
+    min-height: 0 !important;
+}
+</style>
+{% endblock %}

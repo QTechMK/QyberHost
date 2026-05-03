@@ -368,7 +368,12 @@ def startSocialLogin(request, provider):
     else:
         request.session.pop('pending_social_role', None)
 
-    return redirect(provider_config['login_path'])
+    login_path = provider_config['login_path']
+    if request.user.is_authenticated:
+        separator = '&' if '?' in login_path else '?'
+        login_path = f"{login_path}{separator}process=connect"
+
+    return redirect(login_path)
 
 
 def forgotPassword(request):

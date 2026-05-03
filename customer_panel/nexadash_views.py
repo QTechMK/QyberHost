@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.shortcuts import redirect, render
+from allauth.socialaccount.models import SocialAccount
 
 from .views import require_account_permission, require_active_membership
 
@@ -259,12 +261,22 @@ def account_security(request):
 
 @require_active_membership
 def account_login_security(request):
+    linked_accounts = []
+    accounts = SocialAccount.objects.filter(user=request.user).select_related("user")
+    for account in accounts:
+        display_name = account.extra_data.get("name") or account.extra_data.get("given_name") or request.user.get_full_name() or request.user.username
+        linked_accounts.append({
+            "provider": account.get_provider().name,
+            "full_name": display_name,
+            "email": account.extra_data.get("email") or request.user.email,
+        })
+
     context = {
         "page_title": "Guvenlik ve Giris Ayarlari",
-        "linked_accounts": [
-            {"provider": "Google", "full_name": "Tamara Petrova Fax", "email": "tamarapetrova@qtechnology.com.mk"},
-            {"provider": "Google", "full_name": "Volkan Dortkardes", "email": "volkandortkardes@qtechnology.com.mk"},
-        ],
+        "linked_accounts": linked_accounts,
+        "sso_state": {
+            "google": bool(settings.GOOGLE_CLIENT_ID and settings.GOOGLE_CLIENT_SECRET),
+        },
     }
     return render(request, "nexadash/account/login-security.html", context)
 

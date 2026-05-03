@@ -13,6 +13,7 @@ urlpatterns = [
     path('domains/transfer/', views.domain_transfer, name="domain-transfer"),
     path('domains/whois/', views.whois_lookup, name="whois"),
     path('services/', views.services, name="services"),
+    path('services/addons/', views.service_addons, name="service-addons"),
     path('',nexadash_views.index,name="index"),
     path('index/',nexadash_views.index,name="index"),
     path('crm/',nexadash_views.crm,name="crm"),
