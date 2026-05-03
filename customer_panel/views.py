@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import Http404, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -11,6 +12,7 @@ from .models import AccountMembership, CustomerAccount, CustomerDomain, Customer
 
 
 ACTIVE_ACCOUNT_SESSION_KEY = "active_account_id"
+ADDON_CART_SESSION_KEY = "addon_cart_items"
 
 
 DEMO_DOMAINS = [
@@ -511,6 +513,77 @@ def services(request):
         "can_manage_billing": membership.can_manage_billing,
     }
     return render(request, "nexadash/customer/services.html", context)
+
+
+@login_required
+def service_addons(request):
+    membership = get_active_membership(request)
+    if membership is None:
+        return redirect("nexadash:entry")
+
+    request.active_membership = membership
+    request.active_account = membership.account
+
+    service_choices = [service for service in membership.account.services.all()]
+    addons = [
+        {
+            "name": "ImunifyAV+ Antivirus Lisansi",
+            "price_display": "576,00TL 1 Ay",
+            "description": "Sunucu tarafinda malware tarama ve temel guvenlik korumasi saglar.",
+        },
+        {
+            "name": "MSSQL Web Edition Lisansi",
+            "price_display": "912,00TL 1 Ay",
+            "description": "SQL Server tabanli uygulamalariniz icin lisansli veritabani katmani sunar.",
+        },
+    ]
+
+    if request.method == "POST":
+        if not membership.can_manage_billing:
+            messages.error(request, "Bu islem icin faturalama yetkiniz bulunmuyor.")
+            return redirect("nexadash:service-addons")
+
+        addon_index_raw = request.POST.get("addon_index")
+        service_id_raw = request.POST.get("service_id")
+
+        try:
+            addon_index = int(addon_index_raw)
+            selected_addon = addons[addon_index]
+        except (TypeError, ValueError, IndexError):
+            messages.error(request, "Gecersiz ek hizmet secimi.")
+            return redirect("nexadash:service-addons")
+
+        selected_service = membership.account.services.filter(id=service_id_raw).first()
+        if selected_service is None:
+            messages.error(request, "Lutfen gecerli bir hizmet secin.")
+            return redirect("nexadash:service-addons")
+
+        cart_items = request.session.get(ADDON_CART_SESSION_KEY, [])
+        cart_items.append({
+            "addon_name": selected_addon["name"],
+            "addon_price_display": selected_addon["price_display"],
+            "service_id": str(selected_service.id),
+            "service_name": selected_service.name,
+            "service_domain": selected_service.domain,
+        })
+        request.session[ADDON_CART_SESSION_KEY] = cart_items
+        request.session.modified = True
+
+        messages.success(
+            request,
+            f"{selected_addon['name']} secilen hizmet icin sepete eklendi.",
+        )
+        return redirect("nexadash:service-addons")
+
+    context = {
+        "page_title": "Urun Ek Hizmetleri",
+        "active_account": membership.account,
+        "active_membership": membership,
+        "can_manage_billing": membership.can_manage_billing,
+        "service_choices": service_choices,
+        "addons": addons,
+    }
+    return render(request, "nexadash/customer/service-addons.html", context)
 
 
 def require_active_membership(view_func):

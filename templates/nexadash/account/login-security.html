@@ -30,9 +30,13 @@
                     </p>
 
                     <div class="d-flex gap-2 mb-3">
-                        <button class="btn btn-outline-primary" type="button">
+                        <a
+                            href="{% url 'start-social-login' provider='google' %}"
+                            class="btn btn-outline-primary{% if not sso_state.google %} disabled{% endif %}"
+                            {% if not sso_state.google %}aria-disabled="true"{% endif %}
+                        >
                             Google ile Baglan
-                        </button>
+                        </a>
                     </div>
 
                     <div class="table-responsive mb-3">
